@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="keywords" content="简途，简途旅行，简途旅游，simpletour, 简途巴士，西行巴士，耍巴士，山水巴士，巴士旅行，巴士旅游，巴士自由行，巴士直通车，景区直通车" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--添加到主屏后的标题-->
+    <meta name="apple-mobile-web-app-title" content="简途旅行">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <title>产品订购</title>
+    <!--${baiduStat} 百度统计-->
+</head>
+<body>
+
+
+
+<script type="text/javascript" src="../lib/zepto.min.js"></script>
+<script type="text/javascript" src="../js/sidebar.js"></script>
+<script type="text/javascript" src="../js/alert.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    // 针对uc横竖屏rem html没有重绘的问题
+                    var style;
+                    if(style=document.getElementById("forhtml")){
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id="forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    //
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+    });
+</script>
+</body>
+</html>
