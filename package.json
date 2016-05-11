@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/yangmingkun187/SimpleTourFED/issues"
   },
-  "homepage": "https://github.com/yangmingkun187/SimpleTourFED#readme"
+  "homepage": "https://github.com/yangmingkun187/SimpleTourFED#readme",
+  "devDependencies": {
+    "fis3": "^3.3.29"
+  }
 }
