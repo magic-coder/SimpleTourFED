@@ -14,19 +14,19 @@
 }
 .confirm-content{
     background-color: #e8e8e8;
-    border-radius: pxToRem(4px);
-    width:pxToRem(290px);
+    border-radius: rem(4px);
+    width:rem(290px);
     position: absolute;
     z-index:11000;
     left: 50%;
     box-sizing: border-box;
-    margin-left: pxToRem(-290px/2);
+    margin-left: rem(-290px/2);
     top:50%;
     text-align: center;
     background-color: white;
     color:#535353;
     opacity: 0;
-    font-size: pxToRem(18px);
+    font-size: rem(18px);
     -webkit-transform:translate3d(0,0,0) scale(1.185);
     transform: translate3d(0,0,0) scale(1.185);
     -webkit-transition-property:-webkit-transform,opacity;
@@ -47,12 +47,12 @@
         transform: translate3d(0, 0, 0) scale(0.815);
     }
     .confirm-inner{
-        padding: pxToRem(25px) pxToRem(25px) pxToRem(19px) pxToRem(25px);
+        padding: rem(25px) rem(25px) rem(19px) rem(25px);
     }
     .confirm-detail{
-        font-size: pxToRem(14px);
+        font-size: rem(14px);
         color:#535353;
-        margin-top: pxToRem(10px);
+        margin-top: rem(10px);
     }
     .confirm-buttons{
         @include displayflex;
@@ -61,8 +61,8 @@
         span{
             display: block;
             @include flex(1);
-            height: pxToRem(50px);
-            line-height: pxToRem(50px);
+            height: rem(50px);
+            line-height: rem(50px);
             box-sizing: border-box;
             &:active{
                 background-color: #d4d4d4;
