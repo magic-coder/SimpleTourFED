@@ -51,21 +51,9 @@
         </ul>
     </div>
 </div>
-<div class="cover"></div>
-<div class="confirm-wrapper">
-    <div class="confirm-modal">
-        <div class="modal-content">
-            <h5>不可再进行提现操作</h5>
-            <p>您有一笔提现交易正在审核中</p>
-        </div>
-        <div class="btn-gp">
-            <div class="confirm">确定</div>
-            <div class="record">提现记录</div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript" src="../common/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../common/js/zepto.min.js"></script>
 <script type="text/javascript" src="../common/js/sidebar.js"></script>
+<script type="text/javascript" src="../common/js/alert.js"></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -89,6 +77,17 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
+    $(document).ready(function() {
+        $.confirm({
+            msg : '这里是错误提示',
+            title:'这里是标题',
+            detail : ['这里是描述'],
+            yes : '确定',
+            cancel: false,
+            yesFun:function(){},
+            cancelFun:function(){}
+        });
+    })
 </script>
 </body>
 </html>
