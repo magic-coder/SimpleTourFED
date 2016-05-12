@@ -162,7 +162,7 @@ header{
 	.back{
 		width: rem(31px);
 		height: 100%;
-		background: url(./images/back.png) no-repeat center;
+		background: url(/master-Q2-4/images/back.png) no-repeat center;
 		background-size: rem(9px) rem(16px);
 		text-indent: -9999px;
 		&.no-icon{
@@ -180,7 +180,7 @@ header{
 		text-indent: -9999px;
 		height: 100%;
 		width: rem(38px);
-		background: url(./images/admin.png) no-repeat center;
+		background: url(/master-Q2-4/images/admin.png) no-repeat center;
 		background-size:rem(17px) rem(17px);
 	}
 }
