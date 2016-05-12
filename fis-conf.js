@@ -1,6 +1,6 @@
 fis.set('project.ignore',['node_modules/**', 'lib/**','output/**', '.git/**', 'fis-conf.js','angular.min.js','jquery-1.11.1.min.js','jquery.nicescroll.min.js'])
 fis.set('project.md5Connector ', '.');
-fis.match('*.scss', {
+fis.match('**.scss', {
     useHash: true,
     rExt: '.css',
     parser: fis.plugin('node-sass', {

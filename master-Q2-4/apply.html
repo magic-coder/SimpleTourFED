@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>简途旅行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/apply.less??__inline"/>
+</head>
+<body>
+<div class="main-wrapper">
+    <header>
+        <div class="back">后退</div>
+        <div class="center">简途经纪人</div>
+        <div class="home">个人中心</div>
+    </header>
+    <div class="apply-rule">
+        <a href="">提现规则</a>
+    </div>
+    <div class="input-gp">
+        <h5>现金余额</h5>
+        <p>172.54</p>
+        <h5>提现金额</h5>
+        <div class="advance">
+            <label>￥</label>
+            <input type="text" name="advance" value="" />
+        </div>
+    </div>
+    <div class="account">
+        <label>提现账户</label>
+        <input type="text" value="" placeholder="请输入支付宝账户">
+    </div>
+    <div class="apply-btn">
+        <a href="">申请提现</a>
+        <a href="" class="apply-record">提现记录</a>
+    </div>
+</div>
+<script type="text/javascript" src="../common/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    // 针对uc横竖屏rem html没有重绘的问题
+                    var style;
+                    if(style=document.getElementById("forhtml")){
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id="forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+</html>
