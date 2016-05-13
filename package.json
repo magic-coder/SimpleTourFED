@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/yangmingkun187/SimpleTourFED#readme",
   "devDependencies": {
-    "fis3": "^3.3.29"
+    "fis-parser-node-sass": "^0.2.0",
+    "fis3": "^3.3.29",
+    "fis3-parser-node-sass": "^0.1.9"
   }
 }

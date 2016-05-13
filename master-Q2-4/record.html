@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>简途旅行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/record.less??__inline"/>
+</head>
+<body>
+<div class="main-wrapper">
+    <header>
+        <div class="back">后退</div>
+        <div class="center">提现记录</div>
+        <div class="home">个人中心</div>
+    </header>
+    <div class="tips">
+        提现进度若有疑问，请联系客服咨询 400-800-3351
+    </div>
+    <div class="records-wrapper">
+        <div class="record-group">
+            <div class="title">
+                <div class="status pending">待审核</div>
+                <div class="time">2015-11-19 15:06</div>
+            </div>
+            <div class="content">
+                <p>提现金额：17.00元</p>
+                <p>提现账户：492722794@qq.com</p>
+            </div>
+        </div>
+        <div class="record-group">
+            <div class="title">
+                <div class="status finished">已转款</div>
+                <div class="time">2015-11-19 15:06</div>
+            </div>
+            <div class="content">
+                <p>提现金额：17.00元</p>
+                <p>提现账户：492722794@qq.com</p>
+            </div>
+        </div>
+        <div class="record-group">
+            <div class="title">
+                <div class="status">已拒绝</div>
+                <div class="time">2015-11-19 15:06</div>
+            </div>
+            <div class="content">
+                <p>提现金额：17.00元</p>
+                <p>提现账户：492722794@qq.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../common/js/zepto.min.js"></script>
+<script type="text/javascript" src="../common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    // 针对uc横竖屏rem html没有重绘的问题
+                    var style;
+                    if(style=document.getElementById("forhtml")){
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id="forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+</html>
