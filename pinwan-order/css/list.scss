@@ -1,0 +1,112 @@
+@import "/common/css/alert";
+header{
+  height: rem(40px);
+  width: 100%;
+  @include displayflex;
+  @include flexflowRow();
+  background-color: $red;
+  position: fixed;
+  z-index: 103;
+  top:0;
+  .back{
+    width: rem(31px);
+    height: 100%;
+    background: url(/pinwan-order/images/back.png) no-repeat center;
+    background-size: rem(9px) rem(16px);
+    text-indent: -9999px;
+    &.no-icon{
+      background: none;
+    }
+  }
+  .center{
+    @include flex(1);
+    font-size: rem(16px);
+    color:white;
+    line-height: rem(40px);
+    text-align: center;
+  }
+  .home{
+    text-indent: -9999px;
+    height: 100%;
+    width: rem(38px);
+    background: url(/pinwan-order/images/admin.png) no-repeat center;
+    background-size:rem(17px) rem(17px);
+  }
+}
+@mixin box-sizing($opt:content-box){
+  -webkit-box-sizing: $opt;
+  -moz-box-sizing: $opt;
+  -ms-box-sizing: $opt;
+  -o-box-sizing: $opt;
+  box-sizing: $opt;
+}
+@mixin box-shadow($set){
+  box-shadow: $set;
+  -moz-box-shadow: $set;
+  -webkit-box-shadow: $set;
+}
+@mixin border-radius($radius: 4px){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+body{
+  background-color: #F6F6F6;
+}
+img{
+  width: 100%;
+  border: none;
+  vertical-align: middle;
+}
+.order-list{
+  padding-top: rem(40px);
+  font-size: rem(14px);
+  color: #737373;
+  @include box-sizing(border-box);
+  .order{
+    margin-bottom: rem(12px);
+    padding-left: rem(15px);
+    @include box-shadow(0 1px 4px 0 rgba(189, 189, 189, 0.5));
+    background-color: #fff;
+    .up,.down{
+      padding-right: rem(15px);
+      padding-top: rem(12px);
+      padding-bottom: rem(10px);
+      line-height: rem(18px);
+      @include displayflex;
+      @include flexflowRow();
+    }
+    .up{
+      border-bottom: 1px solid #EAEAEA;
+      .up-left{
+        width: rem(120px);
+        color: #D71345;
+      }
+      .up-right{
+        @include flex(1);
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .down{
+      .down-left{
+        height: rem(24px);
+        line-height: rem(24px);
+        font-size: rem(12px);
+        color: #989898;
+        @include flex(1);
+      }
+      .down-right{
+        width: rem(72px);
+        height: rem(24px);
+        line-height: rem(24px);
+        text-align: center;
+        color: #fff;
+        @include border-radius(4px);
+        background-color: #F47474;
+      }
+    }
+  }
+}

@@ -149,19 +149,26 @@
             history.go(-1);
         });
         $('header .home').sidebar();
-        $('.question .btns div').click(function() {
-            if($(this).parents('.question').index() == 0){
-                $.alert({
-                    msg: '请点击星星来评分'
-                })
-            }
-            $(this).addClass('selected');
-            $(this).parents('.question').next().removeClass('future').addClass('transition');
-            var qLength = $('.question').length;
-            var fLength = $('.future').length;
-            var scale = (qLength-fLength-1)/qLength;
-            $('.progress .title').text('已完成'+~~(scale*100)+'%');
-            $('.progress .bar .progressBar').width($('.progress .bar').width() * scale);
+        $('.question .btns div').each(function(){
+            var $this = $(this);
+            $(this)[0].addEventListener('touchstart',function(e){
+                $this.hasClass('active')?true:$this.addClass('active');
+            });
+            $(this)[0].addEventListener('touchend',function(e){
+                if($this.parents('.question').index() == 0){
+                    $.alert({
+                        msg: '请点击星星来评分'
+                    })
+                }
+                $this.hasClass('active')?$this.removeClass('active'):false;
+                $this.addClass('selected');
+                $this.parents('.question').next().removeClass('future').addClass('transition');
+                var qLength = $('.question').length;
+                var fLength = $('.future').length;
+                var scale = (qLength-fLength-1)/qLength;
+                $('.progress .title').text('已完成'+~~(scale*100)+'%');
+                $('.progress .bar .progressBar').width($('.progress .bar').width() * scale);
+            })
         });
         $('.star').click(function(e) {
             var $this = $(this);
