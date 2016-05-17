@@ -248,6 +248,7 @@ $red : #D71345 !default;
 	padding: 0;
 	-webkit-tap-highlight-color:rgba(255,255,255,0);
 	font-family: Helvetica, sans-serif;
+    -webkit-touch-callout: none;
 }
 a:active,a:hover,a:link,a:visited{
 	text-decoration: none;
@@ -298,16 +299,32 @@ footer{
   height:rem(40px);
   width:100%;
   line-height:rem(40px);
+  bottom: 0;
 }
-footer ~ .page-group{
+footer ~ .content{
   bottom:rem(40px);
 }
-header ~ .page-group{
+header ~ .content{
   top: rem(40px);
 }
 .page,.page-group{
   position: absolute;
+  overflow: hidden;
   width:100%;
   top:0;
   bottom: 0;
+}
+.page{
+  display: none;
+  &.page-current{
+    display: block;
+  }
+}
+.content{
+  position: absolute;
+  width:100%;
+  top:0;
+  bottom:0;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
 }
