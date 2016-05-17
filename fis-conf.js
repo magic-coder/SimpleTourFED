@@ -12,6 +12,11 @@ fis.match('js/*.js', {
     // optimizer: fis.plugin('uglify-js'),
     release:'/static/$0'
 });
+// fis.match('js/scroll.js', {
+//     useHash: true,
+//     optimizer: fis.plugin('uglify-js'),
+//     release:'/static/$0'
+// });
 fis.match('**.less',{
     useHash: true,
     parser: fis.plugin('less', {
