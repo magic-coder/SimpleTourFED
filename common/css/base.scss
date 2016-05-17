@@ -266,7 +266,6 @@ header{
   @include displayflex;
   @include flexflowRow();
   background-color: $red;
-  position: fixed;
   z-index: 103;
   top:0;
   .back{
