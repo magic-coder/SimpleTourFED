@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/pinwan-order/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/pinwan-order/css/detail.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">拼玩巴士</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="wrap">
+    <div class="headerImg"><img src="/pinwan-order/image/headerImg.png"/></div>
+    <div class="productDetail">
+        <div class="product-top">
+            <div class="title">
+                <div class="status">进行中</div>
+                <div class="name">都江堰青城山5日往返套餐都江堰青城山5日往返套餐</div>
+            </div>
+            <div class="desc">与迷之小伙伴一起游都江堰，与女神邂逅青城山，5日往返套餐让您不乐不思蜀</div>
+        </div>
+        <div class="product-center">
+            <div class="current-progress">当前进度57%</div>
+            <div class="progressbar-wrap"><span class="progressbar"></span></div>
+            <div class="account">
+                <span class="number">57人支持 / 目标10000人</span>
+                <span class="money">当前累积金额5000元</span>
+            </div>
+            <div class="time">
+                <span class="date">拼玩截止日期2016年4月2日</span>
+                <span class="day">剩余5天</span>
+            </div>
+        </div>
+        <div class="product-rule">
+            本次拼巴士行程需要在2016年4月2日前，参与人数达到100，出行前请进入“我的订单”填写出行人信息
+        </div>
+        <div class="product-bottom">
+            支持范围<span class="range">120元－500元</span>
+        </div>
+    </div>
+    <div class="order-list">
+        <div class="order">
+            <div class="up">
+                <div class="up-left">支持29999元</div>
+                <div class="up-right">明月村往返车位+陶艺活动</div>
+            </div>
+            <div class="down">
+                <div class="down-left">已参与数：618</div>
+                <a class="down-right" href="">立即参与</a>
+            </div>
+        </div>
+        <div class="order">
+            <div class="up">
+                <div class="up-left">支持1299元</div>
+                <div class="up-right">僧人食堂往返车位+名花花园
+                    生命线海洋博物馆</div>
+            </div>
+            <div class="down">
+                <div class="down-left">已参与数：618</div>
+                <a class="down-right" href="">立即参与</a>
+            </div>
+        </div>
+    </div>
+    <div class="checkMore">查看更多</div>
+    <div class="information">
+        <div class="info first">
+            <div class="info-title">
+                <div class="name">
+                    拼玩内容
+                </div>
+                <div class="more">
+                    详&nbsp;情
+                </div>
+            </div>
+            <div class="info-content">
+                ${detailView.detail}
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-title">
+                <div class="name">
+                    预订须知
+                </div>
+                <div class="more">
+                    详&nbsp;情
+                </div>
+            </div>
+            <div class="info-content">
+                ${detailView.bookInfo}
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-title">
+                <div class="name">
+                    费用包含
+                </div>
+                <div class="more">
+                    详&nbsp;情
+                </div>
+            </div>
+            <div class="info-content">
+                ${detailView.includeItems}
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-title">
+                <div class="name">
+                    退改规则
+                </div>
+                <div class="more">
+                    详&nbsp;情
+                </div>
+            </div>
+            <div class="info-content">
+                ${detailView.cancelRule}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <a>参与拼巴士</a>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="../common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $('.info').on('click',function(event){
+        $this = $(this);
+        $this.toggleClass('show');
+        if($this.hasClass('show')){
+            $this.find('.info-title .more').html('隐&nbsp;藏');
+        }else{
+            $this.find('.info-title .more').html('详&nbsp;情');
+        }
+    });
+    $('.progressbar').css('width','57%');
+//    $('header .home').sidebar('${sidebarMobile}');
+    $('header .home').sidebar();
+    $('header .back').click(function () {
+        history.go(-1);
+    })
+</script>
+</html>
