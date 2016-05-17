@@ -121,6 +121,7 @@
 </body>
 <script type="text/javascript" src="/common/js/zepto.min.js"></script>
 <script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -144,7 +145,16 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
     $(document).ready(function() {
+        $('header .back').click(function () {
+            history.go(-1);
+        });
+        $('header .home').sidebar();
         $('.question .btns div').click(function() {
+            if($(this).parents('.question').index() == 0){
+                $.alert({
+                    msg: '请点击星星来评分'
+                })
+            }
             $(this).addClass('selected');
             $(this).parents('.question').next().removeClass('future').addClass('transition');
             var qLength = $('.question').length;
