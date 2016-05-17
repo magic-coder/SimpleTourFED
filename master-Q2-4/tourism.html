@@ -12,7 +12,7 @@
     <body>
         <header>
             <div class="back">后退</div>
-            <div class="center">选择目的地</div>
+            <div class="center">我的行程</div>
             <div class="home">个人中心</div>
         </header>
         <div class="page-group">
@@ -235,6 +235,7 @@
     <script type="text/javascript" src="/common/js/zepto.min.js"></script>
     <script type="text/javascript" src="/common/js/alert.js"></script>
     <script type="text/javascript" src="/common/js/pages.js"></script>
+    <script type="text/javascript" src="/common/js/sidebar.js"></script>
     <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -260,6 +261,15 @@
     $('.page-group').pageInit({
         initIndex : 1,
         dots : true
+    });
+    $(document).ready(function() {
+        $.alert({
+            msg : '左右滑动查看其它行程'
+        });
+        $('header .back').click(function () {
+            history.go(-1);
+        });
+        $('header .home').sidebar();
     });
     </script>
 </html>

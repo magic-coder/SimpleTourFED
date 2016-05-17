@@ -158,6 +158,91 @@ $red : #D71345 !default;
             opacity: 1;
   }
 }
+//侧边栏
+.sidebar{
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+  z-index:1001;
+  overflow: auto;
+  position: fixed;
+  top:0;
+  left: rem(100px);
+  right:0;
+  bottom: 0;
+  background-color: white;
+  &.sidebar-transition{
+    -webkit-transition:.15s ease-out;
+    transition: .15s ease-out;
+  }
+  &.sidebar-in{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  .sidebar-content{
+    position: relative;
+  }
+  .sidebar-title,.sidebar-item{
+    width: 100%;
+    height: rem(60px);
+    line-height: rem(60px);
+    border-bottom: 1px solid #D8D8D8;
+    @include displayflex;
+    @include flexflowRow();
+    .left{
+      width: rem(64px);
+      height: 100%;
+      background: url(/images/sidebar_user.png) no-repeat center;
+      background-size: rem(34px);
+    }
+    .right{
+      @include flex(1);
+      font-size: rem(16px);
+      color:#424242;
+    }
+  }
+  .sidebar-item{
+    height: rem(42px);
+  }
+  .sidebar-item .right{
+    color:#737373;
+    font-size: rem(14px);
+    line-height: rem(42px);
+  }
+  .sidebar-item .left{
+    &.sidebar-index{
+      background: url(/images/sidebar_index.png) no-repeat center;
+      background-size: rem(26px);
+    }
+    &.sidebar-order{
+      background: url(/images/sidebar_order.png) no-repeat center;
+      background-size: rem(26px);
+    }
+    &.sidebar-tourism{
+      background: url(/images/sidebar_tourism.png) no-repeat center;
+      background-size: rem(26px);
+    }
+    &.sidebar-admin{
+      background: url(/images/sidebar_admin.png) no-repeat center;
+      background-size: rem(26px);
+    }
+  }
+}
+//backdrop
+.sidebar-backdrop{
+  z-index:1000;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left: 0;
+  right:0;
+  opacity: 0;
+  background-color: black;
+  transition:opacity .15s linear;
+  -webkit-transition:opacity .15s linear;
+  &.in{
+    opacity: .42;
+  }
+}
 *{
 	margin: 0;
 	padding: 0;
