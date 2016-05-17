@@ -34,3 +34,7 @@ fis.match('*.html:css',{
 fis.match('**.png', {
     useHash: false
 });
+fis.match('/images/(*.{png,gif})', {
+    //发布到/static/pic/xxx目录下
+    release: '/images/$1$2'
+});
