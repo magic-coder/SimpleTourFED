@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/master-Q2-4/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/comment.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">行程点评</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="progress">
+    <div class="title">
+        已完成0%
+    </div>
+    <div class="bar">
+        <div class="progressBar"></div>
+    </div>
+</div>
+<div class="questions">
+    <div class="question" data-no="1">
+        <div class="title">1.您此次的旅程感受如何？</div>
+        <div class="btns">
+            <div data-value="A">很不错</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">不满意</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">2.您觉得游玩时间是否充裕？</div>
+        <div class="btns">
+            <div data-value="A">相当充裕</div>
+            <div data-value="B">比较紧张</div>
+            <div data-value="C">不合理</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">3.在线选座给您带来方便了吗？</div>
+        <div class="btns">
+            <div data-value="A">是的,非常方便</div>
+            <div data-value="B">一般,可有可无</div>
+            <div data-value="C">没有体验到</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">4.行程攻略是否提供了您所需的信息</div>
+        <div class="btns">
+            <div data-value="A">有的,基本满足</div>
+            <div data-value="B">一般,可有可无</div>
+            <div data-value="C">没有体验到</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('.question .btns div').click(function() {
+            $(this).addClass('selected');
+            $(this).parents('.question').next().removeClass('future').addClass('transition');
+            var qLength = $('.question').length;
+            var fLength = $('.future').length;
+            var scale = (qLength-fLength-1)/qLength;
+            $('.progress .title').text('已完成'+~~(scale*100)+'%');
+            $('.progress .bar .progressBar').width($('.progress .bar').width() * scale);
+        })
+    });
+</script>
+</html>
