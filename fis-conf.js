@@ -24,7 +24,7 @@ fis.match('**.less',{
     }),
     rExt: '.css'
 });
-fis.match('**.{less,css}', {
+fis.match('**.{less,css,scss}', {
     useHash: true,
     optimizer: fis.plugin('clean-css')
 });
