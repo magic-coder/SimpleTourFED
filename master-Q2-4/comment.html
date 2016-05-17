@@ -25,7 +25,7 @@
 </div>
 <div class="questions">
     <div class="question" data-no="1">
-        <div class="title">1.您此次的旅程感受如何？</div>
+        <div class="title">1.您对此次的简途提供的旅游服务整体满意吗？</div>
         <div class="btns">
             <div data-value="A">很不错</div>
             <div data-value="B">一般</div>
@@ -33,27 +33,88 @@
         </div>
     </div>
     <div class="question future">
-        <div class="title">2.您觉得游玩时间是否充裕？</div>
+        <div class="title">2.请为行车助理服务打个分吧</div>
+        <div class="assistant">
+            <div class="avatar">
+                <img src="" alt="">
+            </div>
+            <div class="infos">
+                <div class="name">何一波</div>
+                <div class="evaluate">
+                    <span>服务评分:</span>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                </div>
+            </div>
+        </div>
+        <div class="assistant">
+            <div class="avatar">
+                <img src="" alt="">
+            </div>
+            <div class="infos">
+                <div class="name">何一波</div>
+                <div class="evaluate">
+                    <span>服务评分:</span>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                </div>
+            </div>
+        </div>
         <div class="btns">
-            <div data-value="A">相当充裕</div>
-            <div data-value="B">比较紧张</div>
+            <div>确认</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">3.您觉得游玩时间是否充裕？</div>
+        <div class="btns">
+            <div data-value="A">很充裕</div>
+            <div data-value="B">一般</div>
             <div data-value="C">不合理</div>
         </div>
     </div>
     <div class="question future">
-        <div class="title">3.在线选座给您带来方便了吗？</div>
+        <div class="title">4.行车途中的停靠点有无更改？</div>
         <div class="btns">
-            <div data-value="A">是的,非常方便</div>
-            <div data-value="B">一般,可有可无</div>
-            <div data-value="C">没有体验到</div>
+            <div data-value="A">有</div>
+            <div data-value="B">没有</div>
         </div>
     </div>
     <div class="question future">
-        <div class="title">4.行程攻略是否提供了您所需的信息</div>
+        <div class="title">5.简途微信公众号（小助手）对您的行程有帮助吗？</div>
         <div class="btns">
-            <div data-value="A">有的,基本满足</div>
-            <div data-value="B">一般,可有可无</div>
-            <div data-value="C">没有体验到</div>
+            <div data-value="A">有帮助</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">没帮助</div>
+            <div data-value="D">未使用</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">6.您觉得简途车票价格实惠吗？</div>
+        <div class="btns">
+            <div data-value="A">很实惠</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">有点贵</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">7.您在“途中玩乐”中订购到心仪的商品了么？</div>
+        <div class="btns">
+            <div data-value="A">性价比很高</div>
+            <div data-value="B">还行,一般般</div>
+            <div data-value="C">不是很值</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">8.还有什么想说的都写在这里，小简希望得到您的吐槽或者赞美！</div>
+        <textarea name="remark" id="" cols="30" rows="10" placeholder="*选填"></textarea>
+        <div class="btns">
+            <div>完成</div>
         </div>
     </div>
 </div>
@@ -91,7 +152,17 @@
             var scale = (qLength-fLength-1)/qLength;
             $('.progress .title').text('已完成'+~~(scale*100)+'%');
             $('.progress .bar .progressBar').width($('.progress .bar').width() * scale);
-        })
+        });
+        $('.star').click(function(e) {
+            var $this = $(this);
+            $(this).parents('.evaluate').find('.star').forEach(function(item) {
+                if($(item).index() <= $this.index()) {
+                    $(item).addClass('selected');
+                } else {
+                    $(item).removeClass('selected');
+                }
+            });
+        });
     });
 </script>
 </html>

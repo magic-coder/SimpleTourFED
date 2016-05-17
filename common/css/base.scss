@@ -35,7 +35,11 @@ $red : #D71345 !default;
 	-moz-flex-flow:$direction nowrap;
 	flex-flow:$direction nowrap;
 }
-
+@mixin shadow($x:0,$y:0,$z:10px,$color:#bdbdbd) {
+  box-shadow : $x $y $z $color;
+  -webkit-box-shadow:  $x $y $z $color;
+  -moz-box-shadow:  $x $y $z $color;
+}
 .center-to-left{
     display: block !important;
     -webkit-animation: pageFromCenterToLeft 400ms forwards;
