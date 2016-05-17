@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/master-Q2-4/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/complete.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">行程点评</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="wrapper">
+    <h4>谢谢你</h4>
+    <p>我们会持续提升简途产品的用户体验</p>
+    <div class="img-wrapper">
+        <img src="/master-Q2-4/images/panda.png" alt="">
+    </div>
+    <a href="">回到我的行程</a>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            history.go(-1);
+        });
+        $('header .home').sidebar();
+    });
+</script>
+</html>
