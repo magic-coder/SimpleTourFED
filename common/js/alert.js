@@ -64,7 +64,7 @@
         }
         _.close = function(){
             _.$modalContent.removeClass('in').addClass('out');
-            $('.confirm-bg').removeClass('confirm-bg-visible');
+            _.type=='confirm'?$('.confirm-bg').removeClass('confirm-bg-visible'):false;
             var timer = _.type == 'alert'?150:400;
             setTimeout(function(){
                 _.$modalContent.remove();
