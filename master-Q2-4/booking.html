@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/booking.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <div class="page-group">
+        <div class="page page-current">
+            <header>
+                <div class="back">后退</div>
+                <div class="center">填写订单</div>
+                <div class="home">个人中心</div>
+            </header>
+            <footer>
+                <a href="">去支付</a>
+            </footer>
+            <div class="page-content">
+                <div class="tourism-infos">
+                    <div class="head">
+                        <h5>都江堰青城山2日往返套餐</h5>
+                        <p>出行日期：2016年4月2日</p>
+                    </div>
+                    <div class="tips">
+                        <p>本次拼巴士行程需要在2016年4月2日前参与人数达到100，出行前请进入“我的订单”填写出行人信息</p>
+                    </div>
+                    <div class="counts">
+                        <div class="left">选择支持数量</div>
+                        <div class="right">
+                            <div class="nums">
+                                <div class="reduce disabled">—</div>
+                                <div class="num">1</div>
+                                <div class="add">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-infos">
+                    <h5>联系人信息</h5>
+                    <div class="input-gp">
+                        <label for="">姓名</label>
+                        <input type="text" placeholder="*必填" value="" />
+                    </div>
+                    <div class="input-gp">
+                        <label for="">手机</label>
+                        <input type="text" placeholder="*必填" value="" />
+                    </div>
+                </div>
+                <div class="pay-infos">
+                    <h5>支付信息</h5>
+                    <p><span>实付款</span> <span>3990元</span></p>
+                </div>
+                <div class="service">
+                    点击去支付表示已阅读并同意 <a class="jt" href="">《简途服务条款》</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+    });
+</script>
+</html>

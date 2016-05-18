@@ -12,6 +12,11 @@ fis.match('js/*.js', {
     // optimizer: fis.plugin('uglify-js'),
     release:'/static/$0'
 });
+// fis.match('js/scroll.js', {
+//     useHash: true,
+//     optimizer: fis.plugin('uglify-js'),
+//     release:'/static/$0'
+// });
 fis.match('**.less',{
     useHash: true,
     parser: fis.plugin('less', {
@@ -19,7 +24,7 @@ fis.match('**.less',{
     }),
     rExt: '.css'
 });
-fis.match('**.{less,css}', {
+fis.match('**.{less,css,scss}', {
     useHash: true,
     optimizer: fis.plugin('clean-css')
 });
@@ -28,4 +33,8 @@ fis.match('*.html:css',{
 })
 fis.match('**.png', {
     useHash: false
+});
+fis.match('/images/(*.{png,gif})', {
+    //发布到/static/pic/xxx目录下
+    release: '/images/$1$2'
 });

@@ -1,0 +1,204 @@
+@import "/common/css/base";
+header{
+  height: rem(40px);
+  width: 100%;
+  @include displayflex;
+  @include flexflowRow();
+  background-color: $red;
+  position: fixed;
+  z-index: 103;
+  top:0;
+  .back{
+    width: rem(38px);
+    height: 100%;
+    background: url(/master-Q2-4/images/back.png) no-repeat center;
+    background-size: rem(9px) rem(16px);
+    text-indent: -9999px;
+    &.no-icon{
+      background: none;
+    }
+  }
+  .center{
+    @include flex(1);
+    font-size: rem(16px);
+    color:white;
+    line-height: rem(40px);
+    text-align: center;
+  }
+  .home{
+    text-indent: -9999px;
+    height: 100%;
+    width: rem(38px);
+    background: url(/master-Q2-4/images/admin.png) no-repeat center;
+    background-size:rem(17px) rem(17px);
+  }
+}
+.progress {
+  position: absolute;
+  height: rem(66px);
+  top: rem(40px);
+  width: 100%;
+  border-bottom: 1px solid #E4E4E4;
+  .title{
+    padding-top: rem(18px);
+    font-size: rem(14px);
+    color: #A4A4A4;
+    text-align: center;
+    margin: 0 auto 0;
+  }
+  .bar {
+    position: relative;
+    width: rem(286px);
+    height: rem(8px);
+    margin: rem(8px) auto 0;
+    background-color: #EBEBEB;
+    border-radius: rem(4px);
+    .progressBar {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 0;
+      height:rem(8px);
+      transition: width .15s cubic-bezier(0.1, 0.57, 0.1, 1);
+      -webkit-transition: width .15s cubic-bezier(0.1, 0.57, 0.1, 1);
+      background-color: #5BD4D7;
+      border-radius: rem(4px);
+    }
+  }
+}
+.questions {
+   width: 100%;
+   position: absolute;
+   top:5.3rem;
+   bottom: 0;
+   overflow: hidden;
+  .question {
+    @include displayflex;
+    @include flexflowCol();
+    background-color: #F6F6F6;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    position: absolute;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    &.future{
+      -webkit-transform:translate3d(100%,0,0);
+      transform:translate3d(100%,0,0);
+    }
+    &.transition{
+      -webkit-transition: .25s ease-out;
+      transition: .25s ease-out;
+    }
+    .title {
+      width: rem(250px);
+      height: rem(57px);
+      margin: rem(40px) auto 0;
+      color: #737373;
+      text-align: center;
+      font-size: rem(18px);
+    }
+    textarea {
+      width: rem(290px);
+      height:rem(120px);
+      border: 1px solid #D8D8D8;
+      border-radius: 4px;
+      margin: rem(40px) auto 0;
+      resize: none;
+      color: #737373;
+      padding: rem(10px);
+      input::-webkit-input-placeholder {
+        color: #BDBDBD !important;
+      }
+      input:-moz-placeholder {
+        color: #BDBDBD !important;
+      }
+      input::-moz-placeholder {
+        color: #BDBDBD !important;
+      }
+      input:-ms-input-placeholder {
+        color: #BDBDBD !important;
+      }
+    }
+    .btns{
+      margin-top: rem(35px);
+      div {
+        width:rem(240px);
+        height: rem(40px);
+        line-height:rem(40px);
+        text-align: center;
+        font-size: rem(14px);
+        color: #5BD4D7;
+        border:1px solid #5BD4D7;
+        margin:0 auto rem(22px);
+        border-radius: 4px;
+        &.active {
+          background-color: #5BD4D7;
+          color: white;
+        }
+      }
+    }
+    .assistant {
+      height:rem(84px);
+      margin-bottom: rem(20px);
+      background-color: white;
+      box-sizing: content-box;
+      padding: rem(10px) 0 rem(15px);
+      @include shadow();
+      .wrap {
+        height:rem(64px);
+        background-color: white;
+        @include displayflex;
+        @include flexflowRow();
+        padding-left: rem(10px);
+        .avatar {
+          margin-top: -.3rem;
+          box-sizing: content-box;
+          width: rem(64px);
+          height: rem(64px);
+          img {
+            width: 100%;
+            height: 100%;
+            border:0;
+          }
+        }
+        .infos {
+          box-sizing: content-box;
+          padding-left: rem(15px);
+          @include flex(1);
+          .name {
+            font-size: rem(18px);
+            color: #424242;
+          }
+          .evaluate {
+            margin-top: rem(8px);
+            color: #989898;
+            font-size: rem(14px);
+            @include displayflex;
+            @include flexflowRow();
+            span {
+              display: inline-block;
+              width: rem(69px);
+              height: rem(20px);
+              line-height: rem(20px);
+            }
+            .star {
+              @include flex(1);
+              display: inline-block;
+              width: rem(20px);
+              height: rem(20px);
+              line-height: rem(20px);
+              margin-right: rem(5px);
+              background: url(/master-Q2-4/images/blankStar.png) no-repeat center;
+              background-size: contain;
+              &.selected {
+                background: url(/master-Q2-4/images/selectStar.png) no-repeat center;
+                background-size: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ }

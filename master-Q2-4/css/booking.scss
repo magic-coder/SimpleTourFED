@@ -1,0 +1,172 @@
+@import "/common/css/base";
+.page-content {
+  background-color: #F6F6F6;
+}
+footer {
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #D71345;
+    color: white;
+    text-align: center;
+    line-height: rem(40px);
+    font-size: rem(14px);
+  }
+}
+.tourism-infos {
+  @include shadow();
+  background-color: white;
+  .head {
+    padding: rem(14px) rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+    h5 {
+      color: #424242;
+      font-size: rem(14px);
+      word-break: break-all;
+    }
+    p{
+      margin-top: rem(8px);
+      color: #989898;
+      font-size: rem(12px);
+    }
+  }
+  .tips {
+    padding:rem(6px) rem(17px);
+    border-bottom: 1px solid #EAEAEA;
+    p {
+      color: #F44554;
+      font-size: rem(12px);
+      line-height: rem(18px);
+    }
+  }
+  .counts {
+    height: rem(58px);
+    line-height: rem(58px);
+    @include displayflex;
+    @include flexflowRow();
+    .left {
+      @include flex(1);
+      color: #D71345;
+      font-size: rem(14px);
+      text-indent: rem(20px);
+    }
+    .right {
+      margin-right: rem(15px);
+      width: rem(125px);
+      line-height: 0;
+      .nums {
+        color: #989898;
+        margin-top: rem(10px);
+        width: rem(124px);
+        height: rem(37px);
+        border: 1px solid #E3E3E3;
+        border-radius: 3px;
+        font-size: 0;
+        box-sizing: content-box;
+        .reduce {
+          width: rem(36px);
+          height: 100%;
+          line-height: rem(36px);
+          text-align: center;
+          font-size: rem(18px);
+          display: inline-block;
+          border-right: 1px solid #E3E3E3;
+        }
+        .num {
+          width: rem(50px);
+          height: 100%;
+          text-align: center;
+          line-height: rem(36px);
+          font-size: rem(18px);
+          display: inline-block;
+        }
+        .add {
+          width: rem(36px);
+          height: 100%;
+          text-align: center;
+          line-height: rem(36px);
+          font-size: rem(18px);
+          display: inline-block;
+          border-left: 1px solid #E3E3E3;
+        }
+        .disabled {
+          background-color: #E3E3E3;
+        }
+      }
+    }
+  }
+}
+.contact-infos {
+  @include shadow();
+  margin-top: rem(13px);
+  background-color: white;
+  h5{
+    color: #737373;
+    font-size: rem(14px);
+    padding: rem(10px) rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .input-gp {
+    height: rem(38px);
+    line-height: rem(38px);
+    box-sizing: content-box;
+    margin-left: rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+    @include displayflex;
+    @include flexflowRow();
+    label {
+      width: rem(42px);
+      height: rem(38px);
+      line-height: rem(38px);
+      color: #737373;
+      font-size: rem(14px);
+      margin-right: rem(30px);
+    }
+    input {
+      @include flex(1);
+      font-size: rem(14px);
+      height: rem(30px);
+      line-height: rem(30px);
+      text-indent: rem(10px);
+      margin: rem(4px) 0;
+      border: none;
+      -webkit-appearance: none;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+.pay-infos {
+  @include shadow();
+  margin-top: rem(13px);
+  background-color: white;
+  h5{
+    color: #737373;
+    font-size: rem(14px);
+    padding: rem(10px) rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+  }
+  p {
+    padding-left: rem(15px);
+    height: rem(35px);
+    line-height: rem(35px);
+    span {
+      display: inline-block;
+      margin-right: rem(36px);
+      color: #DC325D;
+      font-size: rem(14px);
+    }
+  }
+}
+.service {
+  color: #828282;
+  font-size: rem(12px);
+  text-align: center;
+  margin: rem(15px) 0;
+  a {
+    color: #5A5A5A;
+    font-size: rem(12px);
+  }
+}

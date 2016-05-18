@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/master-Q2-4/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/comment.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">行程点评</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="progress">
+    <div class="title">
+        已完成0%
+    </div>
+    <div class="bar">
+        <div class="progressBar"></div>
+    </div>
+</div>
+<div class="questions">
+    <div class="question" data-no="1">
+        <div class="title">1.您对此次的简途提供的旅游服务整体满意吗？</div>
+        <div class="btns">
+            <div data-value="A">很不错</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">不满意</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">2.请为行车助理服务打个分吧</div>
+        <div class="assistant" style="margin-top: 1.75rem">
+            <div class="wrap">
+                <div class="avatar">
+                    <img src="/master-Q2-4/images/agent-avatar.png" alt="">
+                </div>
+                <div class="infos">
+                    <div class="name">何一波</div>
+                    <div class="evaluate">
+                        <span>服务评分:</span>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="assistant">
+            <div class="wrap">
+                <div class="avatar">
+                    <img src="/master-Q2-4/images/agent-avatar.png" alt="">
+                </div>
+                <div class="infos">
+                    <div class="name">何一波</div>
+                    <div class="evaluate">
+                        <span>服务评分:</span>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <div>确认</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">3.您觉得游玩时间是否充裕？</div>
+        <div class="btns">
+            <div data-value="A">很充裕</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">不合理</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">4.行车途中的停靠点有无更改？</div>
+        <div class="btns">
+            <div data-value="A">有</div>
+            <div data-value="B">没有</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">5.简途微信公众号（小助手）对您的行程有帮助吗？</div>
+        <div class="btns">
+            <div data-value="A">有帮助</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">没帮助</div>
+            <div data-value="D">未使用</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">6.您觉得简途车票价格实惠吗？</div>
+        <div class="btns">
+            <div data-value="A">很实惠</div>
+            <div data-value="B">一般</div>
+            <div data-value="C">有点贵</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">7.您在“途中玩乐”中订购到心仪的商品了么？</div>
+        <div class="btns">
+            <div data-value="A">性价比很高</div>
+            <div data-value="B">还行,一般般</div>
+            <div data-value="C">不是很值</div>
+        </div>
+    </div>
+    <div class="question future">
+        <div class="title">8.还有什么想说的都写在这里，小简希望得到您的吐槽或者赞美！</div>
+        <textarea name="remark" id="" cols="30" rows="10" placeholder="*选填"></textarea>
+        <div class="btns">
+            <div>完成</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            $.confirm({
+                title:'您要放弃评价并选择离开吗？',
+                detail : [''],
+                yes : '残忍离开',
+                cancel: '继续',
+                yesFun:function(){
+                    history.go(-1);
+                },
+                cancelFun:function(){}
+            });
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+        $('.question .btns div').each(function(){
+            var $this = $(this);
+            $(this)[0].addEventListener('touchstart',function(e){
+                $this.hasClass('active')?true:$this.addClass('active');
+            });
+            $(this)[0].addEventListener('touchend',function(e){
+                if($this.parents('.question').index() == 0){
+                    $.alert({
+                        msg: '请点击星星来评分'
+                    })
+                }
+                $this.hasClass('active')?$this.removeClass('active'):false;
+                $this.addClass('selected');
+                $this.parents('.question').next().removeClass('future').addClass('transition');
+                var qLength = $('.question').length;
+                var fLength = $('.future').length;
+                var scale = (qLength-fLength-1)/qLength;
+                $('.progress .title').text('已完成'+~~(scale*100)+'%');
+                $('.progress .bar .progressBar').width($('.progress .bar').width() * scale);
+            })
+        });
+        $('.star').click(function(e) {
+            var $this = $(this);
+            $(this).parents('.evaluate').find('.star').forEach(function(item) {
+                if($(item).index() <= $this.index()) {
+                    $(item).addClass('selected');
+                } else {
+                    $(item).removeClass('selected');
+                }
+            });
+        });
+    });
+</script>
+</html>

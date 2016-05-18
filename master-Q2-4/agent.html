@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
     <link rel="stylesheet" href="./css/agent.less??__inline"/>
-    <link rel="stylesheet" href="/common/css/alert.scss??__inline"/>
+    <link rel="stylesheet" href="/common/css/base.scss??__inline"/>
 </head>
 <body>
 <div class="main-wrapper">
@@ -88,6 +88,12 @@
             yesFun:function(){},
             cancelFun:function(){}
         });
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
     })
 </script>
 </body>

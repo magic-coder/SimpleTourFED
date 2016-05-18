@@ -3,29 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="format-detection" content="telephone=no, email=no" />
     <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
-    <link rel="stylesheet" href="./css/saoma.less??__inline"/>
+    <link href="/master-Q2-4/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/complete.scss?__inline" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-<div class="main-wrapper">
-    <header>
-        <div class="back">后退</div>
-        <div class="center">简途旅行</div>
-        <div class="home">个人中心</div>
-    </header>
-    <div class="wechat-title">
-        <h5>简途巴士自由行</h5>
-        <p>新用户下单立享<span>九折</span>优惠扫码订购</p>
+<header>
+    <div class="back">后退</div>
+    <div class="center">行程点评</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="wrapper">
+    <h4>谢谢你</h4>
+    <p>我们会持续提升简途产品的用户体验</p>
+    <div class="img-wrapper">
+        <img src="/master-Q2-4/images/panda.png" alt="">
     </div>
-    <div class="qrCode">
-        <img src="/images/u48.png" alt="二维码" />
-    </div>
+    <a href="">回到我的行程</a>
 </div>
-<script type="text/javascript" src="../common/js/zepto.min.js"></script>
-<script type="text/javascript" src="../common/js/sidebar.js"></script>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -33,15 +34,14 @@
                 recalc = function () {
                     var clientWidth = docEl.clientWidth;
                     if (!clientWidth) return;
-                    // 针对uc横竖屏rem html没有重绘的问题
                     var style;
-                    if(style=document.getElementById("forhtml")){
+                    if (style = document.getElementById("forhtml")) {
                         style.parentNode.removeChild(style);
                     }
                     style = document.createElement("style");
-                    style.id="forhtml";
+                    style.id = "forhtml";
                     document.head.appendChild(style);
-                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
                     docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
                 };
         recalc();
@@ -56,7 +56,6 @@
             }
         });
         $('header .home').sidebar();// 后台传入用户电话号码
-    })
+    });
 </script>
-</body>
 </html>

@@ -9,16 +9,16 @@
             +'</div></div>').appendTo('body');
         }
         $(this).click(function(){
-            $('<div class="backdrop"></div>').appendTo('body');
+            $('<div class="sidebar-backdrop"></div>').appendTo('body');
             setTimeout(function(){
-                $('.backdrop').addClass('in');
+                $('.sidebar-backdrop').addClass('in');
                 $('.sidebar').addClass('sidebar-in sidebar-transition');
             },10)
-            $('.backdrop').click(function(){
-                $('.backdrop').removeClass("in");
+            $('.sidebar-backdrop').click(function(){
+                $('.sidebar-backdrop').removeClass("in");
                 $('.sidebar').removeClass('sidebar-in');
                 setTimeout(function(){
-                    $('.backdrop').remove();
+                    $('.sidebar-backdrop').remove();
                 },150)
             })
         })

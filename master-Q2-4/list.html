@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="/pinwan-order/CImage/logo.ico" rel="icon" type="image/x-icon" />
-    <link rel="stylesheet" href="/pinwan-order/css/list.scss?__inline" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/master-Q2-4/css/list.scss?__inline" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
 <header>
@@ -64,5 +64,13 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+    })
 </script>
 </html>
