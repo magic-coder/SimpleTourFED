@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/myOrder.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header>
+            <div class="back">后退</div>
+            <div class="center">我的订单</div>
+            <div class="home">个人中心</div>
+        </header>
+        <div class="page-content">
+            <div class="order-item">
+                <div class="item-top">
+                    <div class="tags">
+                        <span class="bus">车</span>
+                        <span>住</span>
+                    </div>
+                    <!--finished 已完成 pending 待支付-->
+                    <div class="status">已关闭</div>
+                </div>
+                <div class="item-content">
+                    <div class="tourism-title">
+                        <div class="name"> [拼巴士]明月村往返车位</div>
+                        <div class="price">2999元</div>
+                    </div>
+                    <div class="time">可兑换出行时间：<span>2016年4月2日~2016年11月11日</span></div>
+                    <div class="cert-num">出行人数：2</div>
+                    <div class="tourism-describe">
+                        <div class="left">
+                            <img class="date-icon" src="/images/date_icon.png">
+                            行程天数&nbsp;1日
+                        </div>
+                        <div class="right">
+                            <span><img class="round way" src="/images/round.png">往返</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <span>我要出行</span>
+                </div>
+            </div>
+            <div class="order-item">
+                <div class="item-top">
+                    <div class="tags">
+                        <span class="bus">车</span>
+                        <span>住</span>
+                    </div>
+                    <div class="status finished">已完成</div>
+                </div>
+                <div class="item-content">
+                    <div class="tourism-title">
+                        <div class="name"> [拼巴士]明月村往返车位</div>
+                        <div class="price">2999元</div>
+                    </div>
+                    <div class="time">可兑换出行时间：<span>2016年4月2日~2016年11月11日</span></div>
+                    <div class="cert-num">出行人数：2</div>
+                    <div class="tourism-describe">
+                        <div class="left">
+                            <img class="date-icon" src="/images/date_icon.png">
+                            行程天数&nbsp;1日
+                        </div>
+                        <div class="right">
+                            <span><img class="round way" src="/images/one_way.png">单程</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <span>我要出行</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+    });
+</script>
+</html>
