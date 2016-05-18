@@ -258,18 +258,26 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-    $('.page-group').pageInit({
-        initIndex : 1,
-        dots : true
-    });
     $(document).ready(function() {
-        $.alert({
-            msg : '左右滑动查看其它行程'
-        });
         $('header .back').click(function () {
-            history.go(-1);
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
         });
-        $('header .home').sidebar();
-    });
+        $('header .home').sidebar();// 后台传入用户电话号码
+        $('.page-group').pageInit({
+            initIndex : 1,
+            dots : true
+        });
+        $(document).ready(function() {
+            $.alert({
+                msg : '左右滑动查看其它行程'
+            });
+            $('header .back').click(function () {
+                history.go(-1);
+            });
+            $('header .home').sidebar();
+        });
+    })
     </script>
 </html>

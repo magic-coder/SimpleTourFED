@@ -152,20 +152,23 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-    $('.info').on('click',function(event){
-        $this = $(this);
-        $this.toggleClass('show');
-        if($this.hasClass('show')){
-            $this.find('.info-title .more').html('隐&nbsp;藏');
-        }else{
-            $this.find('.info-title .more').html('详&nbsp;情');
-        }
-    });
-    $('.progressbar').css('width','57%');
-//    $('header .home').sidebar('${sidebarMobile}');
-    $('header .home').sidebar();
-    $('header .back').click(function () {
-        history.go(-1);
+    $(document).ready(function() {
+        $('.info').on('click',function(event){
+            $this = $(this);
+            $this.toggleClass('show');
+            if($this.hasClass('show')){
+                $this.find('.info-title .more').html('隐&nbsp;藏');
+            }else{
+                $this.find('.info-title .more').html('详&nbsp;情');
+            }
+        });
+        $('.progressbar').css('width','57%');
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
     })
 </script>
 </html>

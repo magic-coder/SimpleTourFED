@@ -51,9 +51,11 @@
     })(document, window);
     $(document).ready(function() {
         $('header .back').click(function () {
-            history.go(-1);
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
         });
-        $('header .home').sidebar();
+        $('header .home').sidebar();// 后台传入用户电话号码
     });
 </script>
 </html>
