@@ -1,0 +1,189 @@
+@import "/common/css/base";
+.page-content {
+  background-color: #F6F6F6;
+}
+footer {
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #D71345;
+    color: white;
+    text-align: center;
+    line-height: rem(40px);
+    font-size: rem(14px);
+  }
+}
+.detail-head {
+  .tips {
+    padding: rem(8px) rem(17px);
+    text-align: center;
+    line-height: .9rem;
+    background-color: #FEF891;
+    font-size: rem(12px);
+    color: #535353;
+  }
+  .order-status {
+    position: relative;
+    @include shadow();
+    background-color: #fff;
+    h5 {
+      margin-left: rem(15px);
+      padding-top: rem(14px);
+      padding-bottom: rem(9px);
+      font-size: rem(14px);
+      color: #646464;
+      border-bottom: 1px solid #EAEAEA;
+    }
+    p {
+      padding: rem(5px) rem(15px) rem(10px);
+      color: #AAAAAA;
+      font-size: rem(14px);
+    }
+    .status {
+      position: absolute;
+      top: rem(14px);
+      right: rem(18px);
+      font-size: rem(14px);
+      color: #656565;
+    }
+    &.finished {
+      p {
+        color: #5BD4D7;
+      }
+      .status {
+        color: #5BD4D7;
+      }
+    }
+    &.pending {
+      p {
+        color: #646464;
+        span {
+          color: #E1315B;
+        }
+      }
+      .status {
+        color: #FFC95E;
+      }
+    }
+  }
+}
+.tourism-detail {
+  background-color: #fff;
+  margin-top: rem(12px);
+  @include shadow();
+  h4 {
+    margin-left:rem(15px);
+    padding:rem(15px) 0;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: rem(16px);
+    color: #4E4E4E;
+  }
+  .detail-infos {
+    height: rem(48px);
+    padding: rem(12px);
+    .tourism-day {
+      display: inline-block;
+      padding: rem(4px) rem(8px);
+      background-color: #5BD4D7;
+      border-radius: 18px;
+      color: #fff;
+      font-size: rem(12px);
+      margin-right: rem(15px);
+    }
+    .shuttle {
+      display: inline-block;
+      padding: rem(4px) rem(8px);
+      background-color: #FFC654;
+      border-radius: 18px;
+      color: #fff;
+      font-size: rem(12px);
+    }
+    .price {
+      float: right;
+      margin-top: .2rem;
+      font-size: rem(16px);
+      color: #D71345;
+    }
+  }
+}
+.travel-infos {
+  background-color: #fff;
+  margin-top: rem(12px);
+  @include shadow();
+  padding-left: rem(15px);
+  p {
+    height: rem(40px);
+    line-height: rem(40px);
+    color: #989898;
+    font-size: rem(14px);
+  }
+  p + p{
+    border-top: 1px solid #EAEAEA;
+  }
+}
+.contact-infos {
+  @include shadow();
+  margin-top: rem(13px);
+  background-color: white;
+  h5{
+    color: #737373;
+    font-size: rem(14px);
+    padding: rem(10px) rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .input-gp {
+    height: rem(38px);
+    line-height: rem(38px);
+    box-sizing: content-box;
+    margin-left: rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+    @include displayflex;
+    @include flexflowRow();
+    label {
+      width: rem(42px);
+      height: rem(38px);
+      line-height: rem(38px);
+      color: #737373;
+      font-size: rem(14px);
+      margin-right: rem(30px);
+    }
+    input {
+      @include flex(1);
+      font-size: rem(14px);
+      height: rem(30px);
+      line-height: rem(30px);
+      text-indent: rem(10px);
+      margin: rem(4px) 0;
+      border: none;
+      color: #A4A4A4;
+      -webkit-appearance: none;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+.pay-infos {
+  @include shadow();
+  margin-top: rem(13px);
+  background-color: white;
+  h5{
+    color: #737373;
+    font-size: rem(14px);
+    padding: rem(10px) rem(15px);
+    border-bottom: 1px solid #EAEAEA;
+  }
+  p {
+    padding-left: rem(15px);
+    height: rem(35px);
+    line-height: rem(35px);
+    span {
+      display: inline-block;
+      margin-right: rem(36px);
+      color: #DC325D;
+      font-size: rem(14px);
+    }
+  }
+}
+
