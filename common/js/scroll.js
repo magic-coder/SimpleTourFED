@@ -1,3 +1,6 @@
+// $('.scroll-wrapper').scroller({
+//     type:'js'  auto会根据系统版本自动切换native或者js滚动条,如果要使用下拉或者上拉,请默认使用js
+// })
 ;(function ($) {
     "use strict";
     var device = {};
