@@ -132,64 +132,70 @@ header{
         border:1px solid #5BD4D7;
         margin:0 auto rem(22px);
         border-radius: 4px;
+        &.active {
+          background-color: #5BD4D7;
+          color: white;
+        }
       }
     }
     .assistant {
       height:rem(84px);
       background-color: white;
       margin-bottom: rem(12px);
+      padding-top: rem(10px);
+      padding-left: rem(20px);
+      box-sizing: border-box;
       @include shadow();
-      @include displayflex;
-      @include flexflowRow();
-      box-sizing: content-box;
-      .avatar {
-        width: rem(64px);
-        height: rem(64px);
-        margin-left: rem(20px);
-        margin-right: rem(15px);
-        img {
-          width: 100%;
-          height: 100%;
-          border:0;
-        }
-      }
-      .infos {
-        @include flex(1);
-        .name {
-          padding-top: rem(9px);
-          font-size: rem(18px);
-          color: #424242;
-        }
-        .evaluate {
-          margin-top: rem(8px);
-          color: #989898;
-          font-size: rem(14px);
-          @include displayflex;
-          @include flexflowRow();
-          span {
-            display: inline-block;
-            width: rem(69px);
-            height: rem(20px);
-            line-height: rem(20px);
+      .wrap {
+        @include displayflex;
+        @include flexflowRow();
+        .avatar {
+          box-sizing: content-box;
+          width: rem(64px);
+          height: rem(64px);
+          img {
+            width: 100%;
+            height: 100%;
+            border:0;
           }
-          .star {
-            @include flex(1);
-            display: inline-block;
-            width: rem(20px);
-            height: rem(20px);
-            line-height: rem(20px);
-            margin-right: rem(5px);
-            background: url(/master-Q2-4/images/blankStar.png) no-repeat center;
-            background-size: contain;
-            &.selected {
-              background: url(/master-Q2-4/images/selectStar.png) no-repeat center;
+        }
+        .infos {
+          box-sizing: content-box;
+          padding-left: rem(15px);
+          @include flex(1);
+          .name {
+            padding-top: rem(9px);
+            font-size: rem(18px);
+            color: #424242;
+          }
+          .evaluate {
+            margin-top: rem(8px);
+            color: #989898;
+            font-size: rem(14px);
+            @include displayflex;
+            @include flexflowRow();
+            span {
+              display: inline-block;
+              width: rem(69px);
+              height: rem(20px);
+              line-height: rem(20px);
+            }
+            .star {
+              @include flex(1);
+              display: inline-block;
+              width: rem(20px);
+              height: rem(20px);
+              line-height: rem(20px);
+              margin-right: rem(5px);
+              background: url(/master-Q2-4/images/blankStar.png) no-repeat center;
               background-size: contain;
+              &.selected {
+                background: url(/master-Q2-4/images/selectStar.png) no-repeat center;
+                background-size: contain;
+              }
             }
           }
         }
-      }
-      &:last-child{
-        margin-top: 0;
       }
     }
   }
