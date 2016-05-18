@@ -37,7 +37,7 @@
         <div class="assistant" style="margin-top: 1.75rem">
             <div class="wrap">
                 <div class="avatar">
-                    <img src="" alt="">
+                    <img src="/master-Q2-4/images/agent-avatar.png" alt="">
                 </div>
                 <div class="infos">
                     <div class="name">何一波</div>
@@ -55,7 +55,7 @@
         <div class="assistant">
             <div class="wrap">
                 <div class="avatar">
-                    <img src="" alt="">
+                    <img src="/master-Q2-4/images/agent-avatar.png" alt="">
                 </div>
                 <div class="infos">
                     <div class="name">何一波</div>
@@ -150,9 +150,16 @@
     })(document, window);
     $(document).ready(function() {
         $('header .back').click(function () {
-            if (!$(this).hasClass('no-icon')) {
-                history.go(-1);
-            }
+            $.confirm({
+                title:'您要放弃评价并选择离开吗？',
+                detail : [''],
+                yes : '残忍离开',
+                cancel: '继续',
+                yesFun:function(){
+                    history.go(-1);
+                },
+                cancelFun:function(){}
+            });
         });
         $('header .home').sidebar();// 后台传入用户电话号码
         $('.question .btns div').each(function(){
