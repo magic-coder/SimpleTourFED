@@ -49,7 +49,7 @@
             cancel: false,
             yesFun:function(){},
             cancelFun:function(){}
-        }
+        };
         var o = $.extend(defaultOption,option);
         if(type == 'alert'){
             _.modalContent = '<div class="alert-msg"><div>'+o.msg+'</div></div>'
@@ -59,7 +59,7 @@
             _.bg = '<div class="confirm-bg"></div>';
             $.each(o.detail,function(i,item){
                 _.detail += '<div class="confirm-detail">'+item+'</div>'
-            })
+            });
             _.buttons += o.cancel?'<span>'+o.yes+'</span><span>'+o.cancel+'</span>':'<span>'+o.yes+'</span>';
             _.modalContent = '<div class="confirm-content"><div class="confirm-inner"><div class="confirm-title">'+o.title+'</div>'+_.detail+'</div><div class="confirm-buttons">'+_.buttons+'</div></div>';
         }
@@ -70,7 +70,7 @@
                 $('.alert-msg').remove();
                 _.$modalContent = $(_.modalContent).appendTo('body');
             }
-        }
+        };
         _.confirm = function(){
             if($('.confirm-content').length == 0){
                 _.$modalContent = $(_.modalContent).appendTo('body');
@@ -80,7 +80,7 @@
             }
             _.$modalContent.css('marginTop',-_.$modalContent.height()/2);
             $('.confirm-bg').length == 0?$(_.bg).appendTo('body'):false;
-        }
+        };
         _.open = function(){
             _.type=='alert'?_.alert():_.confirm();
             var clientLeft = _.$modalContent[0].clientLeft;
@@ -94,13 +94,13 @@
                 _.$modalContent.find('.confirm-buttons span').eq(0).click(function(){
                     o.yesFun();
                     _.close();
-                })
+                });
                 _.$modalContent.find('.confirm-buttons span').eq(1).click(function(){
                     o.cancelFun();
                     _.close();
                 })
             }
-        }
+        };
         _.close = function(){
             _.$modalContent.removeClass('in').addClass('out');
             _.type=='confirm'?$('.confirm-bg').removeClass('confirm-bg-visible'):false;
@@ -113,9 +113,43 @@
     $.alert = function(option){
         var alert = new Modal(option,'alert');
         alert.open();
-    }
+    };
     $.confirm = function(option){
         var confirm = new Modal(option,'confirm');
         confirm.open();
     }
 })(Zepto);
+
+//防误触click事件
+
++function($){
+    $.aClick = function(option){
+        var defaultOption = {
+            clickNode:false,
+            parentNode : 'body',
+            clickFun : function($this){
+                //$this为当前点击dom的zepto对象
+            }
+        };
+        var o = $.extend(defaultOption,option);
+        var startObj = {x: 0, y: 0};
+        var endObj = {x: 0, y: 0};
+        document.addEventListener('touchstart', function (event) {
+            startObj.x = event.touches[0].pageX;
+            startObj.y = event.touches[0].pageY;
+            endObj.x = 0;
+            endObj.y = 0;
+        });
+        document.addEventListener('touchmove', function (event) {
+            endObj.x = event.touches[0].pageX - startObj.x;
+            endObj.y = event.touches[0].pageY - startObj.y;
+        });
+        $(o.parentNode).on('tap',o.clickNode,function(e){
+            var $this = $(this);
+            e.preventDefault();
+            if (Math.abs(endObj.x) < 2 && Math.abs(endObj.y) < 2) {
+                o.clickFun($this);
+            }
+        });
+    }
+}(Zepto);
