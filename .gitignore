@@ -3,5 +3,5 @@ output
 .idea
 workSpace
 npm-debug.log
-test.html
+test
 .DS_Store
