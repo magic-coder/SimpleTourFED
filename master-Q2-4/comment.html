@@ -150,9 +150,16 @@
     })(document, window);
     $(document).ready(function() {
         $('header .back').click(function () {
-            if (!$(this).hasClass('no-icon')) {
-                history.go(-1);
-            }
+            $.confirm({
+                title:'您要放弃评价并选择离开吗？',
+                detail : [''],
+                yes : '残忍离开',
+                cancel: '继续',
+                yesFun:function(){
+                    history.go(-1);
+                },
+                cancelFun:function(){}
+            });
         });
         $('header .home').sidebar();// 后台传入用户电话号码
         $('.question .btns div').each(function(){
