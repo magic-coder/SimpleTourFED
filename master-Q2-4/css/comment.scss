@@ -140,16 +140,19 @@ header{
     }
     .assistant {
       height:rem(84px);
+      margin-bottom: rem(20px);
       background-color: white;
-      margin-bottom: rem(12px);
-      padding-top: rem(10px);
-      padding-left: rem(20px);
-      box-sizing: border-box;
+      box-sizing: content-box;
+      padding: rem(10px) 0 rem(15px);
       @include shadow();
       .wrap {
+        height:rem(64px);
+        background-color: white;
         @include displayflex;
         @include flexflowRow();
+        padding-left: rem(10px);
         .avatar {
+          margin-top: -.3rem;
           box-sizing: content-box;
           width: rem(64px);
           height: rem(64px);
@@ -164,7 +167,6 @@ header{
           padding-left: rem(15px);
           @include flex(1);
           .name {
-            padding-top: rem(9px);
             font-size: rem(18px);
             color: #424242;
           }
