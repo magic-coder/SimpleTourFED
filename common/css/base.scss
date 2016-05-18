@@ -35,7 +35,7 @@ $red : #D71345 !default;
 	-moz-flex-flow:$direction nowrap;
 	flex-flow:$direction nowrap;
 }
-@mixin shadow($x:0,$y:0,$z:10px,$color:#bdbdbd) {
+@mixin shadow($x:0,$y:1px,$z:5px,$color:#bdbdbd) {
   box-shadow : $x $y $z $color;
   -webkit-box-shadow:  $x $y $z $color;
   -moz-box-shadow:  $x $y $z $color;
@@ -302,10 +302,10 @@ footer{
   line-height:rem(40px);
   bottom: 0;
 }
-footer ~ .content{
+footer ~ .page-content{
   bottom:rem(40px);
 }
-header ~ .content{
+header ~ .page-content{
   top: rem(40px);
 }
 .page,.page-group{
@@ -321,7 +321,7 @@ header ~ .content{
     display: block;
   }
 }
-.content{
+.page-content{
   position: absolute;
   width:100%;
   top:0;
