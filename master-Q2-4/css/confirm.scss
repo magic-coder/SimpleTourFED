@@ -197,3 +197,95 @@ footer {
     font-size: rem(12px);
   }
 }
+.add-customer {
+  width:100%;
+  height: rem(44px);
+  line-height: rem(44px);
+  background-color:white;
+  border: 1px solid #D8D8D8;
+  .add-info {
+    width: 4.5rem;
+    margin: 0 auto;
+    font-size: .7rem;
+    font-weight: normal;
+    color: #D71345;
+    padding-left: rem(26px);
+    background: url("/static/images/add_customer_icon.png") no-repeat center;
+    background-size: rem(18px);
+    background-position: 0;
+  }
+}
+.customer-select-group{
+  margin-top: 1rem;
+  width: 100%;
+  .selected-title {
+    height: rem(42px);
+    line-height: rem(42px);
+    font-size: .7rem;
+    color: #737373;
+    background-color: #F2F2F2;
+    border:1px solid #D8D8D8;
+    padding-left: .6rem;
+    span {
+      margin-left: .3rem;
+      color: #BDBDBD;
+      &:last-child{
+        margin-left:0;
+        color: #E12D56;
+      }
+    }
+  }
+
+  .customer-group {
+    width: 100%;
+    height: rem(64px);
+    position: relative;
+    background-color: white;
+    @include displayflex;
+    @include flexflowRow();
+    .border-bottom {
+      position:absolute;
+      bottom:0;
+      right: 0;
+      width: rem(312px);
+      height: 1px;
+      background-color:#F2F2F2;
+    }
+    .checkbox-icon{
+      width: 2.5rem;
+      height: rem(64px);
+      background: url(/static/images/no_choose_icon.png) no-repeat center;
+      background-size: .9rem;
+      &.selected{
+        background: url(/static/images/choosen_button.png) no-repeat center;
+        background-size: .9rem;
+      }
+    }
+    .customer-info {
+      @include flex(1);
+      .customer-name {
+        margin-top: rem(11px);
+        font-size: .7rem;
+        color:#737373;
+      }
+      .customer-idNo {
+        span {
+          color:#bdbdbd;
+          font-size: .6rem;
+        }
+      }
+    }
+    .edit-btn {
+      width: rem(60px);
+      height: rem(64px);
+      line-height: rem(64px);
+      text-align: center;
+      color: #D71345;
+      font-size: .7rem;
+    }
+
+    &:last-child{
+      border-bottom: 1px solid #bdbdbd;
+    }
+  }
+}

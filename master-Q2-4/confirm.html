@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="page-group">
-    <div class="page page-current">
+    <div class="page page-current" id="main">
         <header>
             <div class="back">后退</div>
             <div class="center">出行确认</div>
@@ -54,7 +54,7 @@
                 <div class="customer-infos">
                     <div class="selected-title">
                         出行旅客<span> 0 </span><span> / 3人</span>
-                        <div class="add-customer-btn">
+                        <div class="add-customer-btn turnTo" href="#customerList">
                             添加旅客
                         </div>
                     </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div class="page ">
+    <div class="page" id="customerList">
         <header>
             <div class="back">后退</div>
             <div class="center">填写订单</div>
@@ -75,11 +75,6 @@
             <a href="">确认</a>
         </footer>
         <div class="page-content">
-            <header>
-                <div class="back">后退</div>
-                <div class="center">选择出游旅客</div>
-                <div class="home">个人中心</div>
-            </header>
             <div class="add-customer">
                 <div class="add-info">
                     添加旅客
@@ -87,33 +82,30 @@
             </div>
             <div class="customer-select-group">
                 <div class="selected-title">
-                    已选择<span> 0 </span><span> / ${certs}</span>
+                    已选择<span> 0 </span><span> / 3</span>
                 </div>
 
-                <#list customerViews.subViews as customerView>
-                    <div class="customer-group">
-                        <div class="checkbox-icon">
-                        </div>
-                        <div class="customer-info">
-                            <div class="customer-name">
-                                ${customerView.name}
-                            </div>
-                            <div class="customer-idNo">
-                                <span>${customerView.idTypeCN}</span>
-                                <span>${customerView.idNo}</span>
-                            </div>
-                            <input type="hidden" name="hiddenName" value="${customerView.name}">
-                            <input type="hidden" name="hiddenMobile" value="${customerView.mobile}">
-                            <input type="hidden" name="hiddenIdType" value="${customerView.idType}">
-                            <input type="hidden" name="hiddenIdNo" value="${customerView.idNo}">
-                        </div>
-                        <div class="edit-btn">
-                            编辑
-                        </div>
-                        <div class="border-bottom"></div>
+                <div class="customer-group">
+                    <div class="checkbox-icon">
                     </div>
-                </#list>
-
+                    <div class="customer-info">
+                        <div class="customer-name">
+                            yangmingkun
+                        </div>
+                        <div class="customer-idNo">
+                            <span>身份证</span>
+                            <span>12345234151345</span>
+                        </div>
+                        <input type="hidden" name="hiddenName" value="${customerView.name}">
+                        <input type="hidden" name="hiddenMobile" value="${customerView.mobile}">
+                        <input type="hidden" name="hiddenIdType" value="${customerView.idType}">
+                        <input type="hidden" name="hiddenIdNo" value="${customerView.idNo}">
+                    </div>
+                    <div class="edit-btn">
+                        编辑
+                    </div>
+                    <div class="border-bottom"></div>
+                </div>
 
             </div>
         </div>
@@ -123,6 +115,7 @@
 <script type="text/javascript" src="/common/js/zepto.min.js"></script>
 <script type="text/javascript" src="/common/js/alert.js"></script>
 <script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript" src="/common/js/pages.js"></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -152,6 +145,10 @@
             }
         });
         $('header .home').sidebar();// 后台传入用户电话号码
+        $('.page-group').pageInit({
+            router : '.turnTo' ,//router的className
+            routerFun : function(){}
+        });
     });
 </script>
 </html>

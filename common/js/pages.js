@@ -11,7 +11,7 @@
         _.option = $.extend(defaultOption,option);
         _.ele = ele;
         //pages的zepto对象
-        _.pages = _.ele.find('.page-wrap');
+        _.pages = _.ele.find('.page-wrap').length != 0 ?_.ele.find('.page-wrap') : _.ele.find('.page');
         //当前在哪一页
         _.currentIndex = parseInt(_.option.initIndex-1);
         //最后一页
@@ -54,17 +54,17 @@
             });
         }
         _.to = function(id){
-            var $page = _.pages.find('.page-current').removeClass('page-current').addClass('center-to-left');
-            _.pages.find(id).addClass('page-current');
+            var $page = _.pages.filter('.page-current').removeClass('page-current').addClass('center-to-left');
+            _.pages.filter(id).addClass('page-current');
             setTimeout(function(){
-                _.pages.find(id).addClass('right-to-center');
+                _.pages.filter(id).addClass('right-to-center');
             },10);
             setTimeout(function(){
                 $page.removeClass('center-to-left');
-                _.pages.find(id).removeClass('right-to-center');
+                _.pages.filter(id).removeClass('right-to-center');
             },400);
             history.pushState(id,'','');
-            historyArray.push({start:$page,end:_.pages.find(id)});
+            historyArray.push({start:$page,end:_.pages.filter(id)});
         };
         _.back = function(start,end){
             end.removeClass('page-current').addClass('center-to-right');
