@@ -55,10 +55,9 @@
         }
         _.to = function(id){
             var $page = _.pages.filter('.page-current').removeClass('page-current').addClass('center-to-left');
-            _.pages.filter(id).addClass('page-current').addClass('right-to-center');
-            // setTimeout(function(){
-            //     _.pages.filter(id).addClass('right-to-center');
-            // },10);
+            _.pages.filter(id).addClass('page-current');
+            _.pages.filter(id)[0].clientLeft;
+            _.pages.filter(id).addClass('right-to-center');
             setTimeout(function(){
                 $page.removeClass('center-to-left');
                 _.pages.filter(id).removeClass('right-to-center');
@@ -68,10 +67,9 @@
         };
         _.back = function(start,end){
             end.removeClass('page-current').addClass('center-to-right');
-            start.addClass('page-current').addClass('left-to-center');
-            // setTimeout(function(){
-            //     start.addClass('left-to-center');
-            // },10);
+            start.addClass('page-current');
+            start[0].clientLeft;
+            start.addClass('left-to-center');
             setTimeout(function(){
                 start.removeClass('left-to-center');
                 end.removeClass('center-to-right');
@@ -90,9 +88,8 @@
                             $('.page-dot').removeClass('active');
                             $('.page-dot').eq(_.currentIndex+1).addClass('active');
                         }
-                        setTimeout(function(){
-                            _.pages.eq(s+1).addClass('right-to-center');
-                        },10);
+                        _.pages.eq(s+1)[0].clientLeft;
+                        _.pages.eq(s+1).addClass('right-to-center');
                         _.currentIndex += 1;
                         setTimeout(function(){
                             _.pages.eq(s).removeClass('center-to-left');
@@ -111,9 +108,8 @@
                             $('.page-dot').removeClass('active');
                             $('.page-dot').eq(_.currentIndex-1).addClass('active');
                         }
-                        setTimeout(function(){
-                            _.pages.eq(s-1).addClass('left-to-center');
-                        },10)
+                        _.pages.eq(s-1)[0].clientLeft;
+                        _.pages.eq(s-1).addClass('left-to-center');
                         _.currentIndex -= 1;
                         setTimeout(function(){
                             _.pages.eq(s).removeClass('center-to-right');
