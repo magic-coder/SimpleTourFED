@@ -3,13 +3,15 @@
     function Page(ele,option){
         var defaultOption = {
             initIndex : 1 ,//初始化哪一页
-            dots : false
+            dots : false ,
+            router : false ,//router的className
+            routerFun : function(){}
         };
         var _ = this;
         _.option = $.extend(defaultOption,option);
         _.ele = ele;
         //pages的zepto对象
-        _.pages = _.ele.find('.page-wrap');
+        _.pages = _.ele.find('.page-wrap').length != 0 ?_.ele.find('.page-wrap') : _.ele.find('.page');
         //当前在哪一页
         _.currentIndex = parseInt(_.option.initIndex-1);
         //最后一页
@@ -20,21 +22,62 @@
             $('.page-dot').eq(_.currentIndex).addClass('active');
         }
         _.ele.find('.page-wrap').eq(_.currentIndex).addClass('page-current');
-        var startX,endX;
-        document.addEventListener('touchstart',function(event){
-            startX = event.touches[0].pageX;
-        });
-        document.addEventListener('touchmove',function(event){
-            event.preventDefault();
-            endX = event.touches[0].pageX;
-        });
-        document.addEventListener('touchend',function(event){
-            if(Math.abs(startX-endX)>30 && (startX-endX)>0){
-                _.swipe('left');
-            }else if(Math.abs(startX-endX)>30 && (startX-endX)<0){
-                _.swipe('right');
-            }
-        });
+        //如果开启路由,则创建history数组
+        if(_.option.router){
+            var historyArray = [];
+            $(_.option.router).click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                _.to($(this).attr('href'));
+            });
+            $('.page-back').click(function(){
+                _.option.routerFun();
+            });
+            window.addEventListener('popstate',function(){
+                _.back(historyArray[historyArray.length-1].start,historyArray[historyArray.length-1].end)
+            })
+        }else{
+            var startX,endX;
+            document.addEventListener('touchstart',function(event){
+                startX = event.touches[0].pageX;
+            });
+            document.addEventListener('touchmove',function(event){
+                event.preventDefault();
+                endX = event.touches[0].pageX;
+            });
+            document.addEventListener('touchend',function(event){
+                if(Math.abs(startX-endX)>30 && (startX-endX)>0){
+                    _.swipe('left');
+                }else if(Math.abs(startX-endX)>30 && (startX-endX)<0){
+                    _.swipe('right');
+                }
+            });
+        }
+        _.to = function(id){
+            var $page = _.pages.filter('.page-current').removeClass('page-current').addClass('center-to-left');
+            _.pages.filter(id).addClass('page-current');
+            setTimeout(function(){
+                _.pages.filter(id).addClass('right-to-center');
+            },10);
+            setTimeout(function(){
+                $page.removeClass('center-to-left');
+                _.pages.filter(id).removeClass('right-to-center');
+            },400);
+            history.pushState(id,'','');
+            historyArray.push({start:$page,end:_.pages.filter(id)});
+        };
+        _.back = function(start,end){
+            end.removeClass('page-current').addClass('center-to-right');
+            start.addClass('page-current');
+            setTimeout(function(){
+                start.addClass('left-to-center');
+            },10);
+            setTimeout(function(){
+                start.removeClass('left-to-center');
+                end.removeClass('center-to-right');
+            },400);
+            historyArray.pop();
+        };
         _.swipe = function(dir){
             switch (dir) {
                 //左滑事件
