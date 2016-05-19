@@ -199,6 +199,7 @@ header ~ .page-content{
 }
 .page{
   display: none;
+  z-index:100;
   &.page-current{
     display: block;
   }
@@ -229,7 +230,7 @@ header ~ .page-content{
   animation: pageFromLeftToCenter 400ms forwards;
 }
 .right-to-center{
-  z-index: 102;
+  //z-index: 102;
   display: block ;
   -webkit-animation: pageFromRightToCenter 400ms forwards;
   animation: pageFromRightToCenter 400ms forwards;
