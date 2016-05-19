@@ -73,8 +73,7 @@ header{
    bottom: 0;
    overflow: hidden;
   .question {
-    @include displayflex;
-    @include flexflowCol();
+    text-align: center;
     background-color: #F6F6F6;
     -webkit-transform:translate3d(0,0,0);
     transform:translate3d(0,0,0);
@@ -163,9 +162,11 @@ header{
         .name {
           font-size: rem(18px);
           color: #424242;
+          text-align: left;
         }
         .evaluate {
           margin-top: rem(8px);
+          text-align: left;
           color: #989898;
           font-size: rem(14px);
           @include displayflex;
