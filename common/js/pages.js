@@ -40,6 +40,7 @@
             var startX,endX;
             document.addEventListener('touchstart',function(event){
                 startX = event.touches[0].pageX;
+                endX = event.touches[0].pageX;
             });
             document.addEventListener('touchmove',function(event){
                 event.preventDefault();

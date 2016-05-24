@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/common/css/select.scss?__inline" media="screen" title="no title" charset="utf-8">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        // 针对uc横竖屏rem html没有重绘的问题
+                        var style;
+                        if(style=document.getElementById("forhtml")){
+                            style.parentNode.removeChild(style);
+                        }
+                        style = document.createElement("style");
+                        style.id="forhtml";
+                        document.head.appendChild(style);
+                        style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--<div class="ios-select-col-item">123</div>-->
+<!--<div class="ios-select-col-item">123</div>-->
+<!--<div class="ios-select-col-item">123</div>-->
+<!--<div class="ios-select-col-item ios-select-col-item-selected">123</div>-->
+<!--<div class="ios-select-col-item">123</div>-->
+<!--<div class="ios-select-col-item">123</div>-->
+<!--<div class="ios-select-col-item">123</div>-->
+    <!--<div class="ios-select">-->
+        <!--<div class="ios-select-header">-->
+            <!--请选择-->
+            <!--<button>确认</button>-->
+        <!--</div>-->
+        <!--<div class="ios-select-content">-->
+            <!--<div class="ios-select-col">-->
+                <!--<div class="ios-select-col-wrapper">-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ios-select-highlight"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<div class="select select1" name="name" value="id">1</div>
+<div class="select select2" name="location" value="id">2</div>
+
+    <script type="text/javascript" src="/common/js/zepto.min.js"></script>
+    <script type="text/javascript" src="/common/js/select.js"></script>
+    <script type="text/javascript">
+        $('.select1').select({
+            options: {'id':'身份证','id2':'回乡证','id3':'护照'},
+            title:'请选择',
+            type:'(key,value) in object'
+        });
+        $('.select2').select({
+            options: {'id':'北京','id2':'成都','id3':'上海'},
+            title:'请选择',
+            type:'(key,value) in object'
+        })
+    </script>
+</body>
+</html>
