@@ -1,0 +1,129 @@
+@import "/common/css/base";
+
+@mixin box-sizing($opt:content-box) {
+  -webkit-box-sizing: $opt;
+  -moz-box-sizing: $opt;
+  -ms-box-sizing: $opt;
+  -o-box-sizing: $opt;
+  box-sizing: $opt;
+}
+
+@mixin border-radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+*{
+  @include box-sizing(border-box);
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.main {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  .headerImg {
+    width: 100%;
+    height: rem(190px);
+    background-color: #fff;
+    text-align: center;
+    img {
+      width: rem(111px);
+      height: rem(84px);
+      margin-top: rem(14px);
+    }
+    .success {
+      text-align: center;
+      color: #737373;
+      font-size: rem(18px);
+      margin: 1rem .5rem .5rem .5rem;
+    }
+    .tip {
+      color: #A4A4A4;
+      font-size: .7rem;
+      text-align: center;
+      margin: 0 0.5rem 0 .5rem;
+      line-height: 1rem;
+    }
+  }
+  .content {
+    .useNow {
+      display: block;
+      font-size: rem(14px);
+      width: rem(296px);
+      height: 2rem;
+      line-height: 2rem;
+      color: #fff;
+      background-color: #D70440;
+      text-align: center;
+      @include border-radius(4px);
+      margin: rem(16px) auto rem(22px);
+    }
+    .couponList {
+      width: rem(300px);
+      margin: 0 auto;
+      .coupon {
+        width: rem(300px);
+        height: rem(81px);
+        background: url(images/coupon@3x.png) no-repeat center;
+        background-size: cover;
+        margin-bottom: rem(7px);
+        @include displayflex;
+        @include flexflowRow(row, horizontal);
+        .coupon-left {
+          width: rem(100px);
+          padding: rem(10px);
+          .cost {
+            color: #45B97C;
+            font-size: rem(34px);
+            line-height: rem(36px);
+            margin-bottom: rem(2px);
+            &:before {
+              font-size: rem(18px);
+              content: '￥';
+              display: inline-block;
+            }
+          }
+          .type {
+            font-size: rem(12px);
+            line-height: rem(16px);
+            color: #BDBDBD;
+          }
+        }
+        .coupon-right {
+          @include flex(1);
+          padding: rem(10px) rem(10px) rem(10px) rem(15px);
+          .name{
+            color: #45B97C;
+            font-size: rem(16px);
+            line-height: rem(20px);
+            margin-bottom: rem(5px);
+          }
+          .time-title{
+            color: #BDBDBD;
+            font-size: rem(12px);
+            line-height: rem(18px);
+          }
+          .time{
+            color: #BDBDBD;
+            font-size: rem(12px);
+            line-height: rem(18px);
+          }
+        }
+      }
+    }
+  }
+}
