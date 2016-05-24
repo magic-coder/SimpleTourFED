@@ -73,8 +73,7 @@ header{
    bottom: 0;
    overflow: hidden;
   .question {
-    @include displayflex;
-    @include flexflowCol();
+    text-align: center;
     background-color: #F6F6F6;
     -webkit-transform:translate3d(0,0,0);
     transform:translate3d(0,0,0);
@@ -139,62 +138,57 @@ header{
       }
     }
     .assistant {
-      height:rem(84px);
-      margin-bottom: rem(20px);
-      background-color: white;
-      box-sizing: content-box;
-      padding: rem(10px) 0 rem(15px);
+      height: rem(84px);
+      background-color: #fff;
+      margin-bottom: rem(12px);
+      padding-left: rem(20px);
+      padding-top: rem(11px);
       @include shadow();
-      .wrap {
-        height:rem(64px);
-        background-color: white;
-        @include displayflex;
-        @include flexflowRow();
-        padding-left: rem(10px);
-        .avatar {
-          margin-top: -.3rem;
-          box-sizing: content-box;
-          width: rem(64px);
-          height: rem(64px);
-          img {
-            width: 100%;
-            height: 100%;
-            border:0;
-          }
+      .avatar {
+        display: inline-block;
+        float: left;
+        width: rem(64px);
+        height: rem(64px);
+        img {
+          width: 100%;
+          height: 100%;
         }
-        .infos {
-          box-sizing: content-box;
-          padding-left: rem(15px);
-          @include flex(1);
-          .name {
-            font-size: rem(18px);
-            color: #424242;
+      }
+      .infos {
+        padding-top: rem(8px);
+        padding-left: rem(20px);
+        float: left;
+        display: inline-block;
+        .name {
+          font-size: rem(18px);
+          color: #424242;
+          text-align: left;
+        }
+        .evaluate {
+          margin-top: rem(8px);
+          text-align: left;
+          color: #989898;
+          font-size: rem(14px);
+          @include displayflex;
+          @include flexflowRow();
+          span {
+            display: inline-block;
+            width: rem(69px);
+            height: rem(20px);
+            line-height: rem(20px);
           }
-          .evaluate {
-            margin-top: rem(8px);
-            color: #989898;
-            font-size: rem(14px);
-            @include displayflex;
-            @include flexflowRow();
-            span {
-              display: inline-block;
-              width: rem(69px);
-              height: rem(20px);
-              line-height: rem(20px);
-            }
-            .star {
-              @include flex(1);
-              display: inline-block;
-              width: rem(20px);
-              height: rem(20px);
-              line-height: rem(20px);
-              margin-right: rem(5px);
-              background: url(/master-Q2-4/images/blankStar.png) no-repeat center;
+          .star {
+            @include flex(1);
+            display: inline-block;
+            width: rem(20px);
+            height: rem(20px);
+            line-height: rem(20px);
+            margin-right: .35rem;
+            background: url(/master-Q2-4/images/blankStar.png) no-repeat center;
+            background-size: contain;
+            &.selected {
+              background: url(/master-Q2-4/images/selectStar.png) no-repeat center;
               background-size: contain;
-              &.selected {
-                background: url(/master-Q2-4/images/selectStar.png) no-repeat center;
-                background-size: contain;
-              }
             }
           }
         }

@@ -20,16 +20,16 @@
             })
         }
         $(this).click(function(){
-            $('<div class="backdrop"></div>').appendTo('body');
+            $('<div class="sidebar-backdrop"></div>').appendTo('body');
             setTimeout(function(){
-                $('.backdrop').addClass('in');
+                $('.sidebar-backdrop').addClass('in');
                 $('.sidebar').addClass('sidebar-in sidebar-transition');
             },10);
-            $('.backdrop').click(function(){
-                $('.backdrop').removeClass("in");
+            $('.sidebar-backdrop').click(function(){
+                $('.sidebar-backdrop').removeClass("in");
                 $('.sidebar').removeClass('sidebar-in');
                 setTimeout(function(){
-                    $('.backdrop').remove();
+                    $('.sidebar-backdrop').remove();
                 },150)
             })
         });
@@ -153,3 +153,25 @@
         });
     }
 }(Zepto);
+// preloader
+(function($) {
+    function Preloader() {
+        this.show = function() {
+            var preloaderHtml = '<div class="preloader-overlay"></div>' +
+                '<div class="preloader-modal">' +
+                '<span class="preloader"></span>' +
+                '</div>';
+            if ($('.preloader-modal')[0]) return;
+            var $preloader = $(preloaderHtml).appendTo('body');
+            $preloader.find('.preloader').addClass('preloader-animation');
+        };
+        this.hide = function() {
+            $('.preloader-overlay, .preloader-modal').remove();
+        }
+    }
+    var preloader = new Preloader();
+    $.preloader = {
+        show : preloader.show,
+        hide : preloader.hide
+    }
+})(Zepto);
