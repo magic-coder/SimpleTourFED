@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>领取成功</title>
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link href="../uokoCoupon/css/success.scss?__inline" rel="stylesheet"/>
+    <script type="text/javaScript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        var style;
+                        if(style=document.getElementById("forhtml")){
+                            style.parentNode.removeChild(style);
+                        }
+                        style = document.createElement("style");
+                        style.id="forhtml";
+                        document.head.appendChild(style);
+                        style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">领取成功</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="main">
+    <div class="headerImg">
+        <img src="images/successImg.png" alt="headerImg"/>
+        <div class="success">领取成功！</div>
+        <div class="tip">现金抵用券XX元已存入您的手机账户</div>
+    </div>
+
+    <div class="content">
+        <a class="useNow" href="">现在去用券</a>
+       <div class="couponList">
+           <div class="coupon">
+               <div class="coupon-left">
+                   <div class="cost">20</div>
+                   <div class="type">简途·代金券</div>
+               </div>
+               <div class="coupon-right">
+                   <div class="name">现金抵用券</div>
+                   <div class="time-title">有效日期</div>
+                   <div class="time">2016.06.01-2016.09.30</div>
+               </div>
+           </div>
+           <div class="coupon">
+               <div class="coupon-left">
+                   <div class="cost">20</div>
+                   <div class="type">简途·代金券</div>
+               </div>
+               <div class="coupon-right">
+                   <div class="name">现金抵用券</div>
+                   <div class="time-title">有效日期</div>
+                   <div class="time">2016.06.01-2016.09.30</div>
+               </div>
+           </div>
+           <div class="coupon">
+               <div class="coupon-left">
+                   <div class="cost">20</div>
+                   <div class="type">简途·代金券</div>
+               </div>
+               <div class="coupon-right">
+                   <div class="name">现金抵用券</div>
+                   <div class="time-title">有效日期</div>
+                   <div class="time">2016.06.01-2016.09.30</div>
+               </div>
+           </div>
+           <div class="coupon">
+               <div class="coupon-left">
+                   <div class="cost">20</div>
+                   <div class="type">简途·代金券</div>
+               </div>
+               <div class="coupon-right">
+                   <div class="name">现金抵用券</div>
+                   <div class="time-title">有效日期</div>
+                   <div class="time">2016.06.01-2016.09.30</div>
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javaScript">
+    $('header .back').click(function () {
+        if (!$(this).hasClass('no-icon')) {
+            history.go(-1);
+        }
+    });
+    $('header .home').sidebar();// 后台传入用户电话号码
+</script>
+</body>
+</html>
