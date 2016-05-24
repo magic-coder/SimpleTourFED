@@ -7,89 +7,116 @@
     <title>简途旅行</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
-    <link rel="stylesheet" href="./css/orderDetail.less??__inline"/>
+    <link rel="stylesheet" href="css/orderDetail.scss??__inline"/>
 </head>
 <body>
-<div class="main-wrapper">
-    <header>
-        <div class="back">后退</div>
-        <div class="center">提现记录</div>
-        <div class="home">个人中心</div>
-    </header>
-    <div class="tips">
-        提现进度若有疑问，请联系客服咨询 400-800-3351
-    </div>
-    <div class="records-wrapper">
-        <div class="record-group">
-            <div class="title">
-                <div class="status pending">待入账</div>
-                <div class="time">2015-11-19 15:06</div>
-            </div>
-            <div class="content">
-                <ul>
-                    <li>
-                        <label>下单账户：</label><span>186****8045</span>
-                    </li>
-                    <li>
-                        <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光+好时刻酒家+四季酒店</span>
-                    </li>
-                    <li>
-                        <label>实付金额：</label><span>399元</span>
-                    </li>
-                    <li>
-                        <label>现金奖励：</label><span>3.99元</span>
-                    </li>
-                </ul>
-            </div>
+<div class="page-group">
+    <div class="page page-current">
+        <header>
+            <div class="back">后退</div>
+            <div class="center">提现记录</div>
+            <div class="home">个人中心</div>
+        </header>
+        <div class="tips">
+            提现进度若有疑问，请联系客服咨询 400-800-3351
         </div>
-        <div class="record-group">
-            <div class="title">
-                <div class="status finished">已入账</div>
-                <div class="time">2015-11-19 15:06</div>
-            </div>
-            <div class="content">
-                <ul>
-                    <li>
-                        <label>下单账户：</label><span>186****8045</span>
-                    </li>
-                    <li>
-                        <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光</span>
-                    </li>
-                    <li>
-                        <label>实付金额：</label><span>399元</span>
-                    </li>
-                    <li>
-                        <label>现金奖励：</label><span>3.99元</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="record-group">
-            <div class="title">
-                <div class="status">已退款</div>
-                <div class="time">2015-11-19 15:06</div>
-            </div>
-            <div class="content">
-                <ul>
-                    <li>
-                        <label>下单账户：</label><span>186****8045</span>
-                    </li>
-                    <li>
-                        <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光</span>
-                    </li>
-                    <li>
-                        <label>实付金额：</label><span>399元</span>
-                    </li>
-                    <li>
-                        <label>现金奖励：</label><span>3.99元</span>
-                    </li>
-                </ul>
+        <div class="page-content content infinite-scroll infinite-scroll-bottom" data-distance="30">
+            <div class="records-wrapper" >
+                <div class="record-group">
+                    <div class="title">
+                        <div class="status pending">待入账</div>
+                        <div class="time">2015-11-19 15:06</div>
+                    </div>
+                    <div class="record-content">
+                        <ul>
+                            <li>
+                                <label>下单账户：</label><span>186****8045</span>
+                            </li>
+                            <li>
+                                <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光+好时刻酒家+四季酒店</span>
+                            </li>
+                            <li>
+                                <label>实付金额：</label><span>399元</span>
+                            </li>
+                            <li>
+                                <label>现金奖励：</label><span>3.99元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="record-group">
+                    <div class="title">
+                        <div class="status finished">已入账</div>
+                        <div class="time">2015-11-19 15:06</div>
+                    </div>
+                    <div class="record-content">
+                        <ul>
+                            <li>
+                                <label>下单账户：</label><span>186****8045</span>
+                            </li>
+                            <li>
+                                <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光</span>
+                            </li>
+                            <li>
+                                <label>实付金额：</label><span>399元</span>
+                            </li>
+                            <li>
+                                <label>现金奖励：</label><span>3.99元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="record-group">
+                    <div class="title">
+                        <div class="status">已退款</div>
+                        <div class="time">2015-11-19 15:06</div>
+                    </div>
+                    <div class="record-content">
+                        <ul>
+                            <li>
+                                <label>下单账户：</label><span>186****8045</span>
+                            </li>
+                            <li>
+                                <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光</span>
+                            </li>
+                            <li>
+                                <label>实付金额：</label><span>399元</span>
+                            </li>
+                            <li>
+                                <label>现金奖励：</label><span>3.99元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="record-group">
+                    <div class="title">
+                        <div class="status">已退款</div>
+                        <div class="time">2015-11-19 15:06</div>
+                    </div>
+                    <div class="record-content">
+                        <ul>
+                            <li>
+                                <label>下单账户：</label><span>186****8045</span>
+                            </li>
+                            <li>
+                                <label>购买商品：</label><span>成都-九寨沟3日往返+门票观光</span>
+                            </li>
+                            <li>
+                                <label>实付金额：</label><span>399元</span>
+                            </li>
+                            <li>
+                                <label>现金奖励：</label><span>3.99元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="../common/js/zepto.min.js"></script>
 <script type="text/javascript" src="../common/js/sidebar.js"></script>
+<script type="text/javascript" src="../common/js/sm.js"></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -120,6 +147,64 @@
             }
         });
         $('header .home').sidebar();// 后台传入用户电话号码
+        $(".content").scroller({
+            type: 'js'
+        });
+        // 加载flag
+        var loading = false;
+        // 最多可加载的条目
+        var maxItems = 100;
+
+        // 每次加载添加多少条目
+        var itemsPerLoad = 20;
+
+        function addItems(number, lastIndex) {
+            // 生成新条目的HTML
+            var html = '';
+            for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+                html += '<li class="item-content"><div class="item-inner"><div class="item-title">Item ' + i + '</div></div></li>';
+            }
+            // 添加新条目
+            $('.records-wrapper').append(html);
+            $.refreshScroller();
+        }
+        //预先加载20条
+//        addItems(itemsPerLoad, 0);
+
+        // 上次加载的序号
+
+        var lastIndex = 20;
+
+        // 注册'infinite'事件处理函数
+        $(document).on('infinite', '.infinite-scroll-bottom',function() {
+
+            // 如果正在加载，则退出
+            if (loading) return;
+
+            // 设置flag
+            loading = true;
+
+            // 模拟1s的加载过程
+            setTimeout(function() {
+                // 重置加载flag
+                loading = false;
+
+                if (lastIndex >= maxItems) {
+                    // 加载完毕，则注销无限加载事件，以防不必要的加载
+                    $.detachInfiniteScroll($('.infinite-scroll'));
+                    // 删除加载提示符
+                    $('.infinite-scroll-preloader').remove();
+                    return;
+                }
+
+                // 添加新条目
+                addItems(itemsPerLoad, lastIndex);
+                // 更新最后加载的序号
+                lastIndex = $('.record-group').length;
+                //容器发生改变,如果是js滚动，需要刷新滚动
+                $.refreshScroller();
+            }, 1000);
+        });
     })
 </script>
 </body>
