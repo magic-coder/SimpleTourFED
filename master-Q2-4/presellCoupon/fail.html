@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+     <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../presellCoupon/css/fail.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div class="slogan"><img src="/images/fail@3x.png"/></div>
+<div class="products">
+    <div class="product">
+        <div class="image"><img src="/images/jzg@3x.png"/></div>
+        <div class="text">
+            <div class="name">九寨沟三日往返车位+住宿</div>
+            <div class="tag">纯自由行</div>
+           <div class="link"><a href="">仅售99元</a></div>
+        </div>
+    </div>
+    <div class="product last">
+        <div class="image"><img src="/images/wl@3x.png"/></div>
+        <div class="text">
+            <div class="name">重庆-武隆2日往返车位+酒店</div>
+            <div class="tag">纯自由行</div>
+            <div class="link"><a href="">仅售99元</a></div>
+        </div>
+    </div>
+    <div class="time">
+        <div class="title">
+            <img src="/images/cloud@3x.png"/>
+            <span>更多优惠&nbsp;&nbsp;尽情期待</span>
+        </div>
+        <div class="date">2016.06.01-2016.06.07</div>
+    </div>
+    <div class="footer"><img src="/images/footer@3x.png"/></div>
+</div>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    // 针对uc横竖屏rem html没有重绘的问题
+                    var style;
+                    if(style=document.getElementById("forhtml")){
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id="forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    //
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+</html>

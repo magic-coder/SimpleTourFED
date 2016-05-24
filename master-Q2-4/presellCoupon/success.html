@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../presellCoupon/css/success.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div class="header">
+    <div class="slogan m40"></div>
+    <div class="tips"><span>优惠券已存入158XXXX6934的简途账户相约简途BIGSALE,6月1日不见不散</span></div>
+    <div class="lives">
+        <div class="title">优惠券领取直播</div>
+        <div class="marquee">
+            <ul>
+                <li>180****0520领取到50元旅行优惠券</li>
+                <li>181****0520领取到50元旅行优惠券</li>
+                <li>182****0520领取到50元旅行优惠券</li>
+                <li>183****0520领取到50元旅行优惠券</li>
+                <li>184****0520领取到50元旅行优惠券</li>
+                <li>185****0520领取到50元旅行优惠券</li>
+                <li>186****0520领取到50元旅行优惠券</li>
+                <li>187****0520领取到50元旅行优惠券</li>
+                <li>188****0520领取到50元旅行优惠券</li>
+                <li>189****0520领取到50元旅行优惠券</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="rules">
+    <div class="title"><img src="/images/rule@3x.png"/></div>
+    <ol>
+        <li>优惠券只能在简途预售专场优惠券专区使用,特价、折扣、预售商品不能再使用优惠券</li>
+        <li>优惠券仅限于在简途官方微信上使用</li>
+        <li>购买同一个产品每人只能使用一张优惠券</li>
+        <li>使用时间:2016年6月1日-2016年6月7日</li>
+    </ol>
+    <div class="footer"><img src="/images/footer@3x.png"/></div>
+</div>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    // 针对uc横竖屏rem html没有重绘的问题
+                    var style;
+                    if(style=document.getElementById("forhtml")){
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id="forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                    //
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $('.lives .title').css('font-size','0.7rem');
+        var $timer = 1;
+        var $first;
+        var timer = setInterval(function(){
+            $first = $('.marquee ul li').eq(0);
+            $first.css('margin-top',-$first.height()+'px');
+            setTimeout(function(){
+                $first.css('margin-top',0).appendTo($('.marquee ul'));
+            },1000);
+        }, 2000);
+//    var $marquee = $('.marquee ul');
+//    var $len = $('.marquee ul li').length;
+//    var $timer = 1;
+//    var timer = setInterval(function(){
+//        $('.marquee ul').css('top',-$timer*1.1+'rem');
+//        $('.marquee ul li').eq($timer-1).clone().appendTo('.marquee ul');
+//        $timer ++ ;
+//    }, 1000);
+</script>
+</body>
+</html>

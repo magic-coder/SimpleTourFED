@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>优客逸家抵用券</title>
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link href="../uokoCoupon/css/fetch.scss?__inline" rel="stylesheet"/>
+    <script type="text/javaScript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        var style;
+                        if(style=document.getElementById("forhtml")){
+                            style.parentNode.removeChild(style);
+                        }
+                        style = document.createElement("style");
+                        style.id="forhtml";
+                        document.head.appendChild(style);
+                        style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header>
+    <div class="back">后退</div>
+    <div class="center">优客逸家抵用券</div>
+    <div class="home">个人中心</div>
+</header>
+<div class="main">
+    <div class="headerImg"><img src="images/fetch_headerImg.png" alt="headerImg"/></div>
+    <div class="content">
+        <input name="mobile" type="text" placeholder="输入手机号码"/>
+        <a class="receive" href="">立即领取</a>
+        <div class="agree">
+            <span type="checkbox" class="checkebox"></span>
+				<span class="text">
+					我已阅读并同意<a class="rulelink">《抵用券使用规则》</a>
+				</span>
+        </div>
+        <div class="useRules">
+            <div class="title">简途现金抵用券使用规则：</div>
+            <ol class="ruleContent">
+                <li><span>使用抵用券及领取抵用券的手机号码需一致</span></li>
+                <li><span>仅限85元以上（含85元）的正价车位产品与车位套餐使用（不含重庆、云南线路）</span></li>
+                <li><span>仅限简途官方网站及官方微信自营渠道使用</span></li>
+                <li><span>同一个订单只能使用一张抵用券</span></li>
+                <li><span>一个微信ID只能绑定一个手机号码并领取一次抵用券</span></li>
+            </ol>
+            <div class="time">使用时间：2016年6月1日-2016年9月30日</div>
+        </div>
+    </div>
+</div>
+<form name="batchKey" action="" method="post">
+    <input type="hidden" name="mobile">
+    <input type="hidden" name="couponBatchKey">
+</form>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javaScript">
+    $('header .back').click(function () {
+        if (!$(this).hasClass('no-icon')) {
+            history.go(-1);
+        }
+    });
+    $('header .home').sidebar();// 后台传入用户电话号码
+    $('.checkebox').click(function(e){
+        $(this).toggleClass('checked');
+    });
+</script>
+</body>
+</html>
