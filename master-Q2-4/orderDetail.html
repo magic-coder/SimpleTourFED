@@ -117,6 +117,8 @@
 <script type="text/javascript" src="../common/js/zepto.min.js"></script>
 <script type="text/javascript" src="../common/js/sidebar.js"></script>
 <script type="text/javascript" src="../common/js/sm.js"></script>
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css">
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
 <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -147,9 +149,9 @@
             }
         });
         $('header .home').sidebar();// 后台传入用户电话号码
-        $(".content").scroller({
-            type: 'js'
-        });
+//        $(".page-content").scroller({
+//            type: 'auto'
+//        });
         // 加载flag
         var loading = false;
         // 最多可加载的条目
