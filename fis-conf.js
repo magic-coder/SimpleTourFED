@@ -38,3 +38,7 @@ fis.match('/images/(*.{png,gif})', {
     //发布到/static/pic/xxx目录下
     release: '/images/$1$2'
 });
+fis.match('*.png', {
+    // fis-optimizer-png-compressor 插件进行压缩，已内置
+    optimizer: fis.plugin('png-compressor')
+});
