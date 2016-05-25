@@ -53,7 +53,7 @@
                     _.startY = e.touches[0].pageY;
                     _.translate = 90-36*_.top;
                 });
-                
+
                 _.$select.find('.ios-select-col')[0].addEventListener('touchmove',function(e){
                     e.preventDefault();
                     e.stopPropagation();
@@ -68,6 +68,9 @@
                     _.$select.find('.ios-select-col-item').removeClass('ios-select-col-item-selected');
                     _.$select.find('.ios-select-col-item').eq(_.top).addClass('ios-select-col-item-selected');
                     _.$select.find('.ios-select-col-wrapper').css({'-webkit-transform':'translate3d(0,'+$translateY+'px,0)','transform':'translate3d(0,'+$translateY+'px,0)','-webkit-transition-duration':'0ms','transition-duration':'0ms'})
+                    var str =_.$select.find('.ios-select-col-item').eq(_.top).text() +'<input type="hidden" name="'+$(_.ele).attr('name')+'" value="'+_.$select.find('.ios-select-col-item').eq(_.top).attr('data-value')+'"/>';
+                    $(_.ele).html(str);
+                    $(_.ele).attr('value',_.$select.find('.ios-select-col-item').eq(_.top).attr('data-value'));
                 });
                 _.$select.find('.ios-select-col')[0].addEventListener('touchend',function(e){
                     var $translateY = 90-36*_.top;
