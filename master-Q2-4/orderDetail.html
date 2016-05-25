@@ -20,7 +20,7 @@
         <div class="tips">
             提现进度若有疑问，请联系客服咨询 400-800-3351
         </div>
-        <div class="page-content content infinite-scroll infinite-scroll-bottom" data-distance="30">
+        <div data-toggle="scroller" data-type="js" class="page-content content infinite-scroll infinite-scroll-bottom" data-distance="30">
             <div class="records-wrapper" >
                 <div class="record-group">
                     <div class="title">
@@ -120,31 +120,33 @@
 <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css">
 <!--<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>-->
 <script type="text/javascript">
-    (function (doc, win) {
-        var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                recalc = function () {
-                    var clientWidth = docEl.clientWidth;
-                    if (!clientWidth) return;
-                    // 针对uc横竖屏rem html没有重绘的问题
-                    var style;
-                    if(style=document.getElementById("forhtml")){
-                        style.parentNode.removeChild(style);
-                    }
-                    style = document.createElement("style");
-                    style.id="forhtml";
-                    document.head.appendChild(style);
-                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
-                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                    $(".page-content").scroller({
-                        type: 'js'
-                    });
-                };
-        recalc();
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
-    })(document, window);
+//    (function (doc, win) {
+//        var docEl = doc.documentElement,
+//                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+//                recalc = function () {
+//                    var clientWidth = docEl.clientWidth;
+//                    if (!clientWidth) return;
+//                    // 针对uc横竖屏rem html没有重绘的问题
+//                    var style;
+//                    if(style=document.getElementById("forhtml")){
+//                        style.parentNode.removeChild(style);
+//                    }
+//                    style = document.createElement("style");
+//                    style.id="forhtml";
+//                    document.head.appendChild(style);
+//                    style.appendChild(document.createTextNode("html{font-size:"+20 * (clientWidth / 320)+"px !important;}"));
+//                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+//
+//
+//                };
+//        recalc();
+//        if (!doc.addEventListener) return;
+//        win.addEventListener(resizeEvt, recalc, false);
+//        doc.addEventListener('DOMContentLoaded', recalc, false);
+//    })(document, window);
+//$(".page-content").scroller({
+//    type: 'js'
+//});
     $(document).ready(function() {
         $('header .back').click(function () {
             if (!$(this).hasClass('no-icon')) {
@@ -177,7 +179,7 @@
         // 上次加载的序号
 
         var lastIndex = 20;
-
+//        $.attachInfiniteScroll($('.page-content'))
         // 注册'infinite'事件处理函数
         $(document).on('infinite', '.infinite-scroll-bottom',function() {
 
@@ -208,6 +210,7 @@
                 $.refreshScroller();
             }, 1000);
         });
+
     })
 </script>
 </body>
