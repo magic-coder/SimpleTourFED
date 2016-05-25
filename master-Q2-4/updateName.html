@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/master-Q2-4/css/updateName.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current" id="main">
+        <header>
+            <div class="back">后退</div>
+            <div class="center">个人中心</div>
+            <div class="home">个人中心</div>
+        </header>
+        <footer>
+            <a href="">确认修改</a>
+        </footer>
+        <div class="page-content">
+            <div class="customer_content">
+                <div class="input_group">
+                    <label>修改昵称</label>
+                    <input type="text" placeholder="*请输入新的昵称" name="addName" value=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<script type="text/javascript" src="/common/js/sidebar.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .back').click(function () {
+            if (!$(this).hasClass('no-icon')) {
+                history.go(-1);
+            }
+        });
+        $('header .home').sidebar();// 后台传入用户电话号码
+    });
+</script>
+</html>
