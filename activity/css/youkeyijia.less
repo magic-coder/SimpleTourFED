@@ -1,0 +1,253 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-size:12px;
+  box-sizing:border-box;
+  font-family:Arial,PingFang SC,'Microsoft Yahei','微软雅黑',SimHei,Helvetica,Simsun,'宋体';
+}
+html,body{
+  width: 100%;
+  min-width: 1330px;
+  height:4616px;
+}
+img {
+  border:0
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 830px;
+    background: url("/activity/images/banner_bg.png") no-repeat center;
+    background-size: cover;
+    .banner-content {
+      position: relative;
+      width: 1000px;
+      height: 830px;
+      margin: 0 auto;
+      .logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 190px;
+        height:110px;
+        background: url("/activity/images/logo.png") no-repeat center;
+        background-size: cover;
+      }
+      .title {
+        position: absolute;
+        top: 560px;
+        left: 95px;
+        width: 936px;
+        height:160px;
+        background: url("/activity/images/ad.png") no-repeat center;
+        background-size: cover;
+      }
+      .ad {
+        position: absolute;
+        bottom: -41px;
+        left: 50%;
+        width: 930px;
+        height: 82px;
+        margin-left: -465px;
+        background: url("/activity/images/red.png") no-repeat center;
+        background-size: cover;
+      }
+    }
+  }
+  .activity-content {
+    width: 100%;
+    height: 3746px;
+    background: url("/activity/images/bg.png") no-repeat center;
+    background-size: cover;
+    padding-top: 110px;
+    .purchase {
+      width: 1080px;
+      height: 500px;
+      margin: 0 auto;
+      padding-top: 170px;
+      background: url("/activity/images/box1.png") no-repeat center;
+      background-size: cover;
+      .purchase-tourism-wrap {
+        width: 960px;
+        height:220px;
+        margin: 0 auto;
+        .img-box {
+          cursor: pointer;
+          position: relative;
+          width: 308px;
+          height: 220px;
+          opacity: 1;
+          -moz-opacity: 1;
+          -khtml-opacity: 1;
+          transition:opacity .5s;
+          -moz-transition:opacity .5s;
+          -webkit-transition:opacity .5s;
+          -o-transition:opacity .5s;
+          padding: 10px 5px 0;
+          text-align: center;
+          box-sizing: border-box;
+          background: url(http://www.simpletour.com/static/images/img-box.png) no-repeat center;
+          float: left;
+          margin-left: 18px;
+          .img-wrap {
+            width: 298px;
+            height: 189px;
+            overflow: hidden;
+            img {
+              width: 100%;
+            }
+          }
+          .tag {
+            position: absolute;
+            top: 160px;
+            left: 100px;
+            width: 96px;
+            height: 104px;
+            background: url("/activity/images/memo.png") no-repeat center;
+            background-size: cover;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+          &.hover {
+            opacity: .7;
+            -moz-opacity: .7;
+            -khtml-opacity: .7;
+          }
+        }
+      }
+    }
+    .box-group {
+      width: 1040px;
+      height:720px;
+      margin: 240px auto 0;
+      text-align: center;
+      padding-top: 130px;
+      &.mingyue {
+        margin: 200px auto;
+        background: url("/activity/images/box2.png") no-repeat center;
+        background-size: cover;
+      }
+      &.jzg {
+        background: url("/activity/images/box3.png") no-repeat center;
+        background-size: cover;
+      }
+      &.zhoubian {
+        background: url("/activity/images/box4.png") no-repeat center;
+        background-size: cover;
+      }
+      .banner {
+        width: 960px;
+        height: 300px;
+        margin: 17px 0;
+      }
+      .feature-img-group {
+        width: 960px;
+        height: 200px;
+        margin: 0 auto;
+        .feature-img-box {
+          position: relative;
+          width: 306px;
+          height: 200px;
+          padding: 3px 5px;
+          text-align: center;
+          box-sizing: border-box;
+          background: url(http://www.simpletour.com/static/images/img-box1.png) no-repeat center;
+          float: left;
+          margin-left: 21px;
+          .price {
+            position: absolute;
+            background: url(http://www.simpletour.com/static/images/price-flag.png) no-repeat center;
+            width: 118px;
+            height: 39px;
+            box-sizing: border-box;
+            padding-right: 10px;
+            line-height: 28px;
+            left: -10px;
+            top: 10px;
+            color: #fff;
+            font-size: 18px;
+            text-align: right;
+            z-index: 101;
+          }
+          .cover {
+            padding: 5px 14px 20px;
+            transition:height .5s;
+            -moz-transition:height .5s;
+            -webkit-transition:height .5s;
+            -o-transition:height .5s;
+            position: absolute;
+            height: 71px;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 16px;
+            width: 296px;
+            text-align: left;
+            bottom: 9px;
+            background-color: black;
+            opacity: .5;
+            z-index: 100;
+          }
+          .cover-text {
+            position: absolute;
+            transition:height .5s;
+            -moz-transition:height .5s;
+            -webkit-transition:height .5s;
+            -o-transition:height .5s;
+            height: 71px;
+            bottom: 10px;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 16px;
+            width: 296px;
+            text-align: left;
+            padding: 5px 14px 20px;
+            z-index: 100;
+          }
+          img {
+            width:100%;
+          }
+          &.first{
+            margin-left: 0
+          }
+          &.last{
+            width: 284px;
+            background: url("/activity/images/click.png") no-repeat center;
+          }
+          &.hover {
+            .cover {
+              height: 188px;
+            }
+            .cover-text {
+              height:150px;
+            }
+          }
+        }
+      }
+    }
+    .describe {
+      width: 930px;
+      height:82px;
+      line-height: 82px;
+      color: white;
+      margin: 144px auto 0;
+      text-align: center;
+      background-color: #d7043f;
+      border-radius: 40px;
+      font-size: 24px;
+    }
+  }
+  .copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #6C6C6C;
+    height: 56px;
+    line-height: 56px;
+  }
+}
