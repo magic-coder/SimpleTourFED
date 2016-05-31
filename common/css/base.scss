@@ -58,6 +58,24 @@ html,body{
   height: 100%;
   font-size: 20px;
 }
+html {
+  font-size: 20px;
+}
+@media only screen and (min-width: 400px) {
+  html {
+    font-size: 21.33333333px !important;
+  }
+}
+@media only screen and (min-width: 414px) {
+  html {
+    font-size: 22.08px !important;
+  }
+}
+@media only screen and (min-width: 480px) {
+  html {
+    font-size: 25.6px !important;
+  }
+}
 //侧边栏
 .sidebar{
   -webkit-transform: translate3d(100%,0,0);
