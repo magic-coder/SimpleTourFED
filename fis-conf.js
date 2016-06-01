@@ -14,7 +14,7 @@ fis.set('project.md5Connector ', '.');
 fis.match('**.jade',{
     rExt : 'html',
     parser:fis.plugin('jade',{
-
+        pretty: true
     })
 })
 fis.match('**.scss', {
