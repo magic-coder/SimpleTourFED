@@ -1,10 +1,8 @@
-//
-   Created by ashbringer on 16/5/31.
 doctype html
 include base
 html
     head
-        include htmlHead
+        +head()
+        script(src="/common/js/jquery-1.11.1.min.js")
     body
-        p 12
-        +head
+        +header(false,false,'title')
