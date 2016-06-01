@@ -193,6 +193,9 @@ header{
     width: rem(38px);
     background: url(/master-Q2-4/images/admin.png) no-repeat center;
     background-size:rem(17px) rem(17px);
+    &.no-icon{
+      background: none;
+    }
   }
 }
 footer{
