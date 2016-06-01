@@ -1,0 +1,111 @@
+@import "/common/css/base";
+.search-wrapper {
+  width: 100%;
+  background-color: #CFCFCF;
+  height: 6rem;
+  padding-top: .5rem;
+  box-sizing: border-box;
+  .search-input {
+    position: relative;
+    box-sizing: border-box;
+    width: 15rem;
+    margin: 0 auto;
+    height: 4.9rem;
+    background-color: #fff;
+    border-radius: 8px;
+    .cutline {
+      position: absolute;
+      top: 2.4rem;
+      right: 0;
+      width: 13.5rem;
+      height: 1px;
+      background-color: #D8D8D8;
+    }
+    .line {
+      position: absolute;
+      top: 1.85rem;
+      left: .7rem;
+      border-left: 1px dashed #D8D8D8;
+      height: 1.25rem;
+    }
+    .start {
+      @include displayflex;
+      @include flexflowRow();
+      width: 100%;
+      height: 2.4rem;
+      line-height: 2.4rem;
+      .dot {
+        width: .4rem;
+        height: .4rem;
+        background-color: #FFD4D4;
+        border: 1px solid #d71345;
+        border-radius: .4rem;
+        box-sizing: border-box;
+        margin-top: 1rem;
+        margin-left: .55rem;
+      }
+      .type {
+        width: 3.2rem;
+        padding-left: .6rem;
+        font-size: .7rem;
+        color: #ADABAB;
+      }
+      .name {
+        -moz-flex: 1;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        color: #737373;
+        font-size: .7rem;
+        text-align: right;
+        padding-right: 1.8rem;
+        background: url(/images/moreArrow.png) no-repeat center;
+        background-size: 4%;
+        background-position: 9.6rem;
+      }
+    }
+    .destination {
+      @include displayflex;
+      @include flexflowRow();
+      width: 100%;
+      height: 2.4rem;
+      line-height: 2.4rem;
+      .dot {
+        width: .4rem;
+        height: .4rem;
+        background-color: #C6F8F9;
+        border: 1px solid #5BD4D7;
+        border-radius: .4rem;
+        box-sizing: border-box;
+        margin-top: 1rem;
+        margin-left: .55rem;
+      }
+      .type {
+        width: 3.2rem;
+        padding-left: .6rem;
+        font-size: .7rem;
+        color: #ADABAB;
+      }
+      .name {
+        -moz-flex: 1;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        color: #BEBEBE;
+        font-size: .7rem;
+        text-align: right;
+        padding-right: 1.8rem;
+        background: url(/images/moreArrow.png) no-repeat center;
+        background-size: 4%;
+        background-position: 9.6rem;
+        &.selected {
+          color: #737373;
+        }
+      }
+    }
+  }
+}
