@@ -18,6 +18,7 @@
                 <div class="center">我的行程</div>
                 <div class="home">个人中心</div>
             </header>
+            <div class="filter-cover"></div>
             <div class="page-content">
                 <div class="search-wrapper">
                     <div class="search-input">
@@ -36,12 +37,12 @@
                     </div>
                 </div>
                 <div class="filter-box">
-                    <div class="condition">套餐筛选</div>
+                    <div class="condition hide" data-type="pkg-box">套餐筛选</div>
                     <span></span>
-                    <div class="condition">行程类型</div>
+                    <div class="condition hide" data-type="tourism-type-box">行程类型</div>
                     <span></span>
-                    <div class="condition">行程天数</div>
-                    <div class="pkg-box">
+                    <div class="condition hide" data-type="tourism-days-box">行程天数</div>
+                    <div class="pkg-box filter-content">
                         <h5>选择你想要的巴士旅行套餐（可多选）</h5>
                         <ul>
                             <li class="pkg-select">纯巴士</li>
@@ -55,11 +56,20 @@
                             <div class="confirm-btn">确认</div>
                         </div>
                     </div>
-                    <div class="tourism-type-box">
+                    <div class="tourism-type-box filter-content">
                         <ul>
                             <li class="all">全部行程</li>
                             <li class="single">单程</li>
                             <li class="round">往返</li>
+                        </ul>
+                    </div>
+                    <div class="tourism-days-box filter-content">
+                        <ul>
+                            <li class="all">全部天数</li>
+                            <li class="single">一日</li>
+                            <li class="round">两日</li>
+                            <li class="round">三日</li>
+                            <li class="round">四日及以上</li>
                         </ul>
                     </div>
                 </div>
@@ -229,6 +239,27 @@
                 }
             });
             $('header .home').sidebar();// 后台传入用户电话号码
+            $('.condition').click(function(e) {
+                var $this = $(this);
+                if($this.hasClass('choose')) {
+                    $('.filter-content').hide();
+                    $('.filter-cover').hide();
+                    $this.removeClass('choose');
+                    $this.addClass('hide');
+                } else {
+                    $('.condition').removeClass('choose').addClass('hide');
+                    $this.addClass('choose');
+                    $this.removeClass('hide');
+                    var type = $(this).attr('data-type');
+                    $('.filter-content').hide();
+                    $('.filter-cover').show();
+                    $('.'+type).toggle('slow');
+                }
+            });
+            $('.filter-cover').click(function(e) {
+                $('.filter-cover').hide();
+                $('.filter-content').hide();
+            });
         });
     </script>
 </body>
