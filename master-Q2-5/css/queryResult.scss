@@ -109,6 +109,7 @@ body {
 }
 .filter-box {
   width:100%;
+  position: relative;
   height: rem(44px);
   background-color: #fff;
   @include displayflex;
@@ -120,8 +121,27 @@ body {
     @include flex(1);
     line-height: rem(44px);
     text-align: center;
-    &:after{
-      @include triangle-down(1rem,1rem,1rem);
+    &::after{
+      content:'';
+      font-size: 0;
+      margin-left: .2rem;
+      width: 0;
+      height: 0;
+      border-left: .4rem solid transparent;
+      border-right: .4rem solid transparent;
+      border-top: .4rem solid #999999;
+    }
+    &.choose {
+      &::after{
+        content:'';
+        font-size: 0;
+        margin-left: .2rem;
+        width: 0;
+        height: 0;
+        border-left: .4rem solid transparent;
+        border-right: .4rem solid transparent;
+        border-bottom: .4rem solid #999999;
+      }
     }
   }
   .condition + span {
@@ -129,6 +149,78 @@ body {
     background-color: #D8D8D8;
     width:1px;
     margin-top: rem(14px);
+  }
+  .pkg-box {
+    position: absolute;
+    padding: rem(15px) rem(10px);
+    top:rem(44px);
+    left: 0;
+    width: 100%;
+    background-color: white;
+    h5 {
+      color: #999999;
+      font-size: .6rem;
+    }
+    ul {
+      margin-top:rem(20px);
+      font-size: 0;
+      li{
+        list-style: none;
+        float: left;
+        width:rem(96px);
+        height:rem(40px);
+        line-height:rem(40px);
+        margin-right: rem(6px);
+        text-align: center;
+        margin-bottom: rem(10px);
+        border: 1px solid #D8D8D8;
+        border-radius: 3px;
+        font-size: .7rem;
+        color: #989898;
+        &:nth-child(3) {
+          margin-right: 0;
+        }
+        &.pkg-select {
+          background-color: #FFF1F1;
+          color: #F47474;
+          border: 1px solid #F47474;
+        }
+      }
+
+      &:after {
+        content: '';
+        visibility: hidden;
+        clear:both;
+        display: block;
+      }
+    }
+    .btn-gp {
+      margin-top: rem(30px);
+      div {
+        float: left;
+        width: rem(140px);
+        height: rem(40px);
+        line-height: rem(40px);
+        text-align: center;
+        font-size: .7rem;
+        border-radius: 4px;
+      }
+      .clear-btn {
+        border: 1px solid #F47474;
+        color: #F47474;
+        margin-right: rem(20px);
+      }
+      .confirm-btn {
+        color: #fff;
+        background-color: #F47474;
+      }
+      &:after {
+        content: '';
+        visibility: hidden;
+        clear:both;
+        display: block;
+      }
+    }
   }
 }
 .bus-group {
