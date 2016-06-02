@@ -152,6 +152,7 @@ body {
   }
   .pkg-box {
     position: absolute;
+    display: none;
     padding: rem(15px) rem(10px);
     top:rem(44px);
     left: 0;
@@ -219,6 +220,69 @@ body {
         visibility: hidden;
         clear:both;
         display: block;
+      }
+    }
+  }
+  .tourism-type-box{
+    position: absolute;
+    display: none;
+    top: 2.2rem;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 rem(10px);
+    ul{
+      li {
+        border-bottom: 1px solid #D8D8D8;
+        height: rem(44px);
+        line-height: rem(44px);
+        color: #999999;
+        font-size: .7rem;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &.all {
+          &:before {
+            content: '';
+            display: inline-block;
+            margin-left: rem(14px);
+            margin-right: rem(4px);
+            width: rem(12px);
+            height:rem(12px);
+            background: url("/master-Q2-5/images/tourism-type-star.png") no-repeat center;
+            background-size: cover;
+          }
+        }
+        &.single {
+          &:before {
+            content: '';
+            display: inline-block;
+            margin-left: rem(14px);
+            margin-right: rem(4px);
+            width: rem(12px);
+            height:rem(12px);
+            background: url("/images/one_way.png") no-repeat center;
+            background-size: cover;
+          }
+        }
+        &.round {
+          &:before {
+            content: '';
+            display: inline-block;
+            margin-left: rem(14px);
+            margin-right: rem(4px);
+            width: rem(12px);
+            height:rem(12px);
+            background: url("/images/round.png") no-repeat center;
+            background-size: cover;
+          }
+        }
+        &.selected {
+          color: #D71345;
+          &:after {
+
+          }
+        }
       }
     }
   }
