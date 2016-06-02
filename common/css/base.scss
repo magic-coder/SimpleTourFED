@@ -41,6 +41,34 @@ $opacity: 1 !default;
   -webkit-box-shadow:  $x $y $z $color;
   -moz-box-shadow:  $x $y $z $color;
 }
+@mixin triangle-down($top:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-top: $top solid red;
+}
+@mixin triangle-up($bottom:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-bottom: $bottom solid red;
+}
+@mixin triangle-left($bottom:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-bottom: $bottom solid transparent;
+}
+@mixin triangle-right($top:1rem,$left:1rem,$bottom:1rem) {
+  width: 0;
+  height: 0;
+  border-top: $top solid transparent;
+  border-left: $left solid red;
+  border-bottom: $bottom solid transparent;
+}
 *{
   margin: 0;
   padding: 0;
@@ -58,6 +86,24 @@ html,body{
   height: 100%;
   font-size: 20px;
 }
+html {
+  font-size: 20px;
+}
+//@media only screen and (min-width: 400px) {
+//  html {
+//    font-size: 21.33333333px !important;
+//  }
+//}
+//@media only screen and (min-width: 414px) {
+//  html {
+//    font-size: 22.08px !important;
+//  }
+//}
+//@media only screen and (min-width: 480px) {
+//  html {
+//    font-size: 25.6px !important;
+//  }
+//}
 //侧边栏
 .sidebar{
   -webkit-transform: translate3d(100%,0,0);
@@ -175,6 +221,9 @@ header{
     width: rem(38px);
     background: url(/master-Q2-4/images/admin.png) no-repeat center;
     background-size:rem(17px) rem(17px);
+    &.no-icon{
+      background: none;
+    }
   }
 }
 footer{

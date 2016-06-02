@@ -1,0 +1,37 @@
+mixin head(title)
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible",content="IE=edge")
+    meta(name="format-detection",content="telephone=no, email=no")
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    //- titleName,有参数就是显示参数对应的值,无默认显示简途旅行
+    if title
+        title #{title}
+    else
+        title 简途旅行
+    link(href="/images/logo.ico",rel="icon",type="image/x-icon")
+    script(src="/common/js/zepto.min.js")
+    script(src="/common/js/base.js")
+
+
+mixin header(icon,sidebar,title)
+    //- icon true or false 来确认是否显示back按钮
+    //- sidebar true or false 来确认是否显示home按钮
+    //- title center需要填写的值,可以不传
+    header
+        div(class=icon ? 'back' : 'back no-icon') 后退
+        if title
+            .center #{title}
+        else
+            .center 首页
+        div(class=sidebar ? 'home' : 'home no-icon') 个人中心
+        script.
+            $(document).ready(function(){
+                if(#{icon}){
+                    $('header .back').click(function () {
+                        history.go(-1);
+                    });
+                }
+                if(#{sidebar}){
+                    $('header .home').sidebar();
+                }
+            })

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>简途旅行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="/master-Q2-5/css/queryResult.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <div class="page-group" style="visibility: hidden">
+        <div class="page page-current" id="main">
+            <!--每个page的页头-->
+            <header>
+                <div class="back">后退</div>
+                <div class="center">我的行程</div>
+                <div class="home">个人中心</div>
+            </header>
+            <div class="page-content">
+                <div class="search-wrapper">
+                    <div class="search-input">
+                        <div class="cutline"></div>
+                        <div class="line"></div>
+                        <div class="start turnTo" href="#tab-depart">
+                            <div class="dot"></div>
+                            <div class="type">出发地</div>
+                            <div class="name">成都</div>
+                        </div>
+                        <div class="destination turnTo" href="#tab-arrive">
+                            <div class="dot"></div>
+                            <div class="type">目的地</div>
+                            <div class="name selected">重启</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <div class="condition">套餐筛选</div>
+                    <span></span>
+                    <div class="condition">行程类型</div>
+                    <span></span>
+                    <div class="condition">行程天数</div>
+                </div>
+                <div style="font-size: 0.5rem;line-height: 1rem;padding-left: 0.5rem;margin-bottom: -0.5rem">共搜索到1个简途巴士产品供您选择</div>
+                <div class="presell-wrap">
+                    <div class="presell red" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
+                        <div class="presell-header">安师大</div>
+                        <div class="presell-content">阿萨德的收费的</div>
+                        <div class="presell-footer">
+                            <div class="left">已售卖&nbsp;&nbsp;<span class="yellownum">123</span>份</div>
+                            <div class="right">
+                                <span class="oldPrice">市场价&nbsp;¥120</span>
+                        <span class="nowPrice">
+                            ¥<span class="rednum">120</span>
+                        </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--巴士车位-->
+                <div class="bus-group">
+                    <div data-href="" class="bus-item">
+                        <div class="left">
+                            <div class="start-time">
+                                发车时间：2134-12-12
+                            </div>
+                            <div class="destinations">
+                                <div class="destination">
+                                    成都
+                                </div>
+                                <div class="destination-line"></div>
+                                <div class="destination">
+                                    谁的
+                                </div>
+                                <div class="destination-line"></div>
+                                <div class="destination">
+                                    安师大
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="day">
+                                    行程1天
+                                </div>
+                                <div class="status">
+                                    单程
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center"></div>
+                        <div class="right">
+                            9999元
+                        </div>
+                    </div>
+                    <div data-href="" class="bus-item">
+                        <div class="left">
+                            <div class="start-time">
+                                发车时间：2134-12-12
+                            </div>
+                            <div class="destinations">
+                                <div class="destination">
+                                    成都
+                                </div>
+                                <div class="destination-line"></div>
+                                <div class="destination">
+                                    谁的
+                                </div>
+                                <div class="destination-line"></div>
+                                <div class="destination">
+                                    安师大
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="day">
+                                    行程1天
+                                </div>
+                                <div class="status round">
+                                    往返
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center"></div>
+                        <div class="right">
+                            9999元
+                        </div>
+                    </div>
+                </div>
+                <!--巴士套餐-->
+                <div class="package-group">
+                    <div data-href = "/mobile/gateway/wechat/home/tourism/${wechatTourismView.value.id}?statisticSearchPkg=${wechatTourismView_index+1}" class="package-item">
+                        <div class="img-box">
+                            <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
+                            <div class="tips-group">
+                                <div class="tips ticket">车</div>
+                            </div>
+                        </div>
+                        <div class="describe">
+                            <div class="describe-title">
+                                <div class="name">qwerewr</div>
+                                <div class="price">1234元</div>
+                            </div>
+                            <div class="detail">
+                                阿萨德股份大股东方
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="tab-depart">
+            <!--每个page的页头-->
+            <header>
+                <div class="back">后退</div>
+                <div class="center">选择出发地</div>
+                <div class="home">个人中心</div>
+            </header>
+            <div class="page-content">
+
+            </div>
+        </div>
+        <div class="page" id="tab-arrive">
+            <!--每个page的页头-->
+            <header>
+                <div class="back">后退</div>
+                <div class="center">选择目的地</div>
+                <div class="home">个人中心</div>
+            </header>
+            <div class="page-content">
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/common/js/zepto.min.js"></script>
+    <script type="text/javascript" src="/common/js/sidebar.js"></script>
+    <script type="text/javascript" src="/common/js/alert.js" async="async"></script>
+    <script type="text/javascript" src="/common/js/pages.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        var style;
+                        if (style = document.getElementById("forhtml")) {
+                            style.parentNode.removeChild(style);
+                        }
+                        style = document.createElement("style");
+                        style.id = "forhtml";
+                        document.head.appendChild(style);
+                        style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+            recalc();
+            document.getElementsByClassName('page-group')[0].style.visibility = 'visible';
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        $(document).ready(function() {
+            $('.page-group').pageInit({
+                router : '.turnTo' ,//router的className
+                routerFun : function(){}
+            });
+            $('header .back').click(function () {
+                if (!$(this).hasClass('no-icon')) {
+                    history.go(-1);
+                }
+            });
+            $('header .home').sidebar();// 后台传入用户电话号码
+        });
+    </script>
+</body>
+</html>

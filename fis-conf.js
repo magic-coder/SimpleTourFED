@@ -1,5 +1,22 @@
 fis.set('project.ignore',['node_modules/**', 'lib/**','output/**', '.git/**', 'fis-conf.js','angular.min.js','jquery-1.11.1.min.js','jquery.nicescroll.min.js'])
 fis.set('project.md5Connector ', '.');
+// var jadeConf = {
+//     filters:{
+//         jadesrc:require('jade-highlighter')
+//     },
+//     pretty:true
+// };
+// fis.config.set('setting.parser.jade',jadeConf);
+
+// fis.config.set('modules.parser.jade', 'jade');
+// //jade文件经过编译后输出为html文件
+// fis.config.set('roadmap.ext.jade', 'html');
+fis.match('**.jade',{
+    rExt : 'html',
+    parser:fis.plugin('jade',{
+        pretty: true
+    })
+})
 fis.match('**.scss', {
     useHash: true,
     rExt: '.css',
