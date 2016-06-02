@@ -41,6 +41,34 @@ $opacity: 1 !default;
   -webkit-box-shadow:  $x $y $z $color;
   -moz-box-shadow:  $x $y $z $color;
 }
+@mixin triangle-down($top:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-top: $top solid red;
+}
+@mixin triangle-up($bottom:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-bottom: $bottom solid red;
+}
+@mixin triangle-left($bottom:1rem,$left:1rem,$right:1rem) {
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+  border-bottom: $bottom solid transparent;
+}
+@mixin triangle-right($top:1rem,$left:1rem,$bottom:1rem) {
+  width: 0;
+  height: 0;
+  border-top: $top solid transparent;
+  border-left: $left solid red;
+  border-bottom: $bottom solid transparent;
+}
 *{
   margin: 0;
   padding: 0;
