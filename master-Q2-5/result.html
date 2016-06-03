@@ -18,45 +18,6 @@
                 <div class="center">搜索结果</div>
                 <div class="home">个人中心</div>
             </header>
-            <!--<div class="filter-box-space fixed-space" style="position: absolute;top: 2rem;display: none;z-index: 104">-->
-                <!--<div class="filter-box">-->
-                    <!--<div class="condition hide" data-type="pkg-box">套餐筛选</div>-->
-                    <!--<span></span>-->
-                    <!--<div class="condition hide" data-type="tourism-type-box">行程类型</div>-->
-                    <!--<span></span>-->
-                    <!--<div class="condition hide" data-type="tourism-days-box">行程天数</div>-->
-                    <!--<div class="pkg-box filter-content">-->
-                        <!--<h5>选择你想要的巴士旅行套餐（可多选）</h5>-->
-                        <!--<ul>-->
-                            <!--<li class="bus" data-type="bus">纯巴士</li>-->
-                            <!--<li class="entertainment" data-type="entertainment">娱乐体验</li>-->
-                            <!--<li class="scenic" data-type="scenic">景区门票</li>-->
-                            <!--<li class="catering" data-type="catering">特色餐饮</li>-->
-                            <!--<li class="hotel" data-type="hotel">酒店住宿</li>-->
-                        <!--</ul>-->
-                        <!--<div class="btn-gp">-->
-                            <!--<div class="clear-btn">清空</div>-->
-                            <!--<div class="confirm-btn">确认</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="tourism-type-box filter-content">-->
-                        <!--<ul>-->
-                            <!--<li class="all">全部行程</li>-->
-                            <!--<li class="single">单程</li>-->
-                            <!--<li class="round">往返</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--<div class="tourism-days-box filter-content">-->
-                        <!--<ul>-->
-                            <!--<li class="all">全部天数</li>-->
-                            <!--<li class="one">一日行</li>-->
-                            <!--<li class="two">两日行</li>-->
-                            <!--<li class="three">三日行</li>-->
-                            <!--<li class="four">四日及以上</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <div class="page-content">
                 <div style="position: relative;">
                     <div class="filter-cover"></div>
@@ -86,11 +47,11 @@
                             <div class="pkg-box filter-content">
                                 <h5>选择你想要的巴士旅行套餐（可多选）</h5>
                                 <ul>
-                                    <li class="bus" data-type="bus">纯巴士</li>
-                                    <li class="entertainment" data-type="entertainment">娱乐体验</li>
-                                    <li class="scenic" data-type="scenic">景区门票</li>
-                                    <li class="catering" data-type="catering">特色餐饮</li>
-                                    <li class="hotel" data-type="hotel">酒店住宿</li>
+                                    <li class="bus" data-type="bus">巴士</li>
+                                    <li class="entertainment" data-type="entertainment">巴士+娱乐</li>
+                                    <li class="scenic" data-type="scenic">巴士+门票</li>
+                                    <li class="catering" data-type="catering">巴士+餐饮</li>
+                                    <li class="hotel" data-type="hotel">巴士+住宿</li>
                                 </ul>
                                 <div class="btn-gp">
                                     <div class="clear-btn">清空</div>
@@ -99,25 +60,25 @@
                             </div>
                             <div class="tourism-type-box filter-content">
                                 <ul>
-                                    <li class="all">全部行程</li>
-                                    <li class="single">单程</li>
-                                    <li class="round">往返</li>
+                                    <li class="all" data-value="all">全部行程</li>
+                                    <li class="single" data-value="single">单程</li>
+                                    <li class="round" data-value="round">往返</li>
                                 </ul>
                             </div>
                             <div class="tourism-days-box filter-content">
                                 <ul>
-                                    <li class="all">全部天数</li>
-                                    <li class="one">一日行</li>
-                                    <li class="two">两日行</li>
-                                    <li class="three">三日行</li>
-                                    <li class="four">四日及以上</li>
+                                    <li class="all" data-value="all">全部天数</li>
+                                    <li class="one" data-value="one">一日行</li>
+                                    <li class="two" data-value="two">两日行</li>
+                                    <li class="three" data-value="three">三日行</li>
+                                    <li class="four" data-value="four">四日及以上</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div style="font-size: 0.5rem;line-height: 1rem;padding-left: 0.5rem;margin-bottom: -0.5rem">共搜索到1个简途巴士产品供您选择</div>
                     <div class="presell-wrap">
-                        <div class="presell red" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
+                        <div class="presell red" data-days="two" data-type="single" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
                             <div class="presell-header">安师大</div>
                             <div class="presell-content">阿萨德的收费的</div>
                             <div class="presell-footer">
@@ -133,7 +94,7 @@
                     </div>
                     <!--巴士车位-->
                     <div class="bus-group">
-                        <div data-href="" class="bus-item">
+                        <div data-href="" data-days="one" data-type="single"  class="bus-item">
                             <div class="left">
                                 <div class="start-time">
                                     发车时间：2134-12-12
@@ -165,7 +126,7 @@
                                 9999元
                             </div>
                         </div>
-                        <div data-href="" class="bus-item">
+                        <div data-href="" data-days="two" data-type="round"  class="bus-item">
                             <div class="left">
                                 <div class="start-time">
                                     发车时间：2134-12-12
@@ -200,11 +161,12 @@
                     </div>
                     <!--巴士套餐-->
                     <div class="package-group">
-                        <div data-href = "" class="package-item">
+                        <div data-href = "" data-days="one" data-type="single"  class="package-item hotel">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
                                     <div class="tips ticket">车</div>
+                                    <div class="tips hotel">住</div>
                                 </div>
                             </div>
                             <div class="describe">
@@ -217,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" class="package-item">
+                        <div data-href = "" data-days="two" data-type="round"  class="package-item hotel catering entertainment scenic">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -238,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" class="package-item">
+                        <div data-href = "" data-days="three" data-type="round"  class="package-item hotel catering">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -257,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" class="package-item">
+                        <div data-href = "" data-days="four" data-type="single"  class="package-item scenic">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -545,10 +507,10 @@
                     $('.'+type).toggle('slow');
                 }
             });
-            $('.filter-cover').click(function(e) {
-                $('.filter-cover').hide();
-                $('.filter-content').hide();
-            });
+//            $('.filter-cover').click(function(e) {
+//                $('.filter-cover').hide();
+//                $('.filter-content').hide();
+//            });
             // 点击pkg-box
             $('.pkg-box li').click(function(e) {
                 var $this = $(this);
@@ -562,7 +524,6 @@
                 $('.pkg-box li.pkg-select').removeClass('pkg-select');
             });
             $('.confirm-btn').click(function() {
-                filterTourism();
                 $('.filter-box .condition').forEach(function(item) {
                     $(item).attr('data-type') == 'pkg-box' && (function() {
                         if($('.pkg-box li.pkg-select').length == 0) {
@@ -574,6 +535,7 @@
                         $('.filter-cover').hide();
                     })();
                 });
+                filterTourism();
             });
             // 筛选行程类型
             $('.tourism-type-box li').click(function() {
@@ -592,6 +554,7 @@
                         $('.filter-cover').hide();
                     })();
                 });
+                filterTourism();
             });
             // 筛选行程天数
             $('.tourism-days-box li').click(function() {
@@ -610,17 +573,36 @@
                         $('.filter-cover').hide();
                     })();
                 });
+                filterTourism();
             });
 
             // 筛选函数
             function filterTourism() {
-                var tourismType = $('.tourism-type-box li.type-select').attr('data-value'),
-                        tourismDays = $('.tourism-days-box li.days-select').attr('data-value'),
+                $('.presell,.bus-item,.package-item').show();
+                var tourismType = $('.tourism-type-box li.type-select').attr('data-value') || 'all',
+                        tourismDays = $('.tourism-days-box li.days-select').attr('data-value') || 'all',
                         tourismPkg = [];
                 $('.pkg-box li.pkg-select').forEach(function(item) {
                     tourismPkg.push($(item).attr('data-type'));
                 });
+                $('.presell,.bus-item,.package-item').forEach(function(item) {
+                    if(tourismType != 'all') {
+                        if($(item).attr('data-type') != tourismType) {
+                            $(item).hide();
+                        }
+                    }
+                    if(tourismDays != 'all') {
+                        if($(item).attr('data-days') != tourismDays) {
+                            $(item).hide();
+                        }
+                    }
+                    for(var i = 0, len = tourismPkg.length; i < len; i++) {
+                        if(!$(item).hasClass(tourismPkg[i])) {
 
+                            $(item).hide();
+                        }
+                    }
+                });
             }
         });
     </script>

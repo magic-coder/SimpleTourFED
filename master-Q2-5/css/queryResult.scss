@@ -141,9 +141,10 @@ body {
           margin-left: .2rem;
           width: 0;
           height: 0;
-          border-left: .4rem solid transparent;
-          border-right: .4rem solid transparent;
-          border-top: .4rem solid #999999;
+          border-left: .25rem solid transparent;
+          border-right: .25rem solid transparent;
+          border-top: .25rem solid #999999;
+          margin-bottom: .17rem;
         }
       }
       &.choose {
@@ -155,9 +156,10 @@ body {
           margin-left: .2rem;
           width: 0;
           height: 0;
-          border-left: .4rem solid transparent;
-          border-right: .4rem solid transparent;
-          border-bottom: .4rem solid #D91F4E;
+          border-left: .25rem solid transparent;
+          border-right: .25rem solid transparent;
+          border-bottom: .25rem solid #D91F4E;
+          margin-bottom: .17rem;
         }
       }
       &.selected{
@@ -169,9 +171,10 @@ body {
           margin-left: .2rem;
           width: 0;
           height: 0;
-          border-left: .4rem solid transparent;
-          border-right: .4rem solid transparent;
-          border-top: .4rem solid #D91F4E;
+          border-left: .25rem solid transparent;
+          border-right: .25rem solid transparent;
+          border-top: .25rem solid #D91F4E;
+          margin-bottom: .17rem;
         }
       }
     }
