@@ -18,6 +18,45 @@
                 <div class="center">搜索结果</div>
                 <div class="home">个人中心</div>
             </header>
+            <div class="filter-box-space fixed-space" style="position: absolute;top: 2rem;display: none;z-index: 104">
+                <div class="filter-box">
+                    <div class="condition hide" data-type="pkg-box">套餐筛选</div>
+                    <span></span>
+                    <div class="condition hide" data-type="tourism-type-box">行程类型</div>
+                    <span></span>
+                    <div class="condition hide" data-type="tourism-days-box">行程天数</div>
+                    <div class="pkg-box filter-content">
+                        <h5>选择你想要的巴士旅行套餐（可多选）</h5>
+                        <ul>
+                            <li class="bus" data-type="bus">纯巴士</li>
+                            <li class="entertainment" data-type="entertainment">娱乐体验</li>
+                            <li class="scenic" data-type="scenic">景区门票</li>
+                            <li class="catering" data-type="catering">特色餐饮</li>
+                            <li class="hotel" data-type="hotel">酒店住宿</li>
+                        </ul>
+                        <div class="btn-gp">
+                            <div class="clear-btn">清空</div>
+                            <div class="confirm-btn">确认</div>
+                        </div>
+                    </div>
+                    <div class="tourism-type-box filter-content">
+                        <ul>
+                            <li class="all">全部行程</li>
+                            <li class="single">单程</li>
+                            <li class="round">往返</li>
+                        </ul>
+                    </div>
+                    <div class="tourism-days-box filter-content">
+                        <ul>
+                            <li class="all">全部天数</li>
+                            <li class="one">一日行</li>
+                            <li class="two">两日行</li>
+                            <li class="three">三日行</li>
+                            <li class="four">四日及以上</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="filter-cover"></div>
             <div class="page-content">
                 <div class="search-wrapper">
@@ -36,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="filter-box-space">
+                <div class="filter-box-space inline-space">
                     <div class="filter-box">
                         <div class="condition hide" data-type="pkg-box">套餐筛选</div>
                         <span></span>
@@ -453,12 +492,6 @@
                         docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
                     };
             recalc();
-
-            var onScroll = function() {
-                document.querySelector('.page-content').scrollTop >= origOffsetY ?
-                        filterBox.querySelector('.filter-box').classList.add('sticky') :
-                        filterBox.querySelector('.filter-box').classList.remove('sticky');
-            };
             doc.getElementsByClassName('page-group')[0].style.visibility = 'visible';
             if (!doc.addEventListener) return;
             win.addEventListener(resizeEvt, recalc, false);
@@ -468,17 +501,11 @@
 
         $(document).ready(function() {
             $('.page-content').scroll(function() {
-                var origOffsetY = document.querySelector('.filter-box-space').offsetTop;
-                if(document.querySelector('.page-content').scrollTop <= origOffsetY ) {
-                    if(document.querySelector('.filter-box').style.position != 'relative') {
-                        document.querySelector('.filter-box').style.position = 'relative';
-                        document.querySelector('.filter-box').style.top = '0';
-                    }
+                var origOffsetY = document.querySelector('.inline-space').offsetTop;
+                if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
+                    $('.fixed-space').show();
                 } else {
-                    if(document.querySelector('.filter-box').style.position != 'fixed') {
-                        document.querySelector('.filter-box').style.position = 'fixed';
-                        document.querySelector('.filter-box').style.top = '2rem';
-                    }
+                    $('.fixed-space').hide();
                 }
             });
 
@@ -524,11 +551,26 @@
                     $this.addClass('pkg-select');
                 }
             });
+            $('.clear-btn').click(function() {
+                $('.pkg-box li.pkg-select').removeClass('pkg-select');
+            });
             $('.confirm-btn').click(function() {
-                $('.pkg-box li.pkg-select').forEach(function(item) {
+                var $pkgSelecteds = $('.pkg-box li.pkg-select');
+
+                if($pkgSelecteds.length == 0) {
+                    $('.filter-box .condition').forEach(function(item) {
+                        $(item).attr('data-type') == 'pkg-box' && (function() {
+                            $(item).removeClass('choose').addClass('hide');
+                            $('.pkg-box').hide();
+                            $('.filter-cover').hide();
+                        })();
+                    });
+                } else {
+                    $pkgSelecteds.forEach(function(item) {
 
 //                    $(item).attr('data-type')
-                });
+                    });
+                }
             });
             // 筛选行程类型
             $('.tourism-type-box li').click(function() {
