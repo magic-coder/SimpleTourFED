@@ -18,263 +18,266 @@
                 <div class="center">搜索结果</div>
                 <div class="home">个人中心</div>
             </header>
-            <div class="filter-box-space fixed-space" style="position: absolute;top: 2rem;display: none;z-index: 104">
-                <div class="filter-box">
-                    <div class="condition hide" data-type="pkg-box">套餐筛选</div>
-                    <span></span>
-                    <div class="condition hide" data-type="tourism-type-box">行程类型</div>
-                    <span></span>
-                    <div class="condition hide" data-type="tourism-days-box">行程天数</div>
-                    <div class="pkg-box filter-content">
-                        <h5>选择你想要的巴士旅行套餐（可多选）</h5>
-                        <ul>
-                            <li class="bus" data-type="bus">纯巴士</li>
-                            <li class="entertainment" data-type="entertainment">娱乐体验</li>
-                            <li class="scenic" data-type="scenic">景区门票</li>
-                            <li class="catering" data-type="catering">特色餐饮</li>
-                            <li class="hotel" data-type="hotel">酒店住宿</li>
-                        </ul>
-                        <div class="btn-gp">
-                            <div class="clear-btn">清空</div>
-                            <div class="confirm-btn">确认</div>
-                        </div>
-                    </div>
-                    <div class="tourism-type-box filter-content">
-                        <ul>
-                            <li class="all">全部行程</li>
-                            <li class="single">单程</li>
-                            <li class="round">往返</li>
-                        </ul>
-                    </div>
-                    <div class="tourism-days-box filter-content">
-                        <ul>
-                            <li class="all">全部天数</li>
-                            <li class="one">一日行</li>
-                            <li class="two">两日行</li>
-                            <li class="three">三日行</li>
-                            <li class="four">四日及以上</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="filter-cover"></div>
+            <!--<div class="filter-box-space fixed-space" style="position: absolute;top: 2rem;display: none;z-index: 104">-->
+                <!--<div class="filter-box">-->
+                    <!--<div class="condition hide" data-type="pkg-box">套餐筛选</div>-->
+                    <!--<span></span>-->
+                    <!--<div class="condition hide" data-type="tourism-type-box">行程类型</div>-->
+                    <!--<span></span>-->
+                    <!--<div class="condition hide" data-type="tourism-days-box">行程天数</div>-->
+                    <!--<div class="pkg-box filter-content">-->
+                        <!--<h5>选择你想要的巴士旅行套餐（可多选）</h5>-->
+                        <!--<ul>-->
+                            <!--<li class="bus" data-type="bus">纯巴士</li>-->
+                            <!--<li class="entertainment" data-type="entertainment">娱乐体验</li>-->
+                            <!--<li class="scenic" data-type="scenic">景区门票</li>-->
+                            <!--<li class="catering" data-type="catering">特色餐饮</li>-->
+                            <!--<li class="hotel" data-type="hotel">酒店住宿</li>-->
+                        <!--</ul>-->
+                        <!--<div class="btn-gp">-->
+                            <!--<div class="clear-btn">清空</div>-->
+                            <!--<div class="confirm-btn">确认</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="tourism-type-box filter-content">-->
+                        <!--<ul>-->
+                            <!--<li class="all">全部行程</li>-->
+                            <!--<li class="single">单程</li>-->
+                            <!--<li class="round">往返</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="tourism-days-box filter-content">-->
+                        <!--<ul>-->
+                            <!--<li class="all">全部天数</li>-->
+                            <!--<li class="one">一日行</li>-->
+                            <!--<li class="two">两日行</li>-->
+                            <!--<li class="three">三日行</li>-->
+                            <!--<li class="four">四日及以上</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="page-content">
-                <div class="search-wrapper">
-                    <div class="search-input">
-                        <div class="cutline"></div>
-                        <div class="line"></div>
-                        <div class="start turnTo" href="#tab-depart">
-                            <div class="dot"></div>
-                            <div class="type">出发地</div>
-                            <div class="name">成都</div>
-                        </div>
-                        <div class="destination turnTo" href="#tab-arrive">
-                            <div class="dot"></div>
-                            <div class="type">目的地</div>
-                            <div class="name selected">重启</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-box-space inline-space">
-                    <div class="filter-box">
-                        <div class="condition hide" data-type="pkg-box">套餐筛选</div>
-                        <span></span>
-                        <div class="condition hide" data-type="tourism-type-box">行程类型</div>
-                        <span></span>
-                        <div class="condition hide" data-type="tourism-days-box">行程天数</div>
-                        <div class="pkg-box filter-content">
-                            <h5>选择你想要的巴士旅行套餐（可多选）</h5>
-                            <ul>
-                                <li class="bus" data-type="bus">纯巴士</li>
-                                <li class="entertainment" data-type="entertainment">娱乐体验</li>
-                                <li class="scenic" data-type="scenic">景区门票</li>
-                                <li class="catering" data-type="catering">特色餐饮</li>
-                                <li class="hotel" data-type="hotel">酒店住宿</li>
-                            </ul>
-                            <div class="btn-gp">
-                                <div class="clear-btn">清空</div>
-                                <div class="confirm-btn">确认</div>
+                <div style="position: relative;">
+                    <div class="filter-cover"></div>
+                    <div class="search-wrapper">
+                        <div class="search-input">
+                            <div class="cutline"></div>
+                            <div class="line"></div>
+                            <div class="start turnTo" href="#tab-depart">
+                                <div class="dot"></div>
+                                <div class="type">出发地</div>
+                                <div class="name">成都</div>
+                            </div>
+                            <div class="destination turnTo" href="#tab-arrive">
+                                <div class="dot"></div>
+                                <div class="type">目的地</div>
+                                <div class="name selected">重启</div>
                             </div>
                         </div>
-                        <div class="tourism-type-box filter-content">
-                            <ul>
-                                <li class="all">全部行程</li>
-                                <li class="single">单程</li>
-                                <li class="round">往返</li>
-                            </ul>
-                        </div>
-                        <div class="tourism-days-box filter-content">
-                            <ul>
-                                <li class="all">全部天数</li>
-                                <li class="one">一日行</li>
-                                <li class="two">两日行</li>
-                                <li class="three">三日行</li>
-                                <li class="four">四日及以上</li>
-                            </ul>
+                    </div>
+                    <div class="filter-box-space inline-space">
+                        <div class="filter-box">
+                            <div class="condition hide" data-type="pkg-box">套餐筛选</div>
+                            <span></span>
+                            <div class="condition hide" data-type="tourism-type-box">行程类型</div>
+                            <span></span>
+                            <div class="condition hide" data-type="tourism-days-box">行程天数</div>
+                            <div class="pkg-box filter-content">
+                                <h5>选择你想要的巴士旅行套餐（可多选）</h5>
+                                <ul>
+                                    <li class="bus" data-type="bus">纯巴士</li>
+                                    <li class="entertainment" data-type="entertainment">娱乐体验</li>
+                                    <li class="scenic" data-type="scenic">景区门票</li>
+                                    <li class="catering" data-type="catering">特色餐饮</li>
+                                    <li class="hotel" data-type="hotel">酒店住宿</li>
+                                </ul>
+                                <div class="btn-gp">
+                                    <div class="clear-btn">清空</div>
+                                    <div class="confirm-btn">确认</div>
+                                </div>
+                            </div>
+                            <div class="tourism-type-box filter-content">
+                                <ul>
+                                    <li class="all">全部行程</li>
+                                    <li class="single">单程</li>
+                                    <li class="round">往返</li>
+                                </ul>
+                            </div>
+                            <div class="tourism-days-box filter-content">
+                                <ul>
+                                    <li class="all">全部天数</li>
+                                    <li class="one">一日行</li>
+                                    <li class="two">两日行</li>
+                                    <li class="three">三日行</li>
+                                    <li class="four">四日及以上</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="font-size: 0.5rem;line-height: 1rem;padding-left: 0.5rem;margin-bottom: -0.5rem">共搜索到1个简途巴士产品供您选择</div>
-                <div class="presell-wrap">
-                    <div class="presell red" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
-                        <div class="presell-header">安师大</div>
-                        <div class="presell-content">阿萨德的收费的</div>
-                        <div class="presell-footer">
-                            <div class="left">已售卖&nbsp;&nbsp;<span class="yellownum">123</span>份</div>
-                            <div class="right">
-                                <span class="oldPrice">市场价&nbsp;¥120</span>
+                    <div style="font-size: 0.5rem;line-height: 1rem;padding-left: 0.5rem;margin-bottom: -0.5rem">共搜索到1个简途巴士产品供您选择</div>
+                    <div class="presell-wrap">
+                        <div class="presell red" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
+                            <div class="presell-header">安师大</div>
+                            <div class="presell-content">阿萨德的收费的</div>
+                            <div class="presell-footer">
+                                <div class="left">已售卖&nbsp;&nbsp;<span class="yellownum">123</span>份</div>
+                                <div class="right">
+                                    <span class="oldPrice">市场价&nbsp;¥120</span>
                         <span class="nowPrice">
                             ¥<span class="rednum">120</span>
                         </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--巴士车位-->
+                    <div class="bus-group">
+                        <div data-href="" class="bus-item">
+                            <div class="left">
+                                <div class="start-time">
+                                    发车时间：2134-12-12
+                                </div>
+                                <div class="destinations">
+                                    <div class="destination">
+                                        成都
+                                    </div>
+                                    <div class="destination-line"></div>
+                                    <div class="destination">
+                                        谁的
+                                    </div>
+                                    <div class="destination-line"></div>
+                                    <div class="destination">
+                                        安师大
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <div class="day">
+                                        行程1天
+                                    </div>
+                                    <div class="status">
+                                        单程
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center"></div>
+                            <div class="right">
+                                9999元
+                            </div>
+                        </div>
+                        <div data-href="" class="bus-item">
+                            <div class="left">
+                                <div class="start-time">
+                                    发车时间：2134-12-12
+                                </div>
+                                <div class="destinations">
+                                    <div class="destination">
+                                        成都
+                                    </div>
+                                    <div class="destination-line"></div>
+                                    <div class="destination">
+                                        谁的
+                                    </div>
+                                    <div class="destination-line"></div>
+                                    <div class="destination">
+                                        安师大
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <div class="day">
+                                        行程1天
+                                    </div>
+                                    <div class="status round">
+                                        往返
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center"></div>
+                            <div class="right">
+                                9999元
+                            </div>
+                        </div>
+                    </div>
+                    <!--巴士套餐-->
+                    <div class="package-group">
+                        <div data-href = "" class="package-item">
+                            <div class="img-box">
+                                <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
+                                <div class="tips-group">
+                                    <div class="tips ticket">车</div>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <div class="describe-title">
+                                    <div class="name">qwerewr</div>
+                                    <div class="price">1234元</div>
+                                </div>
+                                <div class="detail">
+                                    阿萨德股份大股东方
+                                </div>
+                            </div>
+                        </div>
+                        <div data-href = "" class="package-item">
+                            <div class="img-box">
+                                <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
+                                <div class="tips-group">
+                                    <div class="tips ticket">车</div>
+                                    <div class="tips hotel">住</div>
+                                    <div class="tips catering">餐</div>
+                                    <div class="tips entertainment">娱</div>
+                                    <div class="tips scenic">景</div>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <div class="describe-title">
+                                    <div class="name">qwerewr</div>
+                                    <div class="price">1234元</div>
+                                </div>
+                                <div class="detail">
+                                    阿萨德股份大股东方
+                                </div>
+                            </div>
+                        </div>
+                        <div data-href = "" class="package-item">
+                            <div class="img-box">
+                                <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
+                                <div class="tips-group">
+                                    <div class="tips ticket">车</div>
+                                    <div class="tips hotel">住</div>
+                                    <div class="tips catering">餐</div>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <div class="describe-title">
+                                    <div class="name">qwerewr</div>
+                                    <div class="price">1234元</div>
+                                </div>
+                                <div class="detail">
+                                    阿萨德股份大股东方
+                                </div>
+                            </div>
+                        </div>
+                        <div data-href = "" class="package-item">
+                            <div class="img-box">
+                                <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
+                                <div class="tips-group">
+                                    <div class="tips ticket">车</div>
+                                    <div class="tips scenic">景</div>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <div class="describe-title">
+                                    <div class="name">qwerewr</div>
+                                    <div class="price">1234元</div>
+                                </div>
+                                <div class="detail">
+                                    阿萨德股份大股东方
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--巴士车位-->
-                <div class="bus-group">
-                    <div data-href="" class="bus-item">
-                        <div class="left">
-                            <div class="start-time">
-                                发车时间：2134-12-12
-                            </div>
-                            <div class="destinations">
-                                <div class="destination">
-                                    成都
-                                </div>
-                                <div class="destination-line"></div>
-                                <div class="destination">
-                                    谁的
-                                </div>
-                                <div class="destination-line"></div>
-                                <div class="destination">
-                                    安师大
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <div class="day">
-                                    行程1天
-                                </div>
-                                <div class="status">
-                                    单程
-                                </div>
-                            </div>
-                        </div>
-                        <div class="center"></div>
-                        <div class="right">
-                            9999元
-                        </div>
-                    </div>
-                    <div data-href="" class="bus-item">
-                        <div class="left">
-                            <div class="start-time">
-                                发车时间：2134-12-12
-                            </div>
-                            <div class="destinations">
-                                <div class="destination">
-                                    成都
-                                </div>
-                                <div class="destination-line"></div>
-                                <div class="destination">
-                                    谁的
-                                </div>
-                                <div class="destination-line"></div>
-                                <div class="destination">
-                                    安师大
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <div class="day">
-                                    行程1天
-                                </div>
-                                <div class="status round">
-                                    往返
-                                </div>
-                            </div>
-                        </div>
-                        <div class="center"></div>
-                        <div class="right">
-                            9999元
-                        </div>
-                    </div>
-                </div>
-                <!--巴士套餐-->
-                <div class="package-group">
-                    <div data-href = "" class="package-item">
-                        <div class="img-box">
-                            <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
-                            <div class="tips-group">
-                                <div class="tips ticket">车</div>
-                            </div>
-                        </div>
-                        <div class="describe">
-                            <div class="describe-title">
-                                <div class="name">qwerewr</div>
-                                <div class="price">1234元</div>
-                            </div>
-                            <div class="detail">
-                                阿萨德股份大股东方
-                            </div>
-                        </div>
-                    </div>
-                    <div data-href = "" class="package-item">
-                        <div class="img-box">
-                            <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
-                            <div class="tips-group">
-                                <div class="tips ticket">车</div>
-                                <div class="tips hotel">住</div>
-                                <div class="tips catering">餐</div>
-                                <div class="tips entertainment">娱</div>
-                                <div class="tips scenic">景</div>
-                            </div>
-                        </div>
-                        <div class="describe">
-                            <div class="describe-title">
-                                <div class="name">qwerewr</div>
-                                <div class="price">1234元</div>
-                            </div>
-                            <div class="detail">
-                                阿萨德股份大股东方
-                            </div>
-                        </div>
-                    </div>
-                    <div data-href = "" class="package-item">
-                        <div class="img-box">
-                            <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
-                            <div class="tips-group">
-                                <div class="tips ticket">车</div>
-                                <div class="tips hotel">住</div>
-                                <div class="tips catering">餐</div>
-                            </div>
-                        </div>
-                        <div class="describe">
-                            <div class="describe-title">
-                                <div class="name">qwerewr</div>
-                                <div class="price">1234元</div>
-                            </div>
-                            <div class="detail">
-                                阿萨德股份大股东方
-                            </div>
-                        </div>
-                    </div>
-                    <div data-href = "" class="package-item">
-                        <div class="img-box">
-                            <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
-                            <div class="tips-group">
-                                <div class="tips ticket">车</div>
-                                <div class="tips scenic">景</div>
-                            </div>
-                        </div>
-                        <div class="describe">
-                            <div class="describe-title">
-                                <div class="name">qwerewr</div>
-                                <div class="price">1234元</div>
-                            </div>
-                            <div class="detail">
-                                阿萨德股份大股东方
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="page" id="tab-depart">
@@ -500,15 +503,20 @@
         })(document, window);
 
         $(document).ready(function() {
-            $('.page-content').scroll(function() {
-                var origOffsetY = document.querySelector('.inline-space').offsetTop;
-                if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
-                    $('.fixed-space').show();
-                } else {
-                    $('.fixed-space').hide();
-                }
-            });
-
+            if(window.navigator.userAgent.indexOf('Mac OS X') != '-1'){
+                $('.filter-box-space').addClass('sticky');
+            }else{
+                $('.page-content').scroll(function() {
+                    var origOffsetY = document.querySelector('.inline-space').offsetTop;
+                    if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
+//                    $('.fixed-space').show();
+                        $('.filter-box').css({'position':'fixed',top:'2rem'})
+                    } else {
+//                    $('.fixed-space').hide();
+                        $('.filter-box').css({'position':'relative',top:'0'})
+                    }
+                });
+            }
             $('.page-group').pageInit({
                 router : '.turnTo' ,//router的className
                 routerFun : function(){}
