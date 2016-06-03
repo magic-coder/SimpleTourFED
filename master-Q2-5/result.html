@@ -277,7 +277,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="page" id="tab-depart">
@@ -563,22 +562,18 @@
                 $('.pkg-box li.pkg-select').removeClass('pkg-select');
             });
             $('.confirm-btn').click(function() {
-                var $pkgSelecteds = $('.pkg-box li.pkg-select');
-
-                if($pkgSelecteds.length == 0) {
-                    $('.filter-box .condition').forEach(function(item) {
-                        $(item).attr('data-type') == 'pkg-box' && (function() {
+                filterTourism();
+                $('.filter-box .condition').forEach(function(item) {
+                    $(item).attr('data-type') == 'pkg-box' && (function() {
+                        if($('.pkg-box li.pkg-select').length == 0) {
                             $(item).removeClass('choose').addClass('hide');
-                            $('.pkg-box').hide();
-                            $('.filter-cover').hide();
-                        })();
-                    });
-                } else {
-                    $pkgSelecteds.forEach(function(item) {
-
-//                    $(item).attr('data-type')
-                    });
-                }
+                        } else {
+                            $(item).removeClass('choose').addClass('hide selected');
+                        }
+                        $('.pkg-box').hide();
+                        $('.filter-cover').hide();
+                    })();
+                });
             });
             // 筛选行程类型
             $('.tourism-type-box li').click(function() {
@@ -616,6 +611,17 @@
                     })();
                 });
             });
+
+            // 筛选函数
+            function filterTourism() {
+                var tourismType = $('.tourism-type-box li.type-select').attr('data-value'),
+                        tourismDays = $('.tourism-days-box li.days-select').attr('data-value'),
+                        tourismPkg = [];
+                $('.pkg-box li.pkg-select').forEach(function(item) {
+                    tourismPkg.push($(item).attr('data-type'));
+                });
+
+            }
         });
     </script>
 </body>
