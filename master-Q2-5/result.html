@@ -98,18 +98,18 @@
                         </div>
                         <div class="tourism-type-box filter-content">
                             <ul>
-                                <li class="all">全部行程</li>
-                                <li class="single">单程</li>
-                                <li class="round">往返</li>
+                                <li class="all" data-value="all">全部行程</li>
+                                <li class="single" data-value="single">单程</li>
+                                <li class="round" data-value="round">往返</li>
                             </ul>
                         </div>
                         <div class="tourism-days-box filter-content">
                             <ul>
-                                <li class="all">全部天数</li>
-                                <li class="one">一日行</li>
-                                <li class="two">两日行</li>
-                                <li class="three">三日行</li>
-                                <li class="four">四日及以上</li>
+                                <li class="all" data-value="all">全部天数</li>
+                                <li class="one" data-value="one">一日行</li>
+                                <li class="two" data-value="two">两日行</li>
+                                <li class="three" data-value="three">三日行</li>
+                                <li class="four" data-value="four">四日及以上</li>
                             </ul>
                         </div>
                     </div>
@@ -204,6 +204,7 @@
                             <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                             <div class="tips-group">
                                 <div class="tips ticket">车</div>
+                                <div class="tips catering">餐</div>
                             </div>
                         </div>
                         <div class="describe">
@@ -555,22 +556,18 @@
                 $('.pkg-box li.pkg-select').removeClass('pkg-select');
             });
             $('.confirm-btn').click(function() {
-                var $pkgSelecteds = $('.pkg-box li.pkg-select');
-
-                if($pkgSelecteds.length == 0) {
-                    $('.filter-box .condition').forEach(function(item) {
-                        $(item).attr('data-type') == 'pkg-box' && (function() {
+                filterTourism();
+                $('.filter-box .condition').forEach(function(item) {
+                    $(item).attr('data-type') == 'pkg-box' && (function() {
+                        if($('.pkg-box li.pkg-select').length == 0) {
                             $(item).removeClass('choose').addClass('hide');
-                            $('.pkg-box').hide();
-                            $('.filter-cover').hide();
-                        })();
-                    });
-                } else {
-                    $pkgSelecteds.forEach(function(item) {
-
-//                    $(item).attr('data-type')
-                    });
-                }
+                        } else {
+                            $(item).removeClass('choose').addClass('hide selected');
+                        }
+                        $('.pkg-box').hide();
+                        $('.filter-cover').hide();
+                    })();
+                });
             });
             // 筛选行程类型
             $('.tourism-type-box li').click(function() {
@@ -608,6 +605,17 @@
                     })();
                 });
             });
+
+            // 筛选函数
+            function filterTourism() {
+                var tourismType = $('.tourism-type-box li.type-select').attr('data-value'),
+                        tourismDays = $('.tourism-days-box li.days-select').attr('data-value'),
+                        tourismPkg = [];
+                $('.pkg-box li.pkg-select').forEach(function(item) {
+                    tourismPkg.push($(item).attr('data-type'));
+                });
+
+            }
         });
     </script>
 </body>
