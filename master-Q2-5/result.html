@@ -67,10 +67,10 @@
                         <div class="tourism-days-box filter-content">
                             <ul>
                                 <li class="all">全部天数</li>
-                                <li class="single">一日</li>
-                                <li class="round">两日</li>
-                                <li class="round">三日</li>
-                                <li class="round">四日及以上</li>
+                                <li class="one">一日行</li>
+                                <li class="two">两日行</li>
+                                <li class="three">三日行</li>
+                                <li class="four">四日及以上</li>
                             </ul>
                         </div>
                     </div>
@@ -502,8 +502,9 @@
                     $this.addClass('hide');
                 } else {
                     $('.condition').removeClass('choose').addClass('hide');
-                    $this.addClass('choose');
                     $this.removeClass('hide');
+                    $this.addClass('choose');
+                    $this.hasClass('selected') && $this.removeClass('selected');
                     var type = $(this).attr('data-type');
                     $('.filter-content').hide();
                     $('.filter-cover').show();
@@ -526,6 +527,43 @@
             $('.confirm-btn').click(function() {
                 $('.pkg-box li.pkg-select').forEach(function(item) {
 
+//                    $(item).attr('data-type')
+                });
+            });
+            // 筛选行程类型
+            $('.tourism-type-box li').click(function() {
+                var $this = $(this);
+                $('.tourism-type-box li').removeClass('type-select');
+                $this.addClass('type-select');
+                $('.filter-box .condition').forEach(function(item) {
+                    $(item).attr('data-type') == 'tourism-type-box' && (function() {
+                        if($this.hasClass('all')) {
+                            $(item).removeClass('choose').removeClass('selected').addClass('hide').text('行程类型');
+                        } else {
+                            $(item).removeClass('choose').addClass('hide selected').text($this.text());
+                        }
+
+                        $('.tourism-type-box').hide();
+                        $('.filter-cover').hide();
+                    })();
+                });
+            });
+            // 筛选行程天数
+            $('.tourism-days-box li').click(function() {
+                var $this = $(this);
+                $('.tourism-days-box li').removeClass('days-select');
+                $this.addClass('days-select');
+
+                $('.filter-box .condition').forEach(function(item) {
+                    $(item).attr('data-type') == 'tourism-days-box' && (function() {
+                        if($this.hasClass('all')) {
+                            $(item).removeClass('choose').removeClass('choose').addClass('hide').text('行程天数');
+                        } else {
+                            $(item).removeClass('choose').addClass('hide selected').text($this.text());
+                        }
+                        $('.tourism-days-box').hide();
+                        $('.filter-cover').hide();
+                    })();
                 });
             });
         });
