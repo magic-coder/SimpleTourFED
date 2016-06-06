@@ -197,21 +197,23 @@ body {
         font-size: .6rem;
       }
       ul {
-        margin-top:rem(20px);
+        margin-top:rem(16px);
         font-size: 0;
         li{
+          position: relative;
           list-style: none;
           float: left;
-          width:rem(96px);
-          height:rem(40px);
-          line-height:rem(40px);
-          margin-right: rem(6px);
-          text-align: center;
-          margin-bottom: rem(10px);
+          width: 4.8rem;
+          height: 1.8rem;
+          line-height: 1.8rem;
+          margin-right: .3rem;
+          text-align: left;
+          margin-bottom: .3rem;
           border: 1px solid #D8D8D8;
           border-radius: 3px;
-          font-size: .7rem;
+          font-size: .6rem;
           color: #989898;
+          text-indent: 1.3rem;
           &:nth-child(3) {
             margin-right: 0;
           }
@@ -221,6 +223,9 @@ body {
             border: 1px solid #F47474;
           }
           &:before {
+            position: absolute;
+            top: .5rem;
+            left: .3rem;
             margin-right: rem(6px);
             content: '';
             display: inline-block;
@@ -272,7 +277,7 @@ body {
         }
       }
       .btn-gp {
-        margin-top: rem(30px);
+        margin-top: rem(10px);
         div {
           float: left;
           width: rem(140px);

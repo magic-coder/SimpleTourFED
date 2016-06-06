@@ -19,7 +19,7 @@
                 <div class="home">个人中心</div>
             </header>
             <div class="page-content">
-                <div style="position: relative;">
+                <div style="position: relative;min-height: 100%;">
                     <div class="filter-cover"></div>
                     <div class="search-wrapper">
                         <div class="search-input">
@@ -45,13 +45,12 @@
                             <span></span>
                             <div class="condition hide" data-type="tourism-days-box">行程天数</div>
                             <div class="pkg-box filter-content">
-                                <h5>选择你想要的巴士旅行套餐（可多选）</h5>
+                                <h5>选择你想要的旅行套餐: 巴士+ （可多选）</h5>
                                 <ul>
-                                    <li class="bus" data-type="bus">巴士</li>
-                                    <li class="entertainment" data-type="entertainment">巴士+娱乐</li>
-                                    <li class="scenic" data-type="scenic">巴士+门票</li>
-                                    <li class="catering" data-type="catering">巴士+餐饮</li>
-                                    <li class="hotel" data-type="hotel">巴士+住宿</li>
+                                    <li class="entertainment" data-type="entertainment">含娱乐</li>
+                                    <li class="scenic" data-type="scenic">含门票</li>
+                                    <li class="catering" data-type="catering">含餐饮</li>
+                                    <li class="hotel" data-type="hotel">含住宿</li>
                                 </ul>
                                 <div class="btn-gp">
                                     <div class="clear-btn">清空</div>
@@ -78,7 +77,7 @@
                     </div>
                     <div style="font-size: 0.5rem;line-height: 1rem;padding-left: 0.5rem;margin-bottom: -0.5rem">共搜索到1个简途巴士产品供您选择</div>
                     <div class="presell-wrap">
-                        <div class="presell red" data-days="two" data-type="single" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
+                        <div class="presell red bus" data-days="two" data-type="single" data-href="/mobile/gateway/wechat/presell/batch/${presellTourismView.value.id}?statisticSearchPresell=${presellTourismView_index+1}">
                             <div class="presell-header">安师大</div>
                             <div class="presell-content">阿萨德的收费的</div>
                             <div class="presell-footer">
@@ -94,7 +93,7 @@
                     </div>
                     <!--巴士车位-->
                     <div class="bus-group">
-                        <div data-href="" data-days="one" data-type="single"  class="bus-item">
+                        <div data-href="" data-days="one" data-type="single"  class="bus-item bus">
                             <div class="left">
                                 <div class="start-time">
                                     发车时间：2134-12-12
@@ -126,7 +125,7 @@
                                 9999元
                             </div>
                         </div>
-                        <div data-href="" data-days="two" data-type="round"  class="bus-item">
+                        <div data-href="" data-days="two" data-type="round"  class="bus-item bus">
                             <div class="left">
                                 <div class="start-time">
                                     发车时间：2134-12-12
@@ -161,7 +160,7 @@
                     </div>
                     <!--巴士套餐-->
                     <div class="package-group">
-                        <div data-href = "" data-days="one" data-type="single"  class="package-item hotel">
+                        <div data-href = "" data-days="one" data-type="single"  class="package-item bus hotel">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -179,7 +178,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" data-days="two" data-type="round"  class="package-item hotel catering entertainment scenic">
+                        <div data-href = "" data-days="two" data-type="round"  class="package-item bus hotel catering entertainment scenic">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -200,7 +199,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" data-days="three" data-type="round"  class="package-item hotel catering">
+                        <div data-href = "" data-days="three" data-type="round"  class="package-item bus hotel catering">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -219,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-href = "" data-days="four" data-type="single"  class="package-item scenic">
+                        <div data-href = "" data-days="four" data-type="single"  class="package-item bus scenic">
                             <div class="img-box">
                                 <img src="http://images.simpletour.com/simpletour/images/wechat_tourism/b2e4ce3de537fb248abdf932c0628418.jpg!16">
                                 <div class="tips-group">
@@ -604,6 +603,38 @@
                     }
                 });
             }
+            // 跳转事件
+            var startObj = {x:0,y:0};
+            var endObj = {x:0,y:0};
+            document.addEventListener('touchstart',function(event){
+                startObj.x = event.touches[0].pageX;
+                startObj.y = event.touches[0].pageY;
+                endObj.x = 0;
+                endObj.y = 0;
+            })
+            document.addEventListener('touchmove',function(event){
+                endObj.x = event.touches[0].pageX - startObj.x;
+                endObj.y = event.touches[0].pageY - startObj.y;
+            })
+            $('.bus-item').tap(function(e) {
+                e.preventDefault();
+                if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
+                    location.href = $(this).attr('data-href');
+                }
+            })
+            $('.package-item').tap(function(e) {
+                e.preventDefault();
+                if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
+                    location.href = $(this).attr('data-href');
+                };
+            })
+            $('.presell').tap(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                if($(this).attr('data-href')) {
+                    location.href =  $(this).attr('data-href');
+                }
+            });
         });
     </script>
 </body>
