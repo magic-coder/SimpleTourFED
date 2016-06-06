@@ -463,6 +463,9 @@
         })(document, window);
 
         $(document).ready(function() {
+            /* ============================================
+             这里判断如果是ios则使用sticky布局
+             ============================================== */
             if(window.navigator.userAgent.indexOf('Mac OS X') != '-1'){
                 $('.filter-box-space').addClass('sticky');
             }else{
@@ -506,11 +509,9 @@
                     $('.'+type).toggle('slow');
                 }
             });
-//            $('.filter-cover').click(function(e) {
-//                $('.filter-cover').hide();
-//                $('.filter-content').hide();
-//            });
-            // 点击pkg-box
+            /* ============================================
+             ************   pkg-box筛选框中的操作   ************
+             ============================================== */
             $('.pkg-box li').click(function(e) {
                 var $this = $(this);
                 if($this.hasClass('pkg-select')) {
@@ -536,7 +537,9 @@
                 });
                 filterTourism();
             });
-            // 筛选行程类型
+            /* ============================================
+             ************   筛选行程类型   ************
+             ============================================== */
             $('.tourism-type-box li').click(function() {
                 var $this = $(this);
                 $('.tourism-type-box li').removeClass('type-select');
@@ -555,7 +558,9 @@
                 });
                 filterTourism();
             });
-            // 筛选行程天数
+            /* ============================================
+             ************   筛选行程天数   ************
+             ============================================== */
             $('.tourism-days-box li').click(function() {
                 var $this = $(this);
                 $('.tourism-days-box li').removeClass('days-select');
@@ -574,8 +579,9 @@
                 });
                 filterTourism();
             });
-
-            // 筛选函数
+            /* ============================================
+             ************   筛选函数   ************
+             ============================================== */
             function filterTourism() {
                 $('.presell,.bus-item,.package-item').show();
                 var tourismType = $('.tourism-type-box li.type-select').attr('data-value') || 'all',
@@ -603,7 +609,9 @@
                     }
                 });
             }
-            // 跳转事件
+            /* ============================================
+             ************   跳转事件   ************
+             ============================================== */
             var startObj = {x:0,y:0};
             var endObj = {x:0,y:0};
             document.addEventListener('touchstart',function(event){
