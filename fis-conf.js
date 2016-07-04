@@ -25,7 +25,7 @@ fis.match('**.scss', {
     })
 })
 fis.match('js/*.js', {
-    useHash: true,
+    // useHash: true,
     // optimizer: fis.plugin('uglify-js'),
     release:'/static/$0'
 });

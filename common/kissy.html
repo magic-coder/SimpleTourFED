@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="/common/js/mini-min.js"></script>
+</head>
+<body>
+    <div class="content">1</div>
+    <div id="content">2</div>
+    <button>3</button>
+    <a href="http://www.baidu.com">123</a>
+    <script>
+        KISSY.ready(function (S) {
+            KISSY.use('/static/common/js/kAlert,/static/common/js/Kslider',function (S,alert,slider) {
+                var $ = S.all;
+                $('#content').html('#2');
+                $('.content').html('.2');
+                $('button').on('click',function(e){
+                    console.log(1);
+                });
+                $('a').on('click',function(e){
+                    e.preventDefault();
+                    console.log($(this).attr('href'));
+                });
+                $('<div>123123<div>').appendTo('body');
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-@import "../common/css/base";
+@import "/common/css/base";
 
 @mixin border-radius($radius: 4px) {
   -webkit-border-radius: $radius;
