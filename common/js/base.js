@@ -21,10 +21,9 @@
         }
         $(this).click(function(){
             $('<div class="sidebar-backdrop"></div>').appendTo('body');
-            setTimeout(function(){
-                $('.sidebar-backdrop').addClass('in');
-                $('.sidebar').addClass('sidebar-in sidebar-transition');
-            },10);
+            $('.sidebar-backdrop')[0].clientLeft;
+            $('.sidebar-backdrop').addClass('in');
+            $('.sidebar').addClass('sidebar-in sidebar-transition');
             $('.sidebar-backdrop').click(function(){
                 $('.sidebar-backdrop').removeClass("in");
                 $('.sidebar').removeClass('sidebar-in');

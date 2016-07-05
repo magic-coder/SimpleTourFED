@@ -233,6 +233,7 @@
         </div>
     </body>
     <script src="/common/js/mini-min.js"></script>
+    <script src="/common/js/kBase.js"></script>
     <!--<script type="text/javascript" src="/common/js/zepto.min.js"></script>-->
     <!--<script type="text/javascript" src="/common/js/alert.js"></script>-->
     <!--<script type="text/javascript" src="/common/js/pages.js"></script>-->
@@ -278,8 +279,12 @@
 //        });
 //    })
         KISSY.ready(function () {
-            KISSY.use('/static/common/js/kPage.js,/static/common/js/kAlert.js',function(S,page,alert){
+            KISSY.use('/static/common/js/kPage.js,/static/common/js/kAlert.js,sidebar',function(S,page,alert,sidebar){
                 var $ = KISSY.all;
+                sidebar({
+                    className : '.home',
+                    tel:'18180647922'
+                });
                 page('.page-group',{
                     initIndex : 1,
                     dots : true
