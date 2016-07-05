@@ -476,16 +476,14 @@
                     if(window.navigator.userAgent.indexOf('Mac OS X') != '-1'){
                         $('.filter-box-space').addClass('sticky');
                     }else{
-                        $('.page-content').scroll(function() {
+                        document.querySelector('.page-content').onscroll = function() {
                             var origOffsetY = document.querySelector('.inline-space').offsetTop;
                             if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
-//                    $('.fixed-space').show();
                                 $('.filter-box').css({'position':'fixed',top:'2rem'})
                             } else {
-//                    $('.fixed-space').hide();
                                 $('.filter-box').css({'position':'relative',top:'0'})
                             }
-                        });
+                        };
                     }
                     page('.page-group',{
                         router : '.turnTo' ,//router的className
@@ -495,14 +493,14 @@
 //                        router : '.turnTo' ,//router的className
 //                        routerFun : function(){}
 //                    });
-                    $('header .back').on('click',function () {
+                    $('header .back').on('tap',function () {
                         if (!$(this).hasClass('no-icon')) {
                             history.go(-1);
                         }
                     });
 //                    $('header .home').sidebar();// 后台传入用户电话号码
                     // 点击筛选条件
-                    $('.condition').on('click',function(e) {
+                    $('.condition').on('tap',function(e) {
                         var $this = $(this);
                         if($this.hasClass('choose')) {
                             $('.filter-content').hide();
@@ -523,7 +521,7 @@
                     /* ============================================
                      ************   pkg-box筛选框中的操作   ************
                      ============================================== */
-                    $('.pkg-box li').on('click',function(e) {
+                    $('.pkg-box li').on('tap',function(e) {
                         var $this = $(this);
                         if($this.hasClass('pkg-select')) {
                             $this.removeClass('pkg-select');
@@ -531,11 +529,11 @@
                             $this.addClass('pkg-select');
                         }
                     });
-                    $('.clear-btn').on('click',function() {
+                    $('.clear-btn').on('tap',function() {
                         $('.pkg-box li.pkg-select').removeClass('pkg-select');
                     });
-                    $('.confirm-btn').on('click',function() {
-                        $('.filter-box .condition').forEach(function(item) {
+                    $('.confirm-btn').on('tap',function() {
+                        $('.filter-box .condition').each(function(item) {
                             $(item).attr('data-type') == 'pkg-box' && (function() {
                                 if($('.pkg-box li.pkg-select').length == 0) {
                                     $(item).removeClass('choose').addClass('hide');
@@ -551,11 +549,11 @@
                     /* ============================================
                      ************   筛选行程类型   ************
                      ============================================== */
-                    $('.tourism-type-box li').on('click',function() {
+                    $('.tourism-type-box li').on('tap',function() {
                         var $this = $(this);
                         $('.tourism-type-box li').removeClass('type-select');
                         $this.addClass('type-select');
-                        $('.filter-box .condition').forEach(function(item) {
+                        $('.filter-box .condition').each(function(item) {
                             $(item).attr('data-type') == 'tourism-type-box' && (function() {
                                 if($this.hasClass('all')) {
                                     $(item).removeClass('choose').removeClass('selected').addClass('hide').text('行程类型');
@@ -572,12 +570,12 @@
                     /* ============================================
                      ************   筛选行程天数   ************
                      ============================================== */
-                    $('.tourism-days-box li').on('click',function() {
+                    $('.tourism-days-box li').on('tap',function() {
                         var $this = $(this);
                         $('.tourism-days-box li').removeClass('days-select');
                         $this.addClass('days-select');
 
-                        $('.filter-box .condition').forEach(function(item) {
+                        $('.filter-box .condition').each(function(item) {
                             $(item).attr('data-type') == 'tourism-days-box' && (function() {
                                 if($this.hasClass('all')) {
                                     $(item).removeClass('choose').removeClass('choose').addClass('hide').text('行程天数');
@@ -598,10 +596,10 @@
                         var tourismType = $('.tourism-type-box li.type-select').attr('data-value') || 'all',
                                 tourismDays = $('.tourism-days-box li.days-select').attr('data-value') || 'all',
                                 tourismPkg = [];
-                        $('.pkg-box li.pkg-select').forEach(function(item) {
+                        $('.pkg-box li.pkg-select').each(function(item) {
                             tourismPkg.push($(item).attr('data-type'));
                         });
-                        $('.presell,.bus-item,.package-item').forEach(function(item) {
+                        $('.presell,.bus-item,.package-item').each(function(item) {
                             if(tourismType != 'all') {
                                 if($(item).attr('data-type') != tourismType) {
                                     $(item).hide();
