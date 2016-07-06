@@ -434,16 +434,10 @@
         </div>
     </div>
     <script src="/common/js/mini-min.js"></script>
-    <!--<script type="text/javascript" src="/common/js/zepto.min.js"></script>-->
-    <!--<script type="text/javascript" src="/common/js/sidebar.js"></script>-->
-    <!--<script type="text/javascript" src="/common/js/alert.js" async="async"></script>-->
-    <!--<script type="text/javascript" src="/common/js/pages.js"></script>-->
-    <script type="text/javascript">
-
-    </script>
+    <script src="/common/js/kBase.js"></script>
     <script type="text/javascript">
         KISSY.ready(function () {
-            KISSY.use('/static/common/js/kAlert.js,/static/common/js/kPage.js',function(S,alert,page){
+            KISSY.use('alert,page,sidebar',function(S,alert,page,sidebar){
                 var $ = S.all;
                 (function (doc, win) {
                     var docEl = doc.documentElement,
@@ -469,7 +463,9 @@
 //            doc.querySelector('.page-content').addEventListener('scroll', onScroll)
                 })(document, window);
 
-
+                    alert.alert({
+                        msg: 'test'
+                    })
                     /* ============================================
                      这里判断如果是ios则使用sticky布局
                      ============================================== */
@@ -498,7 +494,10 @@
                             history.go(-1);
                         }
                     });
-//                    $('header .home').sidebar();// 后台传入用户电话号码
+                    sidebar({
+                        className : '.home',
+                        tel : '用户'
+                    });// 后台传入用户电话号码
                     // 点击筛选条件
                     $('.condition').on('tap',function(e) {
                         var $this = $(this);
