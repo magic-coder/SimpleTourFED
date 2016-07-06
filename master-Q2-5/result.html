@@ -437,7 +437,7 @@
     <script src="/common/js/kBase.js"></script>
     <script type="text/javascript">
         KISSY.ready(function () {
-            KISSY.use('alert,page,sidebar',function(S,alert,page,sidebar){
+            KISSY.use('alert,page,sidebar,preloader',function(S,alert,page,sidebar,preloader){
                 var $ = S.all;
                 (function (doc, win) {
                     var docEl = doc.documentElement,
@@ -463,9 +463,7 @@
 //            doc.querySelector('.page-content').addEventListener('scroll', onScroll)
                 })(document, window);
 
-                    alert.alert({
-                        msg: 'test'
-                    })
+                    preloader.show();
                     /* ============================================
                      这里判断如果是ios则使用sticky布局
                      ============================================== */

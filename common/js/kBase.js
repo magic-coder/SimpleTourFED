@@ -252,3 +252,25 @@ KISSY.add('page',function(S){
     }
     return  page;
 });
+KISSY.add('preloader',function(S){
+    var $ = S.all;
+    function Preloader() {
+        this.show = function() {
+            var preloaderHtml = '<div class="preloader-overlay"></div>' +
+                '<div class="preloader-modal">' +
+                '<span class="preloader"></span>' +
+                '</div>';
+            if ($('.preloader-modal')[0]) return;
+            var $preloader = $(preloaderHtml).appendTo('body');
+            $preloader.one('.preloader').addClass('preloader-animation');
+        };
+        this.hide = function() {
+            $('.preloader-overlay, .preloader-modal').remove();
+        }
+    }
+    var preloader = {
+        show : new Preloader().show,
+        hide : new Preloader().hide
+    };
+    return preloader;
+});
