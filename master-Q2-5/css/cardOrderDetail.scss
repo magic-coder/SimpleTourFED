@@ -1,0 +1,75 @@
+@import "/common/css/base";
+footer a{
+  display: block;
+  background-color:$red;
+  color: white;
+  font-size: rem(14px);
+  text-align: center;
+}
+.page-content{
+  background-color: #F6F6F6;
+}
+.order-title{
+  background-color: white;
+  padding-left: rem(11px);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  div{
+    height: rem(44px);
+    line-height: rem(44px);
+  }
+  .order-detail{
+    text-indent: rem(4px);
+    font-size: rem(16px);
+    color:#737373;
+    padding-right:rem(11px);
+    @include displayflex;
+    @include flexflowRow();
+    div:first-child{
+      @include flex(1);
+    }
+    .status.waiting{
+      color:$red;
+    }
+    .status.binding{
+      color:#F47474;
+    }
+    .status.bound{
+      color:#5BD4D7;
+    }
+  }
+  div.order-describe{
+    text-indent: rem(4px);
+    border-top:1px solid #E4E4E4;
+    color:#A4A4A4;
+    font-size: rem(14px);
+  }
+}
+.card{
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  background-color: white;
+  padding-left: rem(11px);
+  margin-top: rem(20px);
+  .card-title{
+    text-indent: rem(4px);
+    font-size: rem(14px);
+    color:#737373;
+    height: rem(43px);
+    line-height: rem(43px);
+  }
+  .card-detail{
+    text-indent: rem(4px);
+    border-top:1px solid #E4E4E4;
+    padding-bottom: rem(12px);
+    p{
+      height: rem(14px);
+      line-height: rem(14px);
+      font-size: rem(14px);
+      color: #A4A4A4;
+      margin-top: rem(12px);
+      span{
+        margin-left: rem(10px);
+
+      }
+    }
+  }
+}

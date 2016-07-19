@@ -24,5 +24,29 @@
                 <div class="page-content"></div>
             </div>
         </div>
+        <script>
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                        recalc = function () {
+                            var clientWidth = docEl.clientWidth;
+                            if (!clientWidth) return;
+                            var style;
+                            if (style = document.getElementById("forhtml")) {
+                                style.parentNode.removeChild(style);
+                            }
+                            style = document.createElement("style");
+                            style.id = "forhtml";
+                            document.head.appendChild(style);
+                            style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                        };
+                if (!doc.addEventListener) return;
+                recalc();
+                document.body.style.visibility = 'visible';
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
     </body>
 </html>
