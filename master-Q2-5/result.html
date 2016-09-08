@@ -433,217 +433,224 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="/common/js/zepto.min.js"></script>
-    <script type="text/javascript" src="/common/js/sidebar.js"></script>
-    <script type="text/javascript" src="/common/js/alert.js" async="async"></script>
-    <script type="text/javascript" src="/common/js/pages.js"></script>
+    <script src="/common/js/mini-min.js"></script>
+    <script src="/common/js/kBase.js"></script>
     <script type="text/javascript">
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function () {
-                        var clientWidth = docEl.clientWidth;
-                        if (!clientWidth) return;
-                        var style;
-                        if (style = document.getElementById("forhtml")) {
-                            style.parentNode.removeChild(style);
-                        }
-                        style = document.createElement("style");
-                        style.id = "forhtml";
-                        document.head.appendChild(style);
-                        style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
-                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                    };
-            recalc();
-            doc.getElementsByClassName('page-group')[0].style.visibility = 'visible';
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
+        KISSY.ready(function () {
+            KISSY.use('alert,page,sidebar,preloader',function(S,alert,page,sidebar,preloader){
+                var $ = S.all;
+                (function (doc, win) {
+                    var docEl = doc.documentElement,
+                            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                            recalc = function () {
+                                var clientWidth = docEl.clientWidth;
+                                if (!clientWidth) return;
+                                var style;
+                                if (style = document.getElementById("forhtml")) {
+                                    style.parentNode.removeChild(style);
+                                }
+                                style = document.createElement("style");
+                                style.id = "forhtml";
+                                document.head.appendChild(style);
+                                style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                            };
+                    recalc();
+                    doc.getElementsByClassName('page-group')[0].style.visibility = 'visible';
+                    if (!doc.addEventListener) return;
+                    win.addEventListener(resizeEvt, recalc, false);
+                    doc.addEventListener('DOMContentLoaded', recalc, false);
 //            doc.querySelector('.page-content').addEventListener('scroll', onScroll)
-        })(document, window);
+                })(document, window);
 
-        $(document).ready(function() {
-            /* ============================================
-             这里判断如果是ios则使用sticky布局
-             ============================================== */
-            if(window.navigator.userAgent.indexOf('Mac OS X') != '-1'){
-                $('.filter-box-space').addClass('sticky');
-            }else{
-                $('.page-content').scroll(function() {
-                    var origOffsetY = document.querySelector('.inline-space').offsetTop;
-                    if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
-//                    $('.fixed-space').show();
-                        $('.filter-box').css({'position':'fixed',top:'2rem'})
-                    } else {
-//                    $('.fixed-space').hide();
-                        $('.filter-box').css({'position':'relative',top:'0'})
+                    preloader.show();
+                    /* ============================================
+                     这里判断如果是ios则使用sticky布局
+                     ============================================== */
+                    if(window.navigator.userAgent.indexOf('Mac OS X') != '-1'){
+                        $('.filter-box-space').addClass('sticky');
+                    }else{
+                        document.querySelector('.page-content').onscroll = function() {
+                            var origOffsetY = document.querySelector('.inline-space').offsetTop;
+                            if(document.querySelector('.page-content').scrollTop >= origOffsetY ) {
+                                $('.filter-box').css({'position':'fixed',top:'2rem'})
+                            } else {
+                                $('.filter-box').css({'position':'relative',top:'0'})
+                            }
+                        };
                     }
-                });
-            }
-            $('.page-group').pageInit({
-                router : '.turnTo' ,//router的className
-                routerFun : function(){}
-            });
-            $('header .back').click(function () {
-                if (!$(this).hasClass('no-icon')) {
-                    history.go(-1);
-                }
-            });
-            $('header .home').sidebar();// 后台传入用户电话号码
-            // 点击筛选条件
-            $('.condition').click(function(e) {
-                var $this = $(this);
-                if($this.hasClass('choose')) {
-                    $('.filter-content').hide();
-                    $('.filter-cover').hide();
-                    $this.removeClass('choose');
-                    $this.addClass('hide');
-                } else {
-                    $('.condition').removeClass('choose').addClass('hide');
-                    $this.removeClass('hide');
-                    $this.addClass('choose');
-                    $this.hasClass('selected') && $this.removeClass('selected');
-                    var type = $(this).attr('data-type');
-                    $('.filter-content').hide();
-                    $('.filter-cover').show();
-                    $('.'+type).toggle('slow');
-                }
-            });
-            /* ============================================
-             ************   pkg-box筛选框中的操作   ************
-             ============================================== */
-            $('.pkg-box li').click(function(e) {
-                var $this = $(this);
-                if($this.hasClass('pkg-select')) {
-                    $this.removeClass('pkg-select');
-                } else {
-                    $this.addClass('pkg-select');
-                }
-            });
-            $('.clear-btn').click(function() {
-                $('.pkg-box li.pkg-select').removeClass('pkg-select');
-            });
-            $('.confirm-btn').click(function() {
-                $('.filter-box .condition').forEach(function(item) {
-                    $(item).attr('data-type') == 'pkg-box' && (function() {
-                        if($('.pkg-box li.pkg-select').length == 0) {
-                            $(item).removeClass('choose').addClass('hide');
+                    page('.page-group',{
+                        router : '.turnTo' ,//router的className
+                        routerFun : function(){}
+                    });
+//                    $('.page-group').pageInit({
+//                        router : '.turnTo' ,//router的className
+//                        routerFun : function(){}
+//                    });
+                    $('header .back').on('tap',function () {
+                        if (!$(this).hasClass('no-icon')) {
+                            history.go(-1);
+                        }
+                    });
+                    sidebar({
+                        className : '.home',
+                        tel : '用户'
+                    });// 后台传入用户电话号码
+                    // 点击筛选条件
+                    $('.condition').on('tap',function(e) {
+                        var $this = $(this);
+                        if($this.hasClass('choose')) {
+                            $('.filter-content').hide();
+                            $('.filter-cover').hide();
+                            $this.removeClass('choose');
+                            $this.addClass('hide');
                         } else {
-                            $(item).removeClass('choose').addClass('hide selected');
+                            $('.condition').removeClass('choose').addClass('hide');
+                            $this.removeClass('hide');
+                            $this.addClass('choose');
+                            $this.hasClass('selected') && $this.removeClass('selected');
+                            var type = $(this).attr('data-type');
+                            $('.filter-content').hide();
+                            $('.filter-cover').show();
+                            $('.'+type).toggle('slow');
                         }
-                        $('.pkg-box').hide();
-                        $('.filter-cover').hide();
-                    })();
-                });
-                filterTourism();
-            });
-            /* ============================================
-             ************   筛选行程类型   ************
-             ============================================== */
-            $('.tourism-type-box li').click(function() {
-                var $this = $(this);
-                $('.tourism-type-box li').removeClass('type-select');
-                $this.addClass('type-select');
-                $('.filter-box .condition').forEach(function(item) {
-                    $(item).attr('data-type') == 'tourism-type-box' && (function() {
-                        if($this.hasClass('all')) {
-                            $(item).removeClass('choose').removeClass('selected').addClass('hide').text('行程类型');
+                    });
+                    /* ============================================
+                     ************   pkg-box筛选框中的操作   ************
+                     ============================================== */
+                    $('.pkg-box li').on('tap',function(e) {
+                        var $this = $(this);
+                        if($this.hasClass('pkg-select')) {
+                            $this.removeClass('pkg-select');
                         } else {
-                            $(item).removeClass('choose').addClass('hide selected').text($this.text());
+                            $this.addClass('pkg-select');
                         }
+                    });
+                    $('.clear-btn').on('tap',function() {
+                        $('.pkg-box li.pkg-select').removeClass('pkg-select');
+                    });
+                    $('.confirm-btn').on('tap',function() {
+                        $('.filter-box .condition').each(function(item) {
+                            $(item).attr('data-type') == 'pkg-box' && (function() {
+                                if($('.pkg-box li.pkg-select').length == 0) {
+                                    $(item).removeClass('choose').addClass('hide');
+                                } else {
+                                    $(item).removeClass('choose').addClass('hide selected');
+                                }
+                                $('.pkg-box').hide();
+                                $('.filter-cover').hide();
+                            })();
+                        });
+                        filterTourism();
+                    });
+                    /* ============================================
+                     ************   筛选行程类型   ************
+                     ============================================== */
+                    $('.tourism-type-box li').on('tap',function() {
+                        var $this = $(this);
+                        $('.tourism-type-box li').removeClass('type-select');
+                        $this.addClass('type-select');
+                        $('.filter-box .condition').each(function(item) {
+                            $(item).attr('data-type') == 'tourism-type-box' && (function() {
+                                if($this.hasClass('all')) {
+                                    $(item).removeClass('choose').removeClass('selected').addClass('hide').text('行程类型');
+                                } else {
+                                    $(item).removeClass('choose').addClass('hide selected').text($this.text());
+                                }
 
-                        $('.tourism-type-box').hide();
-                        $('.filter-cover').hide();
-                    })();
-                });
-                filterTourism();
-            });
-            /* ============================================
-             ************   筛选行程天数   ************
-             ============================================== */
-            $('.tourism-days-box li').click(function() {
-                var $this = $(this);
-                $('.tourism-days-box li').removeClass('days-select');
-                $this.addClass('days-select');
+                                $('.tourism-type-box').hide();
+                                $('.filter-cover').hide();
+                            })();
+                        });
+                        filterTourism();
+                    });
+                    /* ============================================
+                     ************   筛选行程天数   ************
+                     ============================================== */
+                    $('.tourism-days-box li').on('tap',function() {
+                        var $this = $(this);
+                        $('.tourism-days-box li').removeClass('days-select');
+                        $this.addClass('days-select');
 
-                $('.filter-box .condition').forEach(function(item) {
-                    $(item).attr('data-type') == 'tourism-days-box' && (function() {
-                        if($this.hasClass('all')) {
-                            $(item).removeClass('choose').removeClass('choose').addClass('hide').text('行程天数');
-                        } else {
-                            $(item).removeClass('choose').addClass('hide selected').text($this.text());
-                        }
-                        $('.tourism-days-box').hide();
-                        $('.filter-cover').hide();
-                    })();
-                });
-                filterTourism();
-            });
-            /* ============================================
-             ************   筛选函数   ************
-             ============================================== */
-            function filterTourism() {
-                $('.presell,.bus-item,.package-item').show();
-                var tourismType = $('.tourism-type-box li.type-select').attr('data-value') || 'all',
-                        tourismDays = $('.tourism-days-box li.days-select').attr('data-value') || 'all',
-                        tourismPkg = [];
-                $('.pkg-box li.pkg-select').forEach(function(item) {
-                    tourismPkg.push($(item).attr('data-type'));
-                });
-                $('.presell,.bus-item,.package-item').forEach(function(item) {
-                    if(tourismType != 'all') {
-                        if($(item).attr('data-type') != tourismType) {
-                            $(item).hide();
-                        }
-                    }
-                    if(tourismDays != 'all') {
-                        if($(item).attr('data-days') != tourismDays) {
-                            $(item).hide();
-                        }
-                    }
-                    for(var i = 0, len = tourismPkg.length; i < len; i++) {
-                        if(!$(item).hasClass(tourismPkg[i])) {
+                        $('.filter-box .condition').each(function(item) {
+                            $(item).attr('data-type') == 'tourism-days-box' && (function() {
+                                if($this.hasClass('all')) {
+                                    $(item).removeClass('choose').removeClass('choose').addClass('hide').text('行程天数');
+                                } else {
+                                    $(item).removeClass('choose').addClass('hide selected').text($this.text());
+                                }
+                                $('.tourism-days-box').hide();
+                                $('.filter-cover').hide();
+                            })();
+                        });
+                        filterTourism();
+                    });
+                    /* ============================================
+                     ************   筛选函数   ************
+                     ============================================== */
+                    function filterTourism() {
+                        $('.presell,.bus-item,.package-item').show();
+                        var tourismType = $('.tourism-type-box li.type-select').attr('data-value') || 'all',
+                                tourismDays = $('.tourism-days-box li.days-select').attr('data-value') || 'all',
+                                tourismPkg = [];
+                        $('.pkg-box li.pkg-select').each(function(item) {
+                            tourismPkg.push($(item).attr('data-type'));
+                        });
+                        $('.presell,.bus-item,.package-item').each(function(item) {
+                            if(tourismType != 'all') {
+                                if($(item).attr('data-type') != tourismType) {
+                                    $(item).hide();
+                                }
+                            }
+                            if(tourismDays != 'all') {
+                                if($(item).attr('data-days') != tourismDays) {
+                                    $(item).hide();
+                                }
+                            }
+                            for(var i = 0, len = tourismPkg.length; i < len; i++) {
+                                if(!$(item).hasClass(tourismPkg[i])) {
 
-                            $(item).hide();
-                        }
+                                    $(item).hide();
+                                }
+                            }
+                        });
                     }
+                    /* ============================================
+                     ************   跳转事件   ************
+                     ============================================== */
+                    var startObj = {x:0,y:0};
+                    var endObj = {x:0,y:0};
+                    document.addEventListener('touchstart',function(event){
+                        startObj.x = event.touches[0].pageX;
+                        startObj.y = event.touches[0].pageY;
+                        endObj.x = 0;
+                        endObj.y = 0;
+                    })
+                    document.addEventListener('touchmove',function(event){
+                        endObj.x = event.touches[0].pageX - startObj.x;
+                        endObj.y = event.touches[0].pageY - startObj.y;
+                    })
+                    $('.bus-item').on('tap',function(e) {
+                        e.preventDefault();
+                        if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
+                            location.href = $(this).attr('data-href');
+                        }
+                    })
+                    $('.package-item').on('tap',function(e) {
+                        e.preventDefault();
+                        if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
+                            location.href = $(this).attr('data-href');
+                        };
+                    })
+                    $('.presell').on('tap',function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if($(this).attr('data-href')) {
+                            location.href =  $(this).attr('data-href');
+                        }
+                    });
                 });
-            }
-            /* ============================================
-             ************   跳转事件   ************
-             ============================================== */
-            var startObj = {x:0,y:0};
-            var endObj = {x:0,y:0};
-            document.addEventListener('touchstart',function(event){
-                startObj.x = event.touches[0].pageX;
-                startObj.y = event.touches[0].pageY;
-                endObj.x = 0;
-                endObj.y = 0;
             })
-            document.addEventListener('touchmove',function(event){
-                endObj.x = event.touches[0].pageX - startObj.x;
-                endObj.y = event.touches[0].pageY - startObj.y;
-            })
-            $('.bus-item').tap(function(e) {
-                e.preventDefault();
-                if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
-                    location.href = $(this).attr('data-href');
-                }
-            })
-            $('.package-item').tap(function(e) {
-                e.preventDefault();
-                if(Math.abs(endObj.x)<2 && Math.abs(endObj.y)<2){
-                    location.href = $(this).attr('data-href');
-                };
-            })
-            $('.presell').tap(function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                if($(this).attr('data-href')) {
-                    location.href =  $(this).attr('data-href');
-                }
-            });
-        });
     </script>
 </body>
 </html>

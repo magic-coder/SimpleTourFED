@@ -232,10 +232,12 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="/common/js/zepto.min.js"></script>
-    <script type="text/javascript" src="/common/js/alert.js"></script>
-    <script type="text/javascript" src="/common/js/pages.js"></script>
-    <script type="text/javascript" src="/common/js/sidebar.js"></script>
+    <script src="/common/js/mini-min.js"></script>
+    <script src="/common/js/kBase.js"></script>
+    <!--<script type="text/javascript" src="/common/js/zepto.min.js"></script>-->
+    <!--<script type="text/javascript" src="/common/js/alert.js"></script>-->
+    <!--<script type="text/javascript" src="/common/js/pages.js"></script>-->
+    <!--<script type="text/javascript" src="/common/js/sidebar.js"></script>-->
     <script type="text/javascript">
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -258,26 +260,36 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-    $(document).ready(function() {
-        $('header .back').click(function () {
-            if (!$(this).hasClass('no-icon')) {
-                history.go(-1);
-            }
-        });
-        $('header .home').sidebar();// 后台传入用户电话号码
-        $('.page-group').pageInit({
-            initIndex : 1,
-            dots : true
-        });
-        $(document).ready(function() {
-            $.alert({
-                msg : '左右滑动查看其它行程'
-            });
-            $('header .back').click(function () {
-                history.go(-1);
-            });
-            $('header .home').sidebar();
-        });
-    })
+//    $(document).ready(function() {
+//        $('header .back').click(function () {
+//            if (!$(this).hasClass('no-icon')) {
+//                history.go(-1);
+//            }
+//        });
+//        $('header .home').sidebar();// 后台传入用户电话号码
+//        $('.page-group').pageInit();
+//        $(document).ready(function() {
+//            $.alert({
+//                msg : '左右滑动查看其它行程'
+//            });
+//            $('header .back').click(function () {
+//                history.go(-1);
+//            });
+//            $('header .home').sidebar();
+//        });
+//    })
+        KISSY.ready(function () {
+            KISSY.use('/static/common/js/kPage.js,alert,sidebar',function(S,page,alert,sidebar){
+                var $ = KISSY.all;
+                sidebar({
+                    className : '.home',
+                    tel:'18180647922'
+                });
+                page('.page-group',{
+                    initIndex : 1,
+                    dots : true
+                });
+            })
+        })
     </script>
 </html>
