@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>订单详情</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/cardOrderDetail.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <div class="page-group">
+        <div class="page page-current">
+            <header>
+                <div class="back">后退</div>
+                <div class="center">订单详情</div>
+                <div class="home">个人中心</div>
+            </header>
+            //支付或者绑定按钮
+            <footer>
+                <a href="#">立即支付</a>
+            </footer>
+            <div class="page-content">
+                <div class="order-title">
+                    <div class="order-detail">
+                        <div>订单编号:999999999</div>
+                        <!--status waiting 待支付-->
+                        <!--status binding 待绑定-->
+                        <!--status bound 已绑定-->
+                        <!--status 其他所有状态-->
+                        <div class="status waiting">待支付</div>
+                    </div>
+                    <div class="order-describe">
+                        请重新购买
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">简途通卡</div>
+                    <div class="card-detail">
+                        <p>面额:<span>10天</span></p>
+                        <p>有效期:<span>365天</span></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">支付信息</div>
+                    <div class="card-detail">
+                        <p>商品单价:<span>520天</span></p>
+                        <p>预定数量:<span>x1</span></p>
+                        <p>优惠金额:<span>-10元</span></p>
+                        <p>支付金额:<span>510元</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            recalc();
+            document.body.style.visibility = 'visible';
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</body>
+</html>

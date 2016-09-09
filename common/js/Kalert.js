@@ -1,7 +1,7 @@
 /**
  * Created by ashbringer on 16/7/1.
  */
-KISSY.add(function(S){
+KISSY.add('alert',function(S){
     var $ = S.all;
     function Modal(option,type){
         var _ = this;
@@ -14,7 +14,7 @@ KISSY.add(function(S){
             cancel: false,
             yesFun:function(){},
             cancelFun:function(){}
-        }
+        };
         var o = KISSY.mix(defaultOption,option);
         if(type == 'alert'){
             _.modalContent = '<div class="alert-msg"><div>'+o.msg+'</div></div>'
@@ -24,7 +24,7 @@ KISSY.add(function(S){
             _.bg = '<div class="confirm-bg"></div>';
             $.each(o.detail,function(i,item){
                 _.detail += '<div class="confirm-detail">'+item+'</div>'
-            })
+            });
             _.buttons += o.cancel?'<span>'+o.yes+'</span><span>'+o.cancel+'</span>':'<span>'+o.yes+'</span>';
             _.modalContent = '<div class="confirm-content"><div class="confirm-inner"><div class="confirm-title">'+o.title+'</div>'+_.detail+'</div><div class="confirm-buttons">'+_.buttons+'</div></div>';
         }
