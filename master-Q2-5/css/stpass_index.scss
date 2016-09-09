@@ -1,0 +1,92 @@
+@import "/common/css/base";
+$baseFont : 40px !default;
+$red: #D71345;
+$borderColor: #E4E4E4;
+@function toRem($px) {
+  @return $px / $baseFont * 1rem;
+}
+@mixin box-sizing($set:border-box) {
+  -webkit-box-sizing: $set;
+  -moz-box-sizing: $set;
+  -ms-box-sizing: $set;
+  -o-box-sizing: $set;
+  box-sizing: $set;
+}
+
+@mixin border-radius($radius:4px) {
+  -webkit-border-radius: toRem($radius);
+  -moz-border-radius: toRem($radius);
+  -ms-border-radius: toRem($radius);
+  -o-border-radius: toRem($radius);
+  border-radius: toRem($radius);
+}
+
+html, body {
+  background-color: #D8094E;
+}
+
+* {
+  @include box-sizing();
+  outline: none;
+  color: #4F545B;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border: none;
+}
+.banner{
+  width: 100%;
+  height: toRem(696px);
+}
+.cards{
+  padding: toRem(30px) toRem(26px);
+  .card{
+    background-color: #fff;
+    margin-bottom: toRem(30px);
+    @include border-radius(8px);
+    &:last-child{
+      margin-bottom: toRem(20px);
+    }
+    .up{
+      padding: toRem(24px) toRem(18px);
+      border-bottom: 1px solid #E4E4E4;
+      .name{
+        font-size: toRem(28px);
+        color: #D71345;
+        line-height: toRem(40px);
+        margin-bottom: toRem(14px);
+      }
+      .range{
+        font-size: toRem(24px);
+        color: #989898;
+        line-height: toRem(33px);
+      }
+    }
+    .down{
+      padding: toRem(20px) toRem(18px);
+      @include displayflex;
+      @include flexflowRow();
+      .price{
+        font-size: toRem(28px);
+        color: $red;
+        line-height: toRem(48px);
+        display: block;
+        @include flex;
+      }
+      .buy{
+        width: toRem(144px);
+        height: toRem(48px);
+        font-size: toRem(28px);
+        color: #fff;
+        line-height: toRem(48px);
+        background-color: #F47474;
+        display: block;
+        text-align: center;
+        @include border-radius(8px);
+      }
+    }
+  }
+}
