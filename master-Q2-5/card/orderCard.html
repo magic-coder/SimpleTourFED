@@ -18,6 +18,22 @@
             <div class="home">个人中心</div>
         </header>
         <div class="detail-cover"></div>
+        <div class="detail-infos">
+            <div class="contents">
+                <h5>支付信息</h5>
+                <p>商品单价：¥564</p>
+                <p>商品数量：3</p>
+                <p>商品总额：¥1188</p>
+                <p>优惠金额：¥0</p>
+                <p>支付方式：——</p>
+                <div class="bottom">
+                    <p>实付款：¥435</p>
+                </div>
+            </div>
+            <div class="cancel-icon">
+                <img src="/master-Q2-5/images/cancel-icon@1x.png" alt="">
+            </div>
+        </div>
         <footer>
             <a href="tel:18628245639" class="advisory">联系客服</a>
             <!--pay-btn已完成状态下将其隐藏-->
@@ -52,7 +68,6 @@
                 <p>绑定截止日期：2016.07.30</p>
                 <p>状态：已绑定</p>
             </div>
-
             <div class="real-payment">
                 <div class="payment">
                     实付款：<span>39983.00元</span>
@@ -89,9 +104,6 @@
         document.body.style.visibility = 'visible';
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
-        document.addEventListener('touchmove', function (e) {
-            e.preventDefault();//阻止touchmove默认事件
-        }, false);
     })(document, window);
     $(document).ready(function() {
         $('header .home').sidebar('');
@@ -112,6 +124,14 @@
                 },150)
             }
         })
+        $('.view-details').click(function() {
+            $('.detail-cover').show();
+            $('.detail-infos').show();
+        });
+        $('.cancel-icon').click(function() {
+            $('.detail-cover').hide();
+            $('.detail-infos').hide();
+        });
     })
 </script>
 </body>
