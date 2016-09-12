@@ -218,6 +218,9 @@ footer{
     text-align: center;
     color: #fff;
     font-size: rem(14px);
+    &.disabled {
+      background-color: #737373;
+    }
   }
 }
 footer ~ .page-content{
