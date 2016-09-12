@@ -98,6 +98,10 @@ footer{
     height: toRem(80px);
     @include shadow(0,-1px,2px,rgba(0,0,0,0.1));
     background-color: transparent;
+    font-size: 0;
+    a{
+      vertical-align: middle;
+    }
     .tel{
       width: toRem(140px);
       display: inline-block;
@@ -125,7 +129,7 @@ footer{
       }
     }
     .buy{
-      width: toRem(500px);
+      width: toRem(499px);
       @include flex;
       display: inline-block;
       line-height: toRem(80px);
