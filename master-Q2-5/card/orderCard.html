@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>简途旅行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/master-Q2-5/css/orderCard.scss?__inline" media="screen" title="no title" charset="utf-8">
+</head>
+<body style="visibility: hidden">
+<div class="page-group">
+    <div class="page page-current" style="background-color: #F6F6F6;" id="main">
+        <!--每个page的页头-->
+        <header>
+            <div class="back">后退</div>
+            <div class="center">订单详情</div>
+            <div class="home">个人中心</div>
+        </header>
+        <div class="detail-cover"></div>
+        <footer>
+            <a href="tel:18628245639" class="advisory">联系客服</a>
+            <!--pay-btn已完成状态下将其隐藏-->
+            <div class="pay-btn">立即支付</div>
+        </footer>
+        <div class="page-content">
+            <div class="tips">
+                请在13点23分前完成支付
+            </div>
+            <div class="order-status">
+                订单号：20093847582
+                <!--已完成:complete,待支付:不填-->
+                <div class="status">待支付</div>
+            </div>
+            <div class="card-infos">
+                <h5>简途通卡10天卡</h5>
+                <p>面额：10天</p>
+                <p>有效期：365天</p>
+                <p>卡号：3245405</p>
+                <p>绑定截止日期：2016.07.30</p>
+                <p>状态：已绑定</p>
+                <div class="cutline"></div>
+                <p>面额：10天</p>
+                <p>有效期：365天</p>
+                <p>卡号：3245405</p>
+                <p>绑定截止日期：2016.07.30</p>
+                <p>状态：已绑定</p>
+                <div class="cutline"></div>
+                <p>面额：10天</p>
+                <p>有效期：365天</p>
+                <p>卡号：3245405</p>
+                <p>绑定截止日期：2016.07.30</p>
+                <p>状态：已绑定</p>
+            </div>
+
+            <div class="real-payment">
+                <div class="payment">
+                    实付款：<span>39983.00元</span>
+                </div>
+                <div class="cutline"></div>
+                <div class="view-details">
+                    查看支付明细
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/base.js"></script>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        recalc();
+        document.body.style.visibility = 'visible';
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();//阻止touchmove默认事件
+        }, false);
+    })(document, window);
+    $(document).ready(function() {
+        $('header .home').sidebar('');
+        $('header .back').click(function () {
+            history.go(-1);
+        });
+        $('footer .pay-info').tap(function() {
+            var $this = $(this);
+            if(!$this.hasClass('selected')) {
+                $this.addClass('selected');
+                $('.detail-cover').show();
+                $('.pay-info-detail').addClass('show');
+            } else {
+                $this.removeClass('selected');
+                $('.pay-info-detail').removeClass('show');
+                setTimeout(function() {
+                    $('.detail-cover').hide();
+                },150)
+            }
+        })
+    })
+</script>
+</body>
+</html>
