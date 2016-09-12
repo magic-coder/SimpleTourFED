@@ -1,0 +1,132 @@
+@import "/common/css/base";
+$baseFont : 40px !default;
+$red: #D71345;
+$borderColor: #E4E4E4;
+@function toRem($px) {
+  @return $px / $baseFont * 1rem;
+}
+@mixin box-sizing($set:border-box) {
+  -webkit-box-sizing: $set;
+  -moz-box-sizing: $set;
+  -ms-box-sizing: $set;
+  -o-box-sizing: $set;
+  box-sizing: $set;
+}
+
+@mixin border-radius($radius:4px) {
+  -webkit-border-radius: toRem($radius);
+  -moz-border-radius: toRem($radius);
+  -ms-border-radius: toRem($radius);
+  -o-border-radius: toRem($radius);
+  border-radius: toRem($radius);
+}
+
+html, body {
+  background-color: #F6F6F6;
+}
+
+* {
+  @include box-sizing();
+  outline: none;
+  color: #4F545B;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border: none;
+}
+.cards{
+  .card{
+    background-color: #fff;
+    padding: toRem(18px) toRem(26px) toRem(16px);
+    margin-bottom: toRem(40px);
+    @include shadow(0,1px,2px,rgba(0,0,0,0.1));
+    .top{
+      padding-bottom: toRem(20px);
+      border-bottom: 1px solid $borderColor;
+      @include displayflex;
+      @include flexflowRow();
+      span{
+        display: block;
+        font-size: toRem(28px);
+        line-height: toRem(44px);
+      }
+      .icon{
+        width: toRem(44px);
+        height: toRem(44px);
+        color: #fff;
+        background-color: $red;
+        text-align: center;
+        @include border-radius(50px);
+      }
+      .status{
+        @include flex;
+        text-align: right;
+        color: $red;
+      }
+    }
+    .center{
+      padding: toRem(24px) 0;
+      border-bottom: 1px solid $borderColor;
+      .row{
+        color: #737373;
+        font-size: toRem(28px);
+        line-height: toRem(38px);
+        margin-bottom: toRem(12px);
+      }
+      .row.price{
+        color: #5BD4D7;
+        text-align: right;
+        margin-bottom: 0;
+      }
+    }
+    .bottom{
+      padding-top: toRem(16px);
+      height: toRem(64px);
+      overflow: hidden;
+      a{
+        width: toRem(144px);
+        height: toRem(48px);
+        text-align: center;
+        line-height: toRem(48px);
+        color: #fff;
+        font-size: toRem(28px);
+        @include border-radius(8px);
+        display: block;
+        float: right;
+      }
+      .buy{
+        background-color: #5BD4D7;
+      }
+      .bind{
+        background-color: #F47474;
+      }
+      &:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+  }
+  .card.closed{
+    padding-bottom: 0;
+    .top .status{
+      color: #989898;
+    }
+    .center {
+      border-bottom: none;
+    }
+  }
+  .card.bind{
+    .top .status{
+      color: #F47474;
+    }
+  }
+  .card.buy{
+    .top .status{
+      color: $red;
+    }
+  }
+}
