@@ -40,7 +40,7 @@ img {
 .cards{
   .card{
     background-color: #fff;
-    padding: toRem(18px) toRem(26px);
+    padding: toRem(18px) toRem(26px) toRem(16px);
     margin-bottom: toRem(40px);
     @include shadow(0,1px,2px,rgba(0,0,0,0.1));
     .top{
