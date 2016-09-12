@@ -232,12 +232,9 @@
         document.body.style.visibility = 'visible';
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
-        document.addEventListener('touchmove', function (e) {
-            e.preventDefault();//阻止touchmove默认事件
-        }, false);
     })(document, window);
     $(document).ready(function() {
-        $('.tabs div').click(function() {
+        $('.tabs div').tap(function() {
             var $this = $(this);
             if(!$this.hasClass('selected')) {
                 $('.tabs div').removeClass('selected');
