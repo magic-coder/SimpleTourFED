@@ -13,7 +13,8 @@
     <div class="page page-current">
         <header>
             <div class="back">后退</div>
-            <div class="center">简途代言人</div>
+            <div class="center">我的简途通</div>
+            <div class="home">主页</div>
         </header>
         <div class="page-content">
             <div class="page-header">
@@ -24,13 +25,13 @@
                     <div data-href="exchange">
                         兑换记录
                     </div>
-                    <div data-href="buy">
+                    <div data-href="purchased">
                         已购简途通
                     </div>
                 </div>
             </div>
             <div class="tab-items">
-                <div class="tab binding">
+                <div class="tab binding current" data-times="binding">
                     <div class="binding-content">
                         <div class = "sold-out">
                             <div class="content">
@@ -127,7 +128,7 @@
                         兑换
                     </a>
                 </div>
-                <div class="tab exchange selected">
+                <div class="tab exchange next" data-times="exchange">
                     <div class="item-wrap">
                         <div class="item">
                             <div class="left">
@@ -164,10 +165,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab purchased next" data-times="purchased">
+                    <div class="purchased-content">
+                        <div >
+                            <div class="content">
+                                <h5>简途通10天劵(四川)</h5>
+                                <p>No.123456<span class="red">使用说明 ></span></p>
+                                <p>使用范围:四川、云南</p>
+                                <p>已使用5天,作废0天</p>
+                                <p>使用截止日期:2016年2月30日</p>
+                            </div>
+                            <div class="footer">
+                                <a href="#">
+                                    绑定
+                                </a>
+                            </div>
+                            <img src="/master-Q2-5/images/sold-out.png">
+                        </div>
+                        <div class = "expired">
+                            <div class="content">
+                                <h5>简途通10天劵(四川)</h5>
+                                <p>No.123456<span class="red">使用说明 ></span></p>
+                                <p>使用范围:四川、云南</p>
+                                <p>已使用5天,作废0天</p>
+                                <p>使用截止日期:2016年2月30日</p>
+                            </div>
+                            <img src="/master-Q2-5/images/expired-icon@1x.png">
+                        </div>
+                        <div class="sold-out bound">
+                            <div class="content">
+                                <h5>简途通10天劵(四川)</h5>
+                                <p>No.123456<span class="red">使用说明 ></span></p>
+                                <p>使用范围:四川、云南</p>
+                                <p>已使用5天,作废0天</p>
+                                <p>使用截止日期:2016年2月30日</p>
+                            </div>
+                            <img src="/master-Q2-5/images/sold-out.png">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/common/js/zepto.min.js"></script>
+<script type="text/javascript" src="/common/js/base.js"></script>
 <script>
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -194,6 +236,32 @@
             e.preventDefault();//阻止touchmove默认事件
         }, false);
     })(document, window);
+    $(document).ready(function() {
+        $('.tabs div').click(function() {
+            var $this = $(this);
+            if(!$this.hasClass('selected')) {
+                $('.tabs div').removeClass('selected');
+                $this.addClass('selected');
+                var tabItem = $this.attr('data-href');
+                $('.tab').removeClass('current next prev')
+                        .forEach(function(item,index) {
+                            if($(item).attr('data-times') == tabItem) {
+                                $(item).addClass('current');
+                                if(index == 0) {
+                                    $(item).next().addClass('next').next().addClass('next');
+                                } else {
+                                    $(item).next().addClass('next');
+                                }
+                                if(index == 2) {
+                                    $(item).prev().addClass('prev').prev().addClass('prev');
+                                } else {
+                                    $(item).prev().addClass('prev');
+                                }
+                            }
+                        })
+            }
+        });
+    });
 </script>
 </body>
 </html>
