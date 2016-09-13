@@ -1,10 +1,12 @@
 @import "/common/css/base";
-$baseFont : 40px !default;
+
+$baseFont: 40px !default;
 $red: #D71345;
 $borderColor: #E4E4E4;
 @function toRem($px) {
   @return $px / $baseFont * 1rem;
 }
+
 @mixin box-sizing($set:border-box) {
   -webkit-box-sizing: $set;
   -moz-box-sizing: $set;
@@ -37,42 +39,44 @@ img {
   border: none;
 }
 
-.banner{
+.banner {
   width: 100%;
   height: toRem(320px);
 }
-.name-prices{
+
+.name-prices {
   color: #424242;
   font-size: toRem(28px);
   line-height: toRem(40px);
   padding: toRem(20px) toRem(26px);
   background-color: #fff;
   margin-bottom: toRem(40px);
-  @include shadow(0,1px,2px,rgba(0,0,0,0.1));
-  .name{
+  @include shadow(0, 1px, 2px, rgba(0, 0, 0, 0.1));
+  .name {
     border-bottom: 1px solid $borderColor;
     padding-bottom: toRem(12px);
   }
-  .prices{
+  .prices {
     padding-top: toRem(16px);
-    span{
+    span {
       display: inline-block;
       vertical-align: middle;
     }
-    .now-price{
+    .now-price {
       color: $red;
       margin-right: toRem(20px);
     }
-    .old-price{
+    .old-price {
       font-size: toRem(24px);
       color: #989898;
     }
   }
 }
-.instruction{
+
+.instruction {
   margin-bottom: toRem(40px);
-  @include shadow(0,1px,2px,rgba(0,0,0,0.1));
-  .title{
+  @include shadow(0, 1px, 2px, rgba(0, 0, 0, 0.1));
+  .title {
     height: toRem(80px);
     padding: toRem(20px) toRem(26px);
     font-size: toRem(28px);
@@ -81,7 +85,7 @@ img {
     border-top: 1px solid #D8D8D8;
     background-color: #F2F2F2;
   }
-  .content{
+  .content {
     background-color: #fff;
     font-size: toRem(28px);
     padding: toRem(20px) toRem(26px);
@@ -89,60 +93,70 @@ img {
     line-height: toRem(40px);
   }
 }
-footer{
+
+footer {
   height: toRem(80px);
   background-color: transparent;
-  .footer-wrap{
-    @include displayflex;
-    @include flexflowRow();
-    height: toRem(80px);
-    @include shadow(0,-1px,2px,rgba(0,0,0,0.1));
-    background-color: transparent;
-    font-size: 0;
-    a{
+  @include displayflex;
+  @include flexflowRow();
+  background-color: transparent;
+  height: toRem(80px);
+  font-size: 0;
+  a {
+    vertical-align: middle;
+  }
+  .tel {
+    width: toRem(140px);
+    display: inline-block;
+    background-color: #fff;
+    text-align: center;
+    &:active {
+      background-color: #F1F1F1;
+    }
+    &:before {
+      display: inline-block;
+      content: '';
+      width: toRem(27px);
+      height: toRem(36px);
+      background: url(/master-Q2-5/images/phone_normal@2x.png) no-repeat center;
+      background-size: contain;
       vertical-align: middle;
     }
-    .tel{
-      width: toRem(140px);
+    span {
       display: inline-block;
-      background-color: #fff;
+      font-size: toRem(24px);
+      line-height: toRem(33px);
+      color: #83858C;
       text-align: center;
-      &:active{
-        background-color: #F1F1F1;
-      }
-      &:before{
-        display: inline-block;
-        content: '';
-        width: toRem(27px);
-        height: toRem(36px);
-        background: url(/master-Q2-5/images/phone_normal@2x.png) no-repeat center;
-        background-size: contain;
-        vertical-align: middle;
-      }
-      span{
-        display: inline-block;
-        font-size: toRem(24px);
-        line-height: toRem(33px);
-        color: #83858C;
-        text-align: center;
-        vertical-align: middle;
-      }
+      vertical-align: middle;
     }
-    .buy{
-      width: toRem(499px);
-      @include flex;
-      display: inline-block;
-      line-height: toRem(80px);
-      text-align: center;
-      background-color: #E61E4B;
-      font-size: toRem(28px);
-      color: #fff;
-      &:active{
-        background-color: #BF0A33;
-      }
+  }
+  .buy {
+    width: toRem(499px);
+    @include flex;
+    display: inline-block;
+    line-height: toRem(80px);
+    text-align: center;
+    background-color: #E61E4B;
+    font-size: toRem(28px);
+    color: #fff;
+    &:active {
+      background-color: #BF0A33;
     }
   }
 }
-footer~.page-content{
-  bottom: toRem(84px);
+
+footer {
+  position: absolute;
+  height: 2rem;
+  width: 100%;
+  line-height: 2rem;
+  @include displayflex;
+  @include flexflowRow();
+  bottom: 0;
+  background-color: #fff;
+  z-index: 5;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, .15);
+  -webkit-box-shadow: 0 -2px 6px rgba(0, 0, 0, .15);
+  -moz-box-shadow: 0 -2px 6px rgba(0, 0, 0, .15);
 }
