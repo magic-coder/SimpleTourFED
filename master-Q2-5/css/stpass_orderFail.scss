@@ -1,0 +1,87 @@
+@import "/common/css/base";
+
+$baseFont: 40px !default;
+$red: #D71345;
+$borderColor: #E4E4E4;
+@function toRem($px) {
+  @return $px / $baseFont * 1rem;
+}
+
+@mixin box-sizing($set:border-box) {
+  -webkit-box-sizing: $set;
+  -moz-box-sizing: $set;
+  -ms-box-sizing: $set;
+  -o-box-sizing: $set;
+  box-sizing: $set;
+}
+
+@mixin border-radius($radius:4px) {
+  -webkit-border-radius: toRem($radius);
+  -moz-border-radius: toRem($radius);
+  -ms-border-radius: toRem($radius);
+  -o-border-radius: toRem($radius);
+  border-radius: toRem($radius);
+}
+
+html, body {
+  background-color: #fff;
+}
+
+* {
+  @include box-sizing();
+  outline: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border: none;
+}
+
+.title {
+  height: toRem(64px);
+  line-height: toRem(64px);
+  text-align: center;
+  font-size: toRem(36px);
+  color: #737373;
+  vertical-align: top;
+  margin-top: toRem(90px);
+  &:before {
+    content: '';
+    width: toRem(64px);
+    height: toRem(64px);
+    display: inline-block;
+    background: url(/master-Q2-5/images/orderfail_icon.png) no-repeat center;
+    background-size: contain;
+    vertical-align: top;
+    margin-right: toRem(20px);
+  }
+}
+.desc{
+  text-align: center;
+  font-size: toRem(28px);
+  line-height: toRem(37px);
+  color: #989898;
+  margin-top: toRem(20px);
+}
+a{
+  display: block;
+  width: toRem(400px);
+  height: toRem(80px);
+  line-height: toRem(80px);
+  text-align: center;
+  font-size: toRem(28px);
+  margin: 0 auto;
+  @include border-radius(8px);
+}
+a.check{
+  color: #fff;
+  background-color: #5BD4D7;
+  margin-top: toRem(50px);
+}
+a.goIndex{
+  color: #5BD4D7;
+  border: 1px solid #5BD4D7;
+  margin-top: toRem(30px);
+}
