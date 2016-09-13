@@ -95,7 +95,35 @@
                     $('.detail-cover').hide();
                 },150)
             }
-        })
+        });
+        var count = 1;
+        var judge = function(count) {
+            if(count == 1) {
+                $('.reduce').addClass('disabled');
+            } else if(count == 3) {
+                $('.add').addClass('disabled');
+            } else {
+                $('.add').removeClass('disabled');
+                $('.reduce').removeClass('disabled');
+            }
+        };
+        $('.add').tap(function() {
+            var $this = $(this);
+            if(!$this.hasClass('disabled')) {
+                count++;
+                $('.count').text(count);
+                judge(count);
+            }
+        });
+        $('.reduce').tap(function() {
+            var $this = $(this);
+            if(!$this.hasClass('disabled')) {
+                count--;
+                $('.count').text(count);
+                judge(count);
+            }
+        });
+
     })
 </script>
 </body>
