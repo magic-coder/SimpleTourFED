@@ -257,3 +257,25 @@ body{
     }
   }
 }
+.no-content {
+  margin-top: rem(42px);
+  text-align: center;
+  img {
+    width: rem(75px);
+  }
+  p {
+    color: #737373;
+    font-size: rem(14px);
+  }
+  a {
+    width: rem(200px);
+    height: rem(40px);
+    line-height: rem(40px);
+    text-align: center;
+    color: #ffffff;
+    background-color: #5BD4D7;
+    &.bind-card {
+      background-color: #fff;
+    }
+  }
+}

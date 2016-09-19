@@ -449,6 +449,22 @@ header ~ .page-content{
     margin: rem(6px) 0;
     line-height: rem(20px);
   }
+  .bottom {
+    height: rem(40px);
+    padding-right: rem(9px);
+    padding-top: rem(7.5px);
+    text-align: right;
+    a{
+      display: inline-block;
+      height: rem(24px);
+      line-height: rem(24px);
+      padding: 0 rem(8px);
+      color: white;
+      background-color: #F47474;
+      border-radius: rem(4px);
+      font-size: rem(14px);
+    }
+  }
 }
 .real-payment {
   @include shadow();
